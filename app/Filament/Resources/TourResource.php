@@ -38,8 +38,9 @@ class TourResource extends Resource
                     ->nullable(),
                 Forms\Components\TextInput::make('price')
                     ->nullable(),
-                Forms\Components\Textarea::make('description')
-                    ->nullable(),
+                Forms\Components\RichEditor::make('description')
+                    ->nullable()->toolbarButtons(['heading', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote'])
+                    ->columnSpanFull(),
                 Forms\Components\Textarea::make('short_description')
                     ->nullable(),
                 Forms\Components\Textarea::make('overview')
