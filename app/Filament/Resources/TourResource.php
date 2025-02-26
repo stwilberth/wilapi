@@ -9,6 +9,8 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Illuminate\Validation\Rule;
+
 
 class TourResource extends Resource
 {
@@ -21,16 +23,7 @@ class TourResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('slug')
-                    ->required()
-                    ->unique(
-                        Tour::class,
-                        'slug',
-                        fn ($record) => $record ? [$record->id, $record->company_id] : null
-                    )
-                    ->maxLength(255),
+                    ->required(),
                 Forms\Components\Select::make('status')
                     ->options([
                         'draft' => 'Draft',
@@ -65,12 +58,8 @@ class TourResource extends Resource
                 Forms\Components\Select::make('company_id')
                     ->relationship('company', 'name')
                     ->required(),
-                Forms\Components\Select::make('user_id')
-                    ->relationship('user', 'name')
-                    ->required(),
                 Forms\Components\Select::make('location_id')
-                    ->relationship('location', 'name')
-                    ->required(),
+                    ->relationship('location', 'name'),
             ]);
     }
 
@@ -78,17 +67,14 @@ class TourResource extends Resource
     {
         return $table
             ->columns([
+                //id
+                Tables\Columns\TextColumn::make('id'),
                 Tables\Columns\TextColumn::make('name'),
                 Tables\Columns\TextColumn::make('status'),
-                Tables\Columns\TextColumn::make('duration'),
                 Tables\Columns\TextColumn::make('price'),
                 Tables\Columns\TextColumn::make('difficulty'),
                 Tables\Columns\TextColumn::make('company.name')->label('Company'),
                 Tables\Columns\TextColumn::make('user.name')->label('User'),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime(),
             ])
             ->filters([
                 //
