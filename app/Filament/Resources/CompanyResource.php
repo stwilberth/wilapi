@@ -28,7 +28,7 @@ class CompanyResource extends Resource
                     ->maxLength(255),
                 Forms\Components\TextInput::make('slug')
                     ->required()
-                    ->unique(Company::class, 'slug')
+                    ->unique(Company::class, 'slug', ignoreRecord: true)
                     ->maxLength(255),
                 Forms\Components\Textarea::make('about')
                     ->nullable(),
@@ -37,7 +37,7 @@ class CompanyResource extends Resource
                 Forms\Components\TextInput::make('email')
                     ->required()
                     ->email()
-                    ->unique(Company::class, 'email'),
+                    ->unique(Company::class, 'email', ignoreRecord: true),
                 Forms\Components\TextInput::make('phone')
                     ->nullable(),
                 Forms\Components\TextInput::make('whatsapp')
