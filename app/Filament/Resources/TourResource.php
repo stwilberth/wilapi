@@ -25,7 +25,11 @@ class TourResource extends Resource
                     ->maxLength(255),
                 Forms\Components\TextInput::make('slug')
                     ->required()
-                    ->unique(Tour::class, 'slug', ignoreRecord: true)
+                    ->unique(
+                        Tour::class,
+                        'slug',
+                        fn ($record) => $record ? [$record->id, $record->company_id] : null
+                    )
                     ->maxLength(255),
                 Forms\Components\Select::make('status')
                     ->options([
