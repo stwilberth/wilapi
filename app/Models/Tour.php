@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
@@ -28,6 +30,7 @@ class Tour extends Model
         'things_to_bring',
         'itinerary',
         'before_booking',
+        'cover_image',
     ];
 
     public $incrementing = true;
@@ -56,6 +59,30 @@ class Tour extends Model
                 }
             }
         });
+
+        static::updating(function ($tour) {
+            // Obtener el valor anterior de cover_image
+            $originalCoverImage = $tour->getOriginal('cover_image');
+            $newCoverImage = $tour->cover_image;
+
+            // Si el valor cambió y la imagen anterior existe, borrarla
+            if ($originalCoverImage && $originalCoverImage !== $newCoverImage && Storage::disk('public')->exists($originalCoverImage)) {
+                Storage::disk('public')->delete($originalCoverImage);
+            }
+        });
+
+        static::deleting(function ($tour) {
+            // Borra la imagen de portada si existe
+            if ($tour->cover_image && Storage::disk('public')->exists($tour->cover_image)) {
+                Storage::disk('public')->delete($tour->cover_image);
+            }
+            // Borra las imágenes adicionales si existen
+            $tour->images()->each(function ($image) {
+                if ($image->path && Storage::disk('public')->exists($image->path)) {
+                    Storage::disk('public')->delete($image->path);
+                }
+            });
+        });
     }
 
     // Define relationships if necessary
@@ -72,5 +99,10 @@ class Tour extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function images(): HasMany
+    {
+        return $this->hasMany(TourImage::class);
     }
 }

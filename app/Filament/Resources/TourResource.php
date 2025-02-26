@@ -10,6 +10,8 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Validation\Rule;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
@@ -38,6 +40,29 @@ class TourResource extends Resource
                 Textarea::make('before_booking')->nullable(),
                 Select::make('company_id')->relationship('company', 'name')->required(),
                 Select::make('location_id')->relationship('location', 'name'),
+                FileUpload::make('cover_image')
+                    ->label('Cover Image')
+                    ->image()
+                    ->imageEditor()
+                    ->imageEditorMode(1)
+                    ->disk('public')
+                    ->directory('tours/cover')
+                    ->preserveFilenames()
+                    ->columnSpanFull(),
+                Repeater::make('images')
+                    ->label('Additional Images')
+                    ->relationship()
+                    ->schema([
+                        FileUpload::make('path')
+                            ->image()
+                            ->disk('public')
+                            ->directory('tours/additional')
+                            ->preserveFilenames(),
+                        TextInput::make('name')->required(),
+                    ])
+                ->collapsible()
+                ->defaultItems(0)
+                ->columnSpanFull()
             ]);
     }
 
