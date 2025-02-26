@@ -63,6 +63,9 @@ class TourResource extends Resource
                 Forms\Components\Select::make('user_id')
                     ->relationship('user', 'name')
                     ->required(),
+                Forms\Components\Select::make('location_id')
+                    ->relationship('location', 'name')
+                    ->required(),
             ]);
     }
 
@@ -71,17 +74,10 @@ class TourResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TextColumn::make('slug'),
                 Tables\Columns\TextColumn::make('status'),
                 Tables\Columns\TextColumn::make('duration'),
                 Tables\Columns\TextColumn::make('price'),
-                Tables\Columns\TextColumn::make('description'),
-                Tables\Columns\TextColumn::make('short_description'),
-                Tables\Columns\TextColumn::make('overview'),
                 Tables\Columns\TextColumn::make('difficulty'),
-                Tables\Columns\TextColumn::make('things_to_bring'),
-                Tables\Columns\TextColumn::make('itinerary'),
-                Tables\Columns\TextColumn::make('before_booking'),
                 Tables\Columns\TextColumn::make('company.name')->label('Company'),
                 Tables\Columns\TextColumn::make('user.name')->label('User'),
                 Tables\Columns\TextColumn::make('created_at')

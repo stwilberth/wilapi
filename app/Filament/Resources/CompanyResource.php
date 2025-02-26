@@ -72,20 +72,10 @@ class CompanyResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TextColumn::make('slug'),
-                Tables\Columns\TextColumn::make('about'),
-                Tables\Columns\TextColumn::make('address'),
                 Tables\Columns\TextColumn::make('email'),
                 Tables\Columns\TextColumn::make('phone'),
                 Tables\Columns\TextColumn::make('whatsapp'),
-                Tables\Columns\TextColumn::make('facebook'),
-                Tables\Columns\TextColumn::make('instagram'),
-                Tables\Columns\TextColumn::make('twitter'),
-                Tables\Columns\TextColumn::make('tripadvisor'),
-                Tables\Columns\TextColumn::make('youtube'),
-                Tables\Columns\TextColumn::make('tiktok'),
                 Tables\Columns\TextColumn::make('website'),
-                Tables\Columns\TextColumn::make('url_logo'),
                 Tables\Columns\TextColumn::make('status'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime(),
