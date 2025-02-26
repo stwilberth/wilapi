@@ -10,7 +10,10 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Validation\Rule;
-
+use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\Select;
 
 class TourResource extends Resource
 {
@@ -22,44 +25,19 @@ class TourResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
-                    ->required(),
-                Forms\Components\Select::make('status')
-                    ->options([
-                        'draft' => 'Draft',
-                        'published' => 'Published',
-                        'archived' => 'Archived',
-                    ])
-                    ->default('draft'),
-                Forms\Components\TextInput::make('duration')
-                    ->nullable(),
-                Forms\Components\TextInput::make('price')
-                    ->nullable(),
-                Forms\Components\RichEditor::make('description')
-                    ->nullable()->toolbarButtons(['heading', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote'])
-                    ->columnSpanFull(),
-                Forms\Components\Textarea::make('short_description')
-                    ->nullable(),
-                Forms\Components\Textarea::make('overview')
-                    ->nullable(),
-                Forms\Components\Select::make('difficulty')
-                    ->options([
-                        'easy' => 'Easy',
-                        'medium' => 'Medium',
-                        'hard' => 'Hard',
-                    ])
-                    ->nullable(),
-                Forms\Components\Textarea::make('things_to_bring')
-                    ->nullable(),
-                Forms\Components\Textarea::make('itinerary')
-                    ->nullable(),
-                Forms\Components\Textarea::make('before_booking')
-                    ->nullable(),
-                Forms\Components\Select::make('company_id')
-                    ->relationship('company', 'name')
-                    ->required(),
-                Forms\Components\Select::make('location_id')
-                    ->relationship('location', 'name'),
+                TextInput::make('name')->required(),
+                Select::make('status')->options(['draft' => 'Draft','published' => 'Published','archived' => 'Archived'])->default('draft'),
+                TextInput::make('duration')->nullable(),
+                TextInput::make('price')->nullable(),
+                RichEditor::make('description')->nullable()->columnSpan(2),
+                Textarea::make('short_description')->nullable(),
+                Textarea::make('overview')->nullable(),
+                Select::make('difficulty')->options(['easy' => 'Easy','medium' => 'Medium','hard' => 'Hard',])->nullable(),
+                Textarea::make('things_to_bring')->nullable(),
+                Textarea::make('itinerary')->nullable(),
+                Textarea::make('before_booking')->nullable(),
+                Select::make('company_id')->relationship('company', 'name')->required(),
+                Select::make('location_id')->relationship('location', 'name'),
             ]);
     }
 
