@@ -27,3 +27,8 @@ Route::get('/tours/{id}', TourController::class.'@show');
 
 //company
 Route::get('/companies/{id}', CompanyController::class.'@show');
+
+Route::get('/list-files', function () {
+    $files = Storage::disk('public')->allFiles('tours/cover');
+    return response()->json($files);
+});
