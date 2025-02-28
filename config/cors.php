@@ -18,7 +18,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['http://localhost:3001', 'http://localhost:3000', 'http://wilapi.test', 'https://osanaturetours.netlify.app', 'https://osanaturetours.vercel.app'],
+    'allowed_origins' => ['http://localhost:3001', 'http://localhost:3000', 'http://wilapi.test', 'https://osanaturetours.netlify.app', 'https://osanaturetours.vercel.app', 'https://www.osanaturetours.com'],
 
     'allowed_origins_patterns' => [],
 
