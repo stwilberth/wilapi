@@ -14,11 +14,11 @@ return [
     | To learn more: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
     |
     */
-    'paths' => ['api/*', 'sanctum/csrf-cookie'], // Incluye tours-company
+    'paths' => ['api/*', '/', 'sanctum/csrf-cookie'], // Incluye tours-company
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['http://localhost:3000', 'http://wilapi.test'],
+    'allowed_origins' => ['http://localhost:3001', 'http://localhost:3000', 'http://wilapi.test'],
 
     'allowed_origins_patterns' => [],
 
