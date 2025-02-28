@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TourController;
+use App\Http\Controllers\CompanyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +19,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//tours
+Route::get('/tours-company/{id}', TourController::class.'@filterByCompany');
+
+Route::get('/tours/{id}', TourController::class.'@show');
+
+//company
+Route::get('/companies/{id}', CompanyController::class.'@show');
