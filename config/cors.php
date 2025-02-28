@@ -14,7 +14,7 @@ return [
     | To learn more: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
     |
     */
-    'paths' => ['api/*', '/', 'sanctum/csrf-cookie'], // Incluye tours-company
+    'paths' => ['api/*', '/', 'storage/*', 'sanctum/csrf-cookie'], // Incluye tours-company
 
     'allowed_methods' => ['*'],
 
