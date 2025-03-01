@@ -9,17 +9,10 @@ use Illuminate\Support\Facades\Storage;
 class TourController extends Controller
 {
 
-    public function show($id)
+    public function show($companyId, $slug)
     {
-        $tour = Tour::with('images')->findOrFail($id);
-        return response()->json([
-            'title' => $tour->name,
-            'description' => $tour->short_description,
-            'image' => $tour->cover_image ? Storage::disk('public')->url($tour->cover_image) : null,
-            'additional_images' => $tour->images->map(function ($image) {
-                return Storage::disk('public')->url($image->path);
-            }),
-        ]);
+        $tour = Tour::with('images')->where('company_id', $companyId)->where('slug', $slug)->firstOrFail();
+        return response()->json($tour);
     }
 
     //tour filter by company

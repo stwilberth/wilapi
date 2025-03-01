@@ -23,7 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //tours
 Route::get('/tours-company/{id}', TourController::class.'@filterByCompany');
 
-Route::get('/tours/{id}', TourController::class.'@show');
+Route::get('/tours/{company_id}/{slug}', TourController::class.'@show');
 
 //company
 Route::get('/companies/{id}', CompanyController::class.'@show');
