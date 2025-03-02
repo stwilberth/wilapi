@@ -46,8 +46,7 @@ class TourResource extends Resource
                     ->imageEditor()
                     ->imageEditorMode(1)
                     ->disk('public')
-                    ->directory('tours/cover')
-                    ->preserveFilenames()
+                    ->directory(fn (Forms\Get $get) => 'tours/' . $get('company_id') . '/cover')
                     ->columnSpanFull(),
                 Repeater::make('images')
                     ->label('Additional Images')
@@ -56,8 +55,7 @@ class TourResource extends Resource
                         FileUpload::make('path')
                             ->image()
                             ->disk('public')
-                            ->directory('tours/additional')
-                            ->preserveFilenames(),
+                            ->directory(fn (Forms\Get $get) => 'tours/' . $get('company_id') . '/additional'),
                         TextInput::make('name')->required(),
                     ])
                 ->collapsible()
