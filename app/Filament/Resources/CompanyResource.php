@@ -17,6 +17,8 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Select;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\IconColumn;
+use Filament\Forms\Components\FileUpload;
+use Filament\Tables\Columns\ImageColumn;
 
 class CompanyResource extends Resource
 {
@@ -58,6 +60,7 @@ class CompanyResource extends Resource
     {
         return $table
             ->columns([
+                ImageColumn::make('url_logo')->label('Logo')->circular(),
                 TextColumn::make('name'),
                 TextColumn::make('email'),
                 TextColumn::make('phone'),
