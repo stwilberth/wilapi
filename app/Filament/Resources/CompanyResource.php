@@ -42,7 +42,14 @@ class CompanyResource extends Resource
                 TextInput::make('youtube')->nullable(),
                 TextInput::make('tiktok')->nullable(),
                 TextInput::make('website')->nullable(),
-                TextInput::make('url_logo')->nullable(),
+                FileUpload::make('url_logo')
+                    ->nullable()
+                    ->label('Logo')
+                    ->image()
+                    ->imageEditor()
+                    ->imageEditorMode(1)
+                    ->disk('public')
+                    ->directory('companies/logos'),
                 Select::make('status')->options(['active' => 'Active','inactive' => 'Inactive'])->default('active'),
             ]);
     }
