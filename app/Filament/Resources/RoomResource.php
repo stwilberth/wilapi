@@ -62,6 +62,7 @@ class RoomResource extends Resource
                     ->image()
                     ->imageEditor()
                     ->directory('rooms')
+                    ->directory(fn (Forms\Get $get) => 'rooms/' . $get('company_id') . '/cover')
                     ->columnSpanFull(),
                 Select::make('status')
                     ->options([
