@@ -32,11 +32,6 @@ Route::get('/tours/{company_id}/{slug}', TourController::class.'@show');
 //company
 Route::get('/companies/{id}', CompanyController::class.'@show');
 
-Route::get('/list-files', function () {
-    $files = Storage::disk('public')->allFiles('tours/cover');
-    return response()->json($files);
-});
-
 // Products
 Route::get('/products-company/{id}', [ProductController::class, 'filterByCompany']);
 Route::get('/products/{company_id}/{slug}', [ProductController::class, 'show']);
