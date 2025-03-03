@@ -27,7 +27,6 @@ return [
         'https://www.osanaturetours.com',
         'https://osanaturetours.com',
         'https://ecoexpeditionscr.com',
-        'https://369dd9b8.ecoexpeditionscr.pages.dev'
     ],
 
     'allowed_origins_patterns' => [],
