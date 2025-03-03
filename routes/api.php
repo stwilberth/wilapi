@@ -4,6 +4,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TourController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RoomController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\BrandController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +36,19 @@ Route::get('/list-files', function () {
     $files = Storage::disk('public')->allFiles('tours/cover');
     return response()->json($files);
 });
+
+// Products
+Route::get('/products-company/{id}', [ProductController::class, 'filterByCompany']);
+Route::get('/products/{company_id}/{slug}', [ProductController::class, 'show']);
+
+// Rooms
+Route::get('/rooms-company/{id}', [RoomController::class, 'filterByCompany']);
+Route::get('/rooms/{company_id}/{id}', [RoomController::class, 'show']);
+
+// Categories
+Route::get('/categories', [CategoryController::class, 'index']);
+Route::get('/categories/{slug}', [CategoryController::class, 'show']);
+
+// Brands
+Route::get('/brands', [BrandController::class, 'index']);
+Route::get('/brands/{slug}', [BrandController::class, 'show']);
