@@ -53,6 +53,23 @@ class CompanyResource extends Resource
                     ->disk('public')
                     ->directory('companies/logos'),
                 Select::make('status')->options(['active' => 'Active','inactive' => 'Inactive'])->default('active'),
+                TextInput::make('booking_url')
+                    ->label('Booking URL')
+                    ->url()
+                    ->nullable(),
+                TextInput::make('tripadvisor_url')
+                    ->label('TripAdvisor URL')
+                    ->url()
+                    ->nullable(),
+                TextInput::make('airbnb_url')
+                    ->label('Airbnb URL')
+                    ->url()
+                    ->nullable(),
+                TextInput::make('expedia_url')
+                    ->label('Expedia URL')
+                    ->url()
+                    ->nullable(),
+                // Add more fields as necessary
             ]);
     }
 
@@ -65,17 +82,19 @@ class CompanyResource extends Resource
                 TextColumn::make('email'),
                 TextColumn::make('phone'),
                 TextColumn::make('whatsapp'),
-                IconColumn::make('status')
-                ->icon(fn (string $state): string => match ($state) {
-                    'active' => 'heroicon-o-check-circle',
-                    'inactive' => 'heroicon-o-x-circle',
-                    default => 'heroicon-o-question-mark-circle',
-                })
-                ->color(fn (string $state): string => match ($state) {
-                    'active' => 'success',
-                    'inactive' => 'danger',
-                    default => 'gray',
-                }),
+                TextColumn::make('booking_url')
+                    ->label('Booking URL')
+                    ->url(),
+                TextColumn::make('tripadvisor_url')
+                    ->label('TripAdvisor URL')
+                    ->url(),
+                TextColumn::make('airbnb_url')
+                    ->label('Airbnb URL')
+                    ->url(),
+                TextColumn::make('expedia_url')
+                    ->label('Expedia URL')
+                    ->url(),
+                // Add more columns as necessary
             ])
             ->filters([
                 //
