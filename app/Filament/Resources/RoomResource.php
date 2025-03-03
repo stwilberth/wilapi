@@ -18,6 +18,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Repeater;
 
 class RoomResource extends Resource
 {
@@ -30,51 +31,23 @@ class RoomResource extends Resource
             ->schema([
                 TextInput::make('name')->required()->maxLength(255),
                 TextInput::make('number')->required()->numeric(),
-                Select::make('type')
-                    ->options([
-                        'cabin' => 'Cabin',
-                        'room' => 'Room',
-                        'suite' => 'Suite'
-                    ])
-                    ->default('room'),
-                TextInput::make('price_per_night')
-                    ->nullable()
-                    ->numeric()
-                    ->prefix('$'),
-                TextInput::make('capacity')
-                    ->required()
-                    ->numeric()
-                    ->default(2),
-                TextInput::make('beds')
-                    ->required()
-                    ->numeric()
-                    ->default(1),
-                RichEditor::make('description')
-                    ->nullable()
-                    ->columnSpanFull(),
-                Textarea::make('short_description')
-                    ->nullable()
-                    ->columnSpanFull(),
-                TagsInput::make('amenities')
-                    ->separator(',')
-                    ->columnSpanFull(),
-                FileUpload::make('cover_image')
-                    ->image()
-                    ->imageEditor()
-                    ->directory('rooms')
-                    ->directory(fn (Forms\Get $get) => 'rooms/' . $get('company_id') . '/cover')
-                    ->columnSpanFull(),
-                Select::make('status')
-                    ->options([
-                        'available' => 'Available',
-                        'occupied' => 'Occupied',
-                        'maintenance' => 'Maintenance',
-                        'inactive' => 'Inactive'
-                    ])
-                    ->default('available'),
-                Select::make('company_id')
-                    ->relationship('company', 'name')
-                    ->required(),
+                Select::make('type')->options(['cabin' => 'Cabin','room' => 'Room','suite' => 'Suite'])->default('room'),
+                TextInput::make('price_per_night')->nullable()->numeric()->prefix('$'),
+                TextInput::make('capacity')->required()->numeric()->default(2),
+                TextInput::make('beds')->required()->numeric()->default(1),
+                RichEditor::make('description')->nullable()->columnSpanFull(),
+                Textarea::make('short_description')->nullable()->columnSpanFull(),
+                TagsInput::make('amenities')->separator(',')->columnSpanFull(),
+                FileUpload::make('cover_image')->label('Cover Image')->image()->imageEditor()->imageEditorMode(1)->disk('public')->directory(fn (Forms\Get $get) => 'rooms/' . $get('company_id') . '/cover')->columnSpanFull(),
+
+                Repeater::make('images')->label('Additional Images')->relationship()->schema([
+                    FileUpload::make('path')->image()->disk('public')
+                        ->directory(fn (Forms\Get $get) => 'rooms/' . $get('company_id') . '/additional'),
+                    TextInput::make('name')->required(),
+                ])->collapsible()->defaultItems(0)->columnSpanFull(),
+
+                Select::make('status')->options(['available' => 'Available','occupied' => 'Occupied','maintenance' => 'Maintenance','inactive' => 'Inactive'])->default('available'),
+                Select::make('company_id')->relationship('company', 'name')->required(),
             ]);
     }
 
