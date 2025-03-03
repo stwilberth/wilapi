@@ -36,7 +36,7 @@ class RoomResource extends Resource
                     ])
                     ->default('room'),
                 TextInput::make('price_per_night')
-                    ->required()
+                    ->nullable()
                     ->numeric()
                     ->prefix('$'),
                 TextInput::make('capacity')
@@ -47,7 +47,7 @@ class RoomResource extends Resource
                     ->required()
                     ->numeric()
                     ->default(1),
-                Textarea::make('description')
+                RichEditor::make('description')
                     ->nullable()
                     ->columnSpanFull(),
                 Textarea::make('short_description')

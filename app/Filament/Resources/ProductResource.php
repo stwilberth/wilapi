@@ -27,7 +27,7 @@ class ProductResource extends Resource
             ->schema([
                 TextInput::make('name')->required()->maxLength(255),
                 TextInput::make('price')->required()->numeric()->prefix('$'),
-                Textarea::make('description')->nullable()->columnSpanFull(),
+                RichEditor::make('description')->nullable()->columnSpanFull(),
                 Textarea::make('short_description')->nullable()->columnSpanFull(),
                 Select::make('status')->options(['active' => 'Active','inactive' => 'Inactive'])->default('active'),
                 Select::make('category_id')->relationship('category', 'name')->required(),
