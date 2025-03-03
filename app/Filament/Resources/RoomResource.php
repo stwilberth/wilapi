@@ -17,6 +17,7 @@ use Filament\Forms\Components\TagsInput;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\IconColumn;
+use Filament\Forms\Components\RichEditor;
 
 class RoomResource extends Resource
 {
