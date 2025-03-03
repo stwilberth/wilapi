@@ -29,6 +29,7 @@ class RoomResource extends Resource
         return $form
             ->schema([
                 TextInput::make('name')->required()->maxLength(255),
+                TextInput::make('number')->required()->numeric(),
                 Select::make('type')
                     ->options([
                         'cabin' => 'Cabin',
@@ -80,8 +81,8 @@ class RoomResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('cover_image'),
                 TextColumn::make('name')->searchable()->sortable(),
+                TextColumn::make('number')->sortable(),
                 TextColumn::make('type')->sortable(),
                 TextColumn::make('price_per_night')
                     ->money('USD')
