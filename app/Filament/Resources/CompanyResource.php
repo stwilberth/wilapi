@@ -82,18 +82,6 @@ class CompanyResource extends Resource
                 TextColumn::make('email'),
                 TextColumn::make('phone'),
                 TextColumn::make('whatsapp'),
-                TextColumn::make('booking_url')
-                    ->label('Booking URL')
-                    ->url(),
-                TextColumn::make('tripadvisor_url')
-                    ->label('TripAdvisor URL')
-                    ->url(),
-                TextColumn::make('airbnb_url')
-                    ->label('Airbnb URL')
-                    ->url(),
-                TextColumn::make('expedia_url')
-                    ->label('Expedia URL')
-                    ->url(),
                 // Add more columns as necessary
             ])
             ->filters([
