@@ -40,4 +40,10 @@ class Room extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    //images
+    public function images()
+    {
+        return $this->hasMany(RoomImage::class);
+    }
 }
