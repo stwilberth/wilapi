@@ -51,6 +51,9 @@
         ".vscode": true,
         "database\\seeders": true,
         "database\\.gitignore": true,
-        "database\\factories": true
+        "database\\factories": true,
+        "routes\\channels.php": true,
+        "routes\\console.php": true,
+        "routes\\web.php": true
     }
 }

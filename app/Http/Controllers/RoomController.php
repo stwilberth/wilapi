@@ -17,6 +17,7 @@ class RoomController extends Controller
     public function show($company_id, $id)
     {
         return Room::where('company_id', $company_id)
+            ->with('images')
             ->where('id', $id)
             ->firstOrFail();
     }

@@ -38,16 +38,14 @@ class RoomResource extends Resource
                 RichEditor::make('description')->nullable()->columnSpanFull(),
                 Textarea::make('short_description')->nullable()->columnSpanFull(),
                 TagsInput::make('amenities')->separator(',')->columnSpanFull(),
+                Select::make('status')->options(['available' => 'Available','occupied' => 'Occupied','maintenance' => 'Maintenance','inactive' => 'Inactive'])->default('available'),
+                Select::make('company_id')->relationship('company', 'name')->required(),
                 FileUpload::make('cover_image')->label('Cover Image')->image()->imageEditor()->imageEditorMode(1)->disk('public')->directory(fn (Forms\Get $get) => 'rooms/' . $get('company_id') . '/cover')->columnSpanFull(),
-
                 Repeater::make('images')->label('Additional Images')->relationship()->schema([
                     FileUpload::make('path')->image()->disk('public')
                         ->directory(fn (Forms\Get $get) => 'rooms/' . $get('company_id') . '/additional'),
                     TextInput::make('name')->required(),
                 ])->collapsible()->defaultItems(0)->columnSpanFull(),
-
-                Select::make('status')->options(['available' => 'Available','occupied' => 'Occupied','maintenance' => 'Maintenance','inactive' => 'Inactive'])->default('available'),
-                Select::make('company_id')->relationship('company', 'name')->required(),
             ]);
     }
 
