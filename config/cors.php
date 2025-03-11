@@ -27,7 +27,7 @@ return [
         'https://www.osanaturetours.com',
         'https://osanaturetours.com',
         'https://ecoexpeditionscr.com',
-        'https://rioverdeecolodge.netlify.app'
+        'https://rioverdeecolodge.com'
     ],
 
     'allowed_origins_patterns' => [],
