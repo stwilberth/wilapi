@@ -27,7 +27,16 @@ return [
         'https://www.osanaturetours.com',
         'https://osanaturetours.com',
         'https://ecoexpeditionscr.com',
-        'https://rioverdeecolodge.com'
+        'https://rioverdeecolodge.com',
+        // Capacitor schemes
+        'capacitor://localhost',
+        'http://localhost',
+        'ionic://localhost',
+        'com.rioverdeecolodge.app',
+        // Add these additional schemes for better compatibility
+        'file://',
+        'https://localhost',
+        'capacitor://com.rioverdeecolodge.app'
     ],
 
     'allowed_origins_patterns' => [],
