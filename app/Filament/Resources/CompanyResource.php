@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\CompanyResource\Pages;
 use App\Filament\Resources\CompanyResource\RelationManagers;
 use App\Models\Company;
+use Dom\Text;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -36,7 +37,9 @@ class CompanyResource extends Resource
                 Textarea::make('address')->nullable(),
                 TextInput::make('email')->required()->email()->unique(Company::class, 'email', ignoreRecord: true),
                 TextInput::make('phone')->nullable(),
+                TextInput::make('phone2')->nullable(),
                 TextInput::make('whatsapp')->nullable(),
+                TextInput::make('whatsapp2')->nullable(),
                 TextInput::make('facebook')->nullable(),
                 TextInput::make('instagram')->nullable(),
                 TextInput::make('twitter')->nullable(),
