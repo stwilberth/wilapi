@@ -19,6 +19,7 @@ use Filament\Forms\Components\Select;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
+use Filament\Tables\Filters\SelectFilter;
 
 class TourResource extends Resource
 {
@@ -79,7 +80,11 @@ class TourResource extends Resource
                 TextColumn::make('user.name')->label('User'),
             ])
             ->filters([
-                //
+                SelectFilter::make('company_id')
+                    ->relationship('company', 'name')
+                    ->label('Company')
+                    ->searchable()
+                    ->preload()
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
