@@ -20,6 +20,7 @@ class Company extends Model
         'about',
         'address',
         'email',
+        'email2',
         'phone',
         'phone2',
         'whatsapp',
