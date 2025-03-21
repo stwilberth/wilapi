@@ -36,6 +36,7 @@ class CompanyResource extends Resource
                 Textarea::make('about')->nullable(),
                 Textarea::make('address')->nullable(),
                 TextInput::make('email')->required()->email()->unique(Company::class, 'email', ignoreRecord: true),
+                TextInput::make('email2')->nullable()->email(),
                 TextInput::make('phone')->nullable(),
                 TextInput::make('phone2')->nullable(),
                 TextInput::make('whatsapp')->nullable(),
