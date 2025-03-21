@@ -16,6 +16,9 @@ use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Select;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ToggleColumn;
 
 class TourResource extends Resource
 {
@@ -68,14 +71,12 @@ class TourResource extends Resource
     {
         return $table
             ->columns([
-                //id
-                Tables\Columns\TextColumn::make('id'),
-                Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TextColumn::make('status'),
-                Tables\Columns\TextColumn::make('price'),
-                Tables\Columns\TextColumn::make('difficulty'),
-                Tables\Columns\TextColumn::make('company.name')->label('Company'),
-                Tables\Columns\TextColumn::make('user.name')->label('User'),
+                ImageColumn::make('cover_image')->disk('public')->rounded(),
+                TextColumn::make('name'),
+                ToggleColumn::make('status'),
+                TextColumn::make('price'),
+                TextColumn::make('company.name')->label('Company'),
+                TextColumn::make('user.name')->label('User'),
             ])
             ->filters([
                 //
