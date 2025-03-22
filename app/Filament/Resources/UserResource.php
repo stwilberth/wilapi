@@ -61,26 +61,7 @@ class UserResource extends Resource
                     ->nullable(),
                 Toggle::make('is_admin')
                     ->label('Es administrador')
-                    ->default(false),
-                CheckboxList::make('permissions')
-                    ->label('Permisos')
-                    ->options([
-                        'view_tours' => 'Ver tours',
-                        'create_tours' => 'Crear tours',
-                        'edit_tours' => 'Editar tours',
-                        'delete_tours' => 'Eliminar tours',
-                        'view_products' => 'Ver productos',
-                        'create_products' => 'Crear productos',
-                        'edit_products' => 'Editar productos',
-                        'delete_products' => 'Eliminar productos',
-                        'view_rooms' => 'Ver habitaciones',
-                        'create_rooms' => 'Crear habitaciones',
-                        'edit_rooms' => 'Editar habitaciones',
-                        'delete_rooms' => 'Eliminar habitaciones',
-                    ])
-                    ->columns(2)
-                    ->dehydrated(false)
-                    ->visible(fn ($record) => $record && !$record->is_admin),
+                    ->default(false)
             ]);
     }
 
