@@ -5,21 +5,17 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\UserResource\Pages;
 use App\Models\User;
 use App\Models\Company;
-use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Toggle;
-use Filament\Forms\Components\CheckboxList;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ToggleColumn;
-use Filament\Tables\Filters\SelectFilter;
 
 class UserResource extends Resource
 {
@@ -94,32 +90,7 @@ class UserResource extends Resource
                     ->sortable(),
             ])
             ->filters([
-                SelectFilter::make('company_id')
-                    ->label('Compañía')
-                    ->relationship('company', 'name'),
-                SelectFilter::make('is_admin')
-                    ->label('Rol')
-                    ->options([
-                        '1' => 'Administrador',
-                        '0' => 'Usuario',
-                    ]),
-                SelectFilter::make('email_verified_at')
-                    ->label('Verificación')
-                    ->options([
-                        'verified' => 'Verificado',
-                        'unverified' => 'No verificado',
-                    ])
-                    ->query(function (Builder $query, array $data) {
-                        return $query
-                            ->when(
-                                $data['value'] === 'verified',
-                                fn (Builder $query) => $query->whereNotNull('email_verified_at'),
-                            )
-                            ->when(
-                                $data['value'] === 'unverified',
-                                fn (Builder $query) => $query->whereNull('email_verified_at'),
-                            );
-                    }),
+    
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
