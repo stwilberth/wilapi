@@ -38,22 +38,7 @@ class TourResource extends Resource
                 Select::make('status')->options(['draft' => 'Draft','published' => 'Published','archived' => 'Archived'])->default('draft'),
                 TextInput::make('duration')->nullable(),
                 TextInput::make('price')->nullable(),
-                RichEditor::make('description')->nullable()
-                    ->toolbarButtons([
-                        'blockquote',
-                        'bold',
-                        'bulletList',
-                        'h2',
-                        'h3',
-                        'italic',
-                        'link',
-                        'orderedList',
-                        'redo',
-                        'strike',
-                        'underline',
-                        'undo',
-                    ])
-                ->columnSpanFull(),
+                RichEditor::make('description')->nullable()->toolbarButtons(['blockquote','bold','bulletList','h2','h3','italic','link','orderedList','redo','strike','underline','undo',])->columnSpanFull(),
                 Textarea::make('short_description')->nullable(),
                 Textarea::make('overview')->nullable(),
                 Select::make('difficulty')->options(['easy' => 'Easy','medium' => 'Medium','hard' => 'Hard',])->nullable(),
@@ -92,17 +77,26 @@ class TourResource extends Resource
             ->columns([
                 ImageColumn::make('cover_image')->disk('public')->rounded(),
                 TextColumn::make('name'),
-                ToggleColumn::make('status'),
+                TextColumn::make('status')
+                    ->badge()
+                    ->color(fn (string $state): string => match ($state) {
+                        'published' => 'success',
+                        'draft' => 'warning',
+                        'archived' => 'danger',
+                    }),
                 TextColumn::make('price'),
                 TextColumn::make('company.name')->label('Company'),
                 TextColumn::make('user.name')->label('User'),
             ])
             ->filters([
-                SelectFilter::make('company_id')
-                    ->relationship('company', 'name')
-                    ->label('Company')
-                    ->searchable()
-                    ->preload()
+                // Solo mostrar el filtro de compañía para usuarios administradores
+                ...auth()->user()->is_admin ? [
+                    SelectFilter::make('company_id')
+                        ->relationship('company', 'name')
+                        ->label('Company')
+                        ->searchable()
+                        ->preload()
+                ] : []
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
