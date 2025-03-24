@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Support\Str;
+use App\Traits\HasCompanyScope;
 
 class Room extends Model
 {
+    use HasCompanyScope;
+
     protected $fillable = [
         'name', 'number', 'type', 'price_per_night', 
         'capacity', 'beds', 'description', 'short_description',

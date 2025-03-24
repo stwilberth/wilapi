@@ -6,9 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Str;
+use App\Traits\HasCompanyScope;
 
 class Product extends Model
 {
+    use HasCompanyScope;
+
     protected $fillable = [
         'name', 'slug', 'price', 'description', 'short_description', 
         'status', 'cover_image', 'company_id', 'user_id',
