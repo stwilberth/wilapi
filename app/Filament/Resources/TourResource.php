@@ -20,9 +20,12 @@ use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Filters\SelectFilter;
+use App\Filament\Traits\HasCompanyField;
 
 class TourResource extends Resource
 {
+    use HasCompanyField;
+
     protected static ?string $model = Tour::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
@@ -35,14 +38,29 @@ class TourResource extends Resource
                 Select::make('status')->options(['draft' => 'Draft','published' => 'Published','archived' => 'Archived'])->default('draft'),
                 TextInput::make('duration')->nullable(),
                 TextInput::make('price')->nullable(),
-                RichEditor::make('description')->nullable()->columnSpan(2),
+                RichEditor::make('description')->nullable()
+                    ->toolbarButtons([
+                        'blockquote',
+                        'bold',
+                        'bulletList',
+                        'h2',
+                        'h3',
+                        'italic',
+                        'link',
+                        'orderedList',
+                        'redo',
+                        'strike',
+                        'underline',
+                        'undo',
+                    ])
+                ->columnSpanFull(),
                 Textarea::make('short_description')->nullable(),
                 Textarea::make('overview')->nullable(),
                 Select::make('difficulty')->options(['easy' => 'Easy','medium' => 'Medium','hard' => 'Hard',])->nullable(),
                 Textarea::make('things_to_bring')->nullable(),
                 Textarea::make('itinerary')->nullable(),
                 Textarea::make('before_booking')->nullable(),
-                Select::make('company_id')->relationship('company', 'name')->required(),
+                ...static::getCompanyField(),
                 Select::make('location_id')->relationship('location', 'name'),
                 FileUpload::make('cover_image')
                     ->label('Cover Image')

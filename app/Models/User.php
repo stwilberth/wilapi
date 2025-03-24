@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class User extends Authenticatable implements FilamentUser
 {
@@ -23,6 +24,9 @@ class User extends Authenticatable implements FilamentUser
         'name',
         'email',
         'password',
+        'company_id',
+        'is_admin',
+        'email_verified_at'
     ];
 
     /**
@@ -47,6 +51,13 @@ class User extends Authenticatable implements FilamentUser
 
     public function canAccessPanel(Panel $panel): bool
     {
-        return str_ends_with($this->email, '@wilberth.com') && $this->hasVerifiedEmail();
+        return str_ends_with($this->email, '@wilberth.com');
     }
+
+    /* company relation */
+    public function company(): BelongsTo
+    {
+        return $this->belongsTo(Company::class);
+    }
+
 }

@@ -16,7 +16,6 @@ class Company extends Model
      */
     protected $fillable = [
         'name',
-        'slug',
         'about',
         'address',
         'email',
@@ -34,5 +33,9 @@ class Company extends Model
         'website',
         'url_logo',
         'status',
+        'booking_url',
+        'tripadvisor_url',
+        'airbnb_url',
+        'expedia_url',
     ];
 }

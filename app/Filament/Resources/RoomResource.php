@@ -19,9 +19,11 @@ use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Repeater;
+use App\Filament\Traits\HasCompanyField;
 
 class RoomResource extends Resource
 {
+    use HasCompanyField;
     protected static ?string $model = Room::class;
     protected static ?string $navigationIcon = 'heroicon-o-home';
 
@@ -35,7 +37,22 @@ class RoomResource extends Resource
                 TextInput::make('price_per_night')->nullable()->numeric()->prefix('$'),
                 TextInput::make('capacity')->required()->numeric()->default(2),
                 TextInput::make('beds')->required()->numeric()->default(1),
-                RichEditor::make('description')->nullable()->columnSpanFull(),
+                RichEditor::make('description')->nullable()
+                    ->toolbarButtons([
+                        'blockquote',
+                        'bold',
+                        'bulletList',
+                        'h2',
+                        'h3',
+                        'italic',
+                        'link',
+                        'orderedList',
+                        'redo',
+                        'strike',
+                        'underline',
+                        'undo',
+                    ])
+                ->columnSpanFull(),
                 Textarea::make('short_description')->nullable()->columnSpanFull(),
                 TagsInput::make('amenities')
                 ->separator(',')
@@ -60,7 +77,7 @@ class RoomResource extends Resource
                 ])
                 ->columnSpanFull(),
                 Select::make('status')->options(['available' => 'Available','occupied' => 'Occupied','maintenance' => 'Maintenance','inactive' => 'Inactive'])->default('available'),
-                Select::make('company_id')->relationship('company', 'name')->required(),
+                ...static::getCompanyField(),
                 FileUpload::make('cover_image')->label('Cover Image')->image()->imageEditor()->imageEditorMode(1)->disk('public')->directory(fn (Forms\Get $get) => 'rooms/' . $get('company_id') . '/cover')->columnSpanFull(),
                 Repeater::make('images')->label('Additional Images')->relationship()->schema([
                     FileUpload::make('path')->image()->disk('public')

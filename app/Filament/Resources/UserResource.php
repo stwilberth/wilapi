@@ -23,7 +23,11 @@ class UserResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
 
-    protected static ?string $navigationGroup = 'Administración';
+    //restrict access to resource
+    public static function canViewAny(): bool
+    {
+        return auth()->user()->is_admin;
+    }
 
     public static function form(Form $form): Form
     {

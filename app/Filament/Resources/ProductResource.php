@@ -17,9 +17,11 @@ use Filament\Tables\Columns\IconColumn;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
+use App\Filament\Traits\HasCompanyField;
 
 class ProductResource extends Resource
 {
+    use HasCompanyField;
     protected static ?string $model = Product::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-shopping-bag';
@@ -30,12 +32,27 @@ class ProductResource extends Resource
             ->schema([
                 TextInput::make('name')->required()->maxLength(255),
                 TextInput::make('price')->required()->numeric()->prefix('$'),
-                RichEditor::make('description')->nullable()->columnSpanFull(),
+                RichEditor::make('description')->nullable()
+                    ->toolbarButtons([
+                        'blockquote',
+                        'bold',
+                        'bulletList',
+                        'h2',
+                        'h3',
+                        'italic',
+                        'link',
+                        'orderedList',
+                        'redo',
+                        'strike',
+                        'underline',
+                        'undo',
+                    ])
+                ->columnSpanFull(),
                 Textarea::make('short_description')->nullable()->columnSpanFull(),
                 Select::make('status')->options(['active' => 'Active','inactive' => 'Inactive'])->default('active'),
                 Select::make('category_id')->relationship('category', 'name')->required(),
                 Select::make('brand_id')->relationship('brand', 'name')->required(),
-                Select::make('company_id')->relationship('company', 'name')->required(),
+                ...static::getCompanyField(),
                 FileUpload::make('cover_image')
                     ->image()
                     ->imageEditor()

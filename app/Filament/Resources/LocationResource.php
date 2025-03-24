@@ -3,15 +3,14 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\LocationResource\Pages;
-use App\Filament\Resources\LocationResource\RelationManagers;
 use App\Models\Location;
-use Filament\Forms;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Textarea;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables\Table;
 use Filament\Tables;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class LocationResource extends Resource
 {
@@ -23,15 +22,9 @@ class LocationResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('slug')
-                    ->required()
-                    ->unique(Location::class, 'slug')
-                    ->maxLength(255),
-                Forms\Components\Textarea::make('description')
-                    ->nullable(),
+                TextInput::make('name')->required()->maxLength(255),
+                TextInput::make('slug')->required()->unique(Location::class, 'slug')->maxLength(255),
+                Textarea::make('description')->nullable(),
             ]);
     }
 
@@ -39,15 +32,12 @@ class LocationResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('id')
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TextColumn::make('slug'),
-                Tables\Columns\TextColumn::make('description'),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime(),
+                TextColumn::make('id')->sortable(),
+                TextColumn::make('name'),
+                TextColumn::make('slug'),
+                TextColumn::make('description'),
+                TextColumn::make('created_at')->dateTime(),
+                TextColumn::make('updated_at')->dateTime(),
             ])
             ->filters([
                 //
