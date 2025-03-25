@@ -22,10 +22,7 @@ return [
         'http://localhost:3001',
         'http://localhost:3000',
         'http://wilapi.test',
-        'https://osanaturetours.netlify.app',
-        'https://osanaturetours.vercel.app',
-        'https://www.osanaturetours.com',
-        'https://osanaturetours.com',
+        'https://osanaturetours.com/',
         'https://ecoexpeditionscr.com',
         'https://rioverdeecolodge.com',
         // Capacitor schemes
