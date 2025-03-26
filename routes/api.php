@@ -38,7 +38,7 @@ Route::get('/products/{company_id}/{slug}', [ProductController::class, 'show']);
 
 // Rooms
 Route::get('/rooms-company/{id}', [RoomController::class, 'filterByCompany']);
-Route::get('/rooms/{company_id}/{id}', [RoomController::class, 'show']);
+Route::get('/rooms/{company_id}/{slug}', [RoomController::class, 'show']);
 
 // Categories
 Route::get('/categories', [CategoryController::class, 'index']);

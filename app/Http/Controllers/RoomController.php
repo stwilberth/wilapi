@@ -14,11 +14,11 @@ class RoomController extends Controller
             ->get();
     }
 
-    public function show($company_id, $id)
+    public function show($company_id, $slug)
     {
         return Room::where('company_id', $company_id)
             ->with('images')
-            ->where('id', $id)
+            ->where('slug', $slug)
             ->firstOrFail();
     }
 }
