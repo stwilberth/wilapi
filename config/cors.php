@@ -22,9 +22,10 @@ return [
         'http://localhost:3001',
         'http://localhost:3000',
         'http://wilapi.test',
-        'https://osanaturetours.com/',
+        'https://osanaturetours.com',
         'https://ecoexpeditionscr.com',
         'https://rioverdeecolodge.com',
+        'https://leivatours.travel',
         // Capacitor schemes
         'capacitor://localhost',
         'http://localhost',
