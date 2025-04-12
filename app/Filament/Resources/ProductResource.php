@@ -50,7 +50,7 @@ class ProductResource extends Resource
                             }
                             
                             // Usar exclusivamente DeepSeek API
-                            $apiKey = 'sk-5da1c1e67eec472182650233b46909f6';
+                            $apiKey = env('DEEPSEEK_API_KEY');
                             
                             if (empty($apiKey)) {
                                 throw new \Exception('La API key de DeepSeek no está configurada. Por favor, configúrela en el archivo .env');
