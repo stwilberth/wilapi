@@ -49,50 +49,25 @@ class ProductResource extends Resource
                                 throw new \Exception('El nombre del producto es requerido para generar la descripción.');
                             }
                             
-                            // Determinar qué API usar (OpenAI o DeepSeek)
-                            $useDeepSeek = env('USE_DEEPSEEK_API', false);
+                            // Usar exclusivamente DeepSeek API
+                            $apiKey = 'sk-5da1c1e67eec472182650233b46909f6';
                             
-                            if ($useDeepSeek) {
-                                // Usar DeepSeek API
-                                $apiKey = env('DEEPSEEK_API_KEY');
-                                
-                                if (empty($apiKey)) {
-                                    throw new \Exception('La API key de DeepSeek no está configurada. Por favor, configúrela en el archivo .env');
-                                }
-                                
-                                $response = Http::withHeaders([
-                                    'Authorization' => 'Bearer ' . $apiKey,
-                                    'Content-Type' => 'application/json',
-                                ])->post('https://api.deepseek.com/v1/chat/completions', [
-                                    'model' => 'deepseek-chat',
-                                    'messages' => [
-                                        ['role' => 'system', 'content' => 'Eres un asistente experto en redacción de descripciones de productos. Genera una descripción detallada y atractiva para el siguiente producto.'],
-                                        ['role' => 'user', 'content' => 'Genera una descripción comercial para el producto: ' . $productName],
-                                    ],
-                                    'temperature' => 0.7,
-                                    'max_tokens' => 500,
-                                ]);
-                            } else {
-                                // Usar OpenAI API (predeterminado)
-                                $apiKey = env('OPENAI_API_KEY');
-                                
-                                if (empty($apiKey)) {
-                                    throw new \Exception('La API key de OpenAI no está configurada. Por favor, configúrela en el archivo .env');
-                                }
-                                
-                                $response = Http::withHeaders([
-                                    'Authorization' => 'Bearer ' . $apiKey,
-                                    'Content-Type' => 'application/json',
-                                ])->post('https://api.openai.com/v1/chat/completions', [
-                                    'model' => 'gpt-3.5-turbo',
-                                    'messages' => [
-                                        ['role' => 'system', 'content' => 'Eres un asistente experto en redacción de descripciones de productos. Genera una descripción detallada y atractiva para el siguiente producto.'],
-                                        ['role' => 'user', 'content' => 'Genera una descripción comercial para el producto: ' . $productName],
-                                    ],
-                                    'temperature' => 0.7,
-                                    'max_tokens' => 500,
-                                ]);
+                            if (empty($apiKey)) {
+                                throw new \Exception('La API key de DeepSeek no está configurada. Por favor, configúrela en el archivo .env');
                             }
+                            
+                            $response = Http::withHeaders([
+                                'Authorization' => 'Bearer ' . $apiKey,
+                                'Content-Type' => 'application/json',
+                            ])->withoutVerifying()->post('https://api.deepseek.com/v1/chat/completions', [
+                                'model' => 'deepseek-chat',
+                                'messages' => [
+                                    ['role' => 'system', 'content' => 'Eres un asistente experto en redacción de descripciones de productos. Genera una descripción detallada y atractiva para el siguiente producto.'],
+                                    ['role' => 'user', 'content' => 'Genera una descripción comercial para el producto: ' . $productName],
+                                ],
+                                'temperature' => 0.7,
+                                'max_tokens' => 500,
+                            ]);
                             
                             if ($response->successful()) {
                                 // Extraer la descripción generada de la respuesta

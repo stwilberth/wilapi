@@ -38,7 +38,28 @@ class TourResource extends Resource
                 Select::make('status')->options(['draft' => 'Draft','published' => 'Published','archived' => 'Archived'])->default('draft'),
                 TextInput::make('duration')->nullable(),
                 TextInput::make('price')->nullable(),
-                RichEditor::make('description')->nullable()->toolbarButtons(['blockquote','bold','bulletList','h2','h3','italic','link','orderedList','redo','strike','underline','undo',])->columnSpanFull(),
+                RichEditor::make('description')
+                    ->nullable()
+                    ->toolbarButtons([
+                        'blockquote',
+                        'bold',
+                        'bulletList',
+                        'codeBlock',
+                        'h1',
+                        'h2',
+                        'h3',
+                        'italic',
+                        'link',
+                        'orderedList',
+                        'redo',
+                        'strike',
+                        'subscript',
+                        'superscript',
+                        'table',
+                        'underline',
+                        'undo'
+                    ])
+                    ->columnSpanFull(),
                 Textarea::make('short_description')->nullable(),
                 Textarea::make('overview')->nullable(),
                 Select::make('difficulty')->options(['easy' => 'Easy','medium' => 'Medium','hard' => 'Hard',])->nullable(),
