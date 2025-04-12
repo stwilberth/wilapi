@@ -12,7 +12,7 @@ use Filament\Tables\Table;
 use Illuminate\Validation\Rule;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
-use Filament\Forms\Components\RichEditor;
+use AmidEsfahani\FilamentTinyEditor\TinyEditor;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Select;
@@ -38,9 +38,11 @@ class TourResource extends Resource
                 Select::make('status')->options(['draft' => 'Draft','published' => 'Published','archived' => 'Archived'])->default('draft'),
                 TextInput::make('duration')->nullable(),
                 TextInput::make('price')->nullable(),
-                RichEditor::make('description')
-                    ->nullable()
-                    ->columnSpanFull(),
+                TinyEditor::make('description')
+                    ->profile('default')
+                    ->direction('ltr')
+                    ->columnSpan('full')
+                    ->required(),
                 Textarea::make('short_description')->nullable(),
                 Textarea::make('overview')->nullable(),
                 Select::make('difficulty')->options(['easy' => 'Easy','medium' => 'Medium','hard' => 'Hard',])->nullable(),

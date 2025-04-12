@@ -14,7 +14,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\IconColumn;
-use Filament\Forms\Components\RichEditor;
+use AmidEsfahani\FilamentTinyEditor\TinyEditor;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Actions;
@@ -80,22 +80,14 @@ class ProductResource extends Resource
                             }
                         })
                 ])->columnSpanFull(),
-                RichEditor::make('description')->nullable()
-                    ->toolbarButtons([
-                        'blockquote',
-                        'bold',
-                        'bulletList',
-                        'h2',
-                        'h3',
-                        'italic',
-                        'link',
-                        'orderedList',
-                        'redo',
-                        'strike',
-                        'underline',
-                        'undo',
-                    ])
-                ->columnSpanFull(),
+                TinyEditor::make('description')
+                    ->fileAttachmentsDisk('public')
+                    ->fileAttachmentsVisibility('public')
+                    ->fileAttachmentsDirectory('products')
+                    ->profile('default')
+                    ->direction('auto')
+                    ->columnSpanFull()
+                    ->nullable(),
                 Textarea::make('short_description')->nullable()->columnSpanFull(),
                 Select::make('status')->options(['active' => 'Active','inactive' => 'Inactive'])->default('active'),
                 Select::make('category_id')->relationship('category', 'name')->required(),
