@@ -45,7 +45,6 @@ class TourResource extends Resource
                         'bold',
                         'bulletList',
                         'codeBlock',
-                        'h1',
                         'h2',
                         'h3',
                         'italic',
@@ -53,11 +52,8 @@ class TourResource extends Resource
                         'orderedList',
                         'redo',
                         'strike',
-                        'subscript',
-                        'superscript',
-                        'table',
                         'underline',
-                        'undo'
+                        'undo',
                     ])
                     ->columnSpanFull(),
                 Textarea::make('short_description')->nullable(),
