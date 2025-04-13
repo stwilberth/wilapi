@@ -28,3 +28,13 @@ Route::get('/services', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
+
+Route::get('/clear-cache', function() {
+    Artisan::call('cache:clear');
+    Artisan::call('config:clear');
+    Artisan::call('view:clear');
+    Artisan::call('optimize:clear');
+    
+    return "Cache, config, views and optimization cleared successfully!";
+});
+
