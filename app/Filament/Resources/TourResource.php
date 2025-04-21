@@ -20,6 +20,8 @@ use Filament\Tables\Filters\SelectFilter;
 use App\Filament\Traits\HasCompanyField;
 use Illuminate\Support\Facades\Storage;
 use Filament\Forms\Components\Repeater;
+// Ensure the Intervention Image facade is imported
+use Intervention\Image\Facades\Image;
 
 class TourResource extends Resource
 {
