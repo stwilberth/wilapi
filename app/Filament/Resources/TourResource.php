@@ -66,31 +66,13 @@ class TourResource extends Resource
                     ->schema([
                         FileUpload::make('path')
                             ->image()
-                            ->imageEditor()
                             ->disk('public')
-                            ->directory(fn (Forms\Get $get) => 'tours/' . $get('company_id') . '/additional/thumbnail')
-                            ->preserveFilenames()
-                            ->imageResizeMode('cover')
-                            ->imageResizeTargetWidth('300') // Smaller width for thumbnail
-                            ->imageCompressionQuality(60) // Lower quality to reduce file size
-                            ->afterStateUpdated(function ($state, Forms\Set $set, Forms\Get $get) {
-                                if ($state instanceof \Illuminate\Http\UploadedFile) {
-                                    $companyId = $get('company_id') ?? 'unknown';
-                                    $filename = $state->getClientOriginalName();
-                                    $originalPath = "tours/{$companyId}/additional/original/{$filename}";
-
-                                    // Store original image
-                                    $state->storeAs('public', $originalPath);
-
-                                    // Save thumbnail path to database
-                                    $set('path', $originalPath);
-                                }
-                            }),
+                            ->directory(fn (Forms\Get $get) => 'tours/' . $get('company_id') . '/additional'),
                         TextInput::make('name')->required(),
                     ])
-                    ->collapsible()
-                    ->defaultItems(0)
-                    ->columnSpanFull()
+                ->collapsible()
+                ->defaultItems(0)
+                ->columnSpanFull()
             ]);
     }
 
