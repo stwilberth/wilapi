@@ -78,7 +78,7 @@ class TourResource extends Resource
                                 $state->storeAs("public", $originalPath);
 
                                 // Crear una miniatura
-                                $image = \Intervention\Image\Facades\Image::make(Storage::path("public/{$originalPath}"));
+                                $image = Image::make(Storage::path("public/{$originalPath}"));
                                 $image->resize(300, null, function ($constraint) {
                                     $constraint->aspectRatio();
                                     $constraint->upsize();
