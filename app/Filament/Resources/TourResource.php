@@ -9,16 +9,13 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Validation\Rule;
 use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\Repeater;
 use AmidEsfahani\FilamentTinyEditor\TinyEditor;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Select;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Filters\SelectFilter;
 use App\Filament\Traits\HasCompanyField;
 use Illuminate\Support\Facades\Storage;
@@ -60,47 +57,20 @@ class TourResource extends Resource
                     ->disk('public')
                     ->directory(fn (Forms\Get $get) => 'tours/' . $get('company_id') . '/cover')
                     ->columnSpanFull(),
-                FileUpload::make('images')
+                Repeater::make('images')
                     ->label('Additional Images')
-                    ->multiple()
-                    ->image()
-                    ->imageEditor()
-                    ->maxFiles(10)
-                    ->disk('public')
-                    ->directory(fn (Forms\Get $get) => 'tours/' . $get('company_id') . '/additional')
-                    ->helperText('Seleccione múltiples imágenes a la vez')
+                    ->relationship()
+                    ->schema([
+                        FileUpload::make('path')
+                            ->image()
+                            ->imageEditor()
+                            ->disk('public')
+                            ->directory(fn (Forms\Get $get) => 'tours/' . $get('company_id') . '/additional'),
+                        TextInput::make('name')->required(),
+                    ])
+                    ->collapsible()
+                    ->defaultItems(0)
                     ->columnSpanFull()
-                    // Cargar las imágenes existentes cuando se edita un tour
-                    ->getUploadedFileUrlsUsing(fn (array $files): array => collect($files)
-                        ->map(fn (string $file): string => Storage::disk('public')->url($file))
-                        ->toArray())
-                    ->getUploadStateUsing(function ($record) {
-                        if (!$record) return [];
-                        return $record->images->pluck('path')->toArray();
-                    })
-                    ->saveRelationshipsUsing(function ($component, $record, array $state) {
-                        // Primero eliminamos las imágenes existentes que no están en el nuevo estado
-                        $existingImages = $record->images->pluck('path')->toArray();
-                        $newImages = $state;
-                        
-                        // Eliminar imágenes que ya no están en el estado
-                        foreach ($existingImages as $existingImage) {
-                            if (!in_array($existingImage, $newImages)) {
-                                $record->images()->where('path', $existingImage)->delete();
-                            }
-                        }
-                        
-                        // Agregar nuevas imágenes
-                        foreach ($state as $file) {
-                            // Verificar si la imagen ya existe para evitar duplicados
-                            if (!$record->images()->where('path', $file)->exists()) {
-                                $record->images()->create([
-                                    'path' => $file,
-                                    'name' => pathinfo($file, PATHINFO_FILENAME),
-                                ]);
-                            }
-                        }
-                    })
             ]);
     }
 
