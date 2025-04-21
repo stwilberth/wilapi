@@ -28,3 +28,14 @@ Route::get('/services', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
+
+//routs for the admin panel clear cache
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin/clear-cache', function () {
+        \Artisan::call('cache:clear');
+        \Artisan::call('config:cache');
+        \Artisan::call('view:clear');
+        \Artisan::call('route:clear');
+        return 'Cache cleared';
+    })->name('admin.clear-cache');
+});
