@@ -70,14 +70,28 @@ class TourResource extends Resource
                     ->helperText('Seleccione múltiples imágenes a la vez')
                     ->columnSpanFull()
                     ->saveRelationshipsUsing(function ($component, $record, array $state) {
+                        // Primero eliminamos las imágenes existentes que no están en el nuevo estado
+                        $existingImages = $record->images->pluck('path')->toArray();
+                        $newImages = $state;
+                        
+                        // Eliminar imágenes que ya no están en el estado
+                        foreach ($existingImages as $existingImage) {
+                            if (!in_array($existingImage, $newImages)) {
+                                $record->images()->where('path', $existingImage)->delete();
+                            }
+                        }
+                        
+                        // Agregar nuevas imágenes
                         foreach ($state as $file) {
-                            $record->images()->create([
-                                'path' => $file,
-                                'name' => pathinfo($file, PATHINFO_FILENAME),
-                            ]);
+                            // Verificar si la imagen ya existe para evitar duplicados
+                            if (!$record->images()->where('path', $file)->exists()) {
+                                $record->images()->create([
+                                    'path' => $file,
+                                    'name' => pathinfo($file, PATHINFO_FILENAME),
+                                ]);
+                            }
                         }
                     })
-                ->columnSpanFull()
             ]);
     }
 
