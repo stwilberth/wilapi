@@ -77,7 +77,6 @@ class TourResource extends Resource
                             ]);
                         }
                     })
-                    ->collapsible()
                 ->columnSpanFull()
             ]);
     }
