@@ -19,6 +19,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use App\Filament\Traits\HasCompanyField;
 use Illuminate\Support\Facades\Storage;
+use AmidEsfahani\FilamentRepeater\Repeater;
 
 class TourResource extends Resource
 {
