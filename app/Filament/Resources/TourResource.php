@@ -67,20 +67,24 @@ class TourResource extends Resource
                             ->imageEditor()
                             ->disk('public')
                             ->directory(fn (Forms\Get $get) => 'tours/' . ($get('id') ?? 'new') . '/additional')
-                            ->storeFileNamesUsing(function ($file, $record) {
+                            ->afterStateUpdated(function ($state, $set, $record) {
                                 $tourId = $record->id ?? 'new';
-                                $originalPath = $file->storeAs("public/tours/{$tourId}/original", $file->getClientOriginalName());
-                                $thumbnailPath = "public/tours/{$tourId}/thumbnail/" . $file->getClientOriginalName();
+                                $originalPath = "tours/{$tourId}/original/" . $state->getClientOriginalName();
+                                $thumbnailPath = "tours/{$tourId}/thumbnail/" . $state->getClientOriginalName();
 
-                                // Create a thumbnail version of the image
-                                $image = \Intervention\Image\Facades\Image::make(Storage::path($originalPath));
+                                // Almacenar el archivo original
+                                $state->storeAs("public", $originalPath);
+
+                                // Crear una miniatura
+                                $image = \Intervention\Image\Facades\Image::make(Storage::path("public/{$originalPath}"));
                                 $image->resize(300, null, function ($constraint) {
                                     $constraint->aspectRatio();
                                     $constraint->upsize();
                                 });
-                                $image->save(Storage::path($thumbnailPath));
+                                $image->save(Storage::path("public/{$thumbnailPath}"));
 
-                                return $originalPath; // Store the original path in the database
+                                // Actualizar el estado con la ruta del archivo original
+                                $set('path', $originalPath);
                             }),
                         TextInput::make('name')->required(),
                     ])
