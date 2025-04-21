@@ -59,18 +59,25 @@ class TourResource extends Resource
                     ->disk('public')
                     ->directory(fn (Forms\Get $get) => 'tours/' . $get('company_id') . '/cover')
                     ->columnSpanFull(),
-                Repeater::make('images')
+                FileUpload::make('images')
                     ->label('Additional Images')
-                    ->relationship()
-                    ->schema([
-                        FileUpload::make('path')
-                            ->image()
-                            ->disk('public')
-                            ->directory(fn (Forms\Get $get) => 'tours/' . $get('company_id') . '/additional'),
-                        TextInput::make('name')->required(),
-                    ])
-                ->collapsible()
-                ->defaultItems(0)
+                    ->multiple()
+                    ->image()
+                    ->imageEditor()
+                    ->maxFiles(10)
+                    ->disk('public')
+                    ->directory(fn (Forms\Get $get) => 'tours/' . $get('company_id') . '/additional')
+                    ->helperText('Seleccione múltiples imágenes a la vez')
+                    ->columnSpanFull()
+                    ->saveRelationshipsUsing(function ($component, $record, array $state) {
+                        foreach ($state as $file) {
+                            $record->images()->create([
+                                'path' => $file,
+                                'name' => pathinfo($file, PATHINFO_FILENAME),
+                            ]);
+                        }
+                    })
+                    ->collapsible()
                 ->columnSpanFull()
             ]);
     }
