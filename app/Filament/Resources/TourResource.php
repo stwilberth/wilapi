@@ -66,7 +66,22 @@ class TourResource extends Resource
                             ->image()
                             ->imageEditor()
                             ->disk('public')
-                            ->directory(fn (Forms\Get $get) => 'tours/' . $get('company_id') . '/additional'),
+                            ->directory(fn (Forms\Get $get) => 'tours/' . ($get('id') ?? 'new') . '/additional')
+                            ->storeFileNamesUsing(function ($file, $record) {
+                                $tourId = $record->id ?? 'new';
+                                $originalPath = $file->storeAs("public/tours/{$tourId}/original", $file->getClientOriginalName());
+                                $thumbnailPath = "public/tours/{$tourId}/thumbnail/" . $file->getClientOriginalName();
+
+                                // Create a thumbnail version of the image
+                                $image = \Intervention\Image\Facades\Image::make(Storage::path($originalPath));
+                                $image->resize(300, null, function ($constraint) {
+                                    $constraint->aspectRatio();
+                                    $constraint->upsize();
+                                });
+                                $image->save(Storage::path($thumbnailPath));
+
+                                return $originalPath; // Store the original path in the database
+                            }),
                         TextInput::make('name')->required(),
                     ])
                     ->collapsible()
