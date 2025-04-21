@@ -169,7 +169,6 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\Filament\PanelPanelProvider::class,
         App\Providers\RouteServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class,
     ])->toArray(),
 
     /*
