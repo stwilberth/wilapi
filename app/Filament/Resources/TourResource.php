@@ -58,7 +58,7 @@ class TourResource extends Resource
                     ->disk('public')
                     ->directory(fn (Forms\Get $get) => 'tours/' . $get('company_id') . '/cover')
                     ->columnSpanFull(),
-                Repeater::make('images')
+                    Repeater::make('images')
                     ->label('Additional Images')
                     ->relationship()
                     ->schema([
@@ -66,31 +66,9 @@ class TourResource extends Resource
                             ->image()
                             ->imageEditor()
                             ->disk('public')
-                            ->directory(fn (Forms\Get $get) => 'tours/' . ($get('id') ?? 'new') . '/additional')
-                            ->afterStateUpdated(function ($state, $set, $record) {
-                                $tourId = $record->id ?? 'new';
-                                $originalPath = "tours/{$tourId}/original/" . $state->getClientOriginalName();
-                                $thumbnailPath = "tours/{$tourId}/thumbnail/" . $state->getClientOriginalName();
-
-                                // Almacenar el archivo original
-                                $state->storeAs("public", $originalPath);
-
-                                // Crear una miniatura
-                                $image = Image::make(Storage::path("public/{$originalPath}"));
-                                $image->resize(300, null, function ($constraint) {
-                                    $constraint->aspectRatio();
-                                    $constraint->upsize();
-                                });
-                                $image->save(Storage::path("public/{$thumbnailPath}"));
-
-                                // Actualizar el estado con la ruta del archivo original
-                                $set('path', $originalPath);
-                            }),
+                            ->directory(fn (Forms\Get $get) => 'tours/' . $get('company_id') . '/additional'),
                         TextInput::make('name')->required(),
                     ])
-                    ->collapsible()
-                    ->defaultItems(0)
-                    ->columnSpanFull()
             ]);
     }
 
