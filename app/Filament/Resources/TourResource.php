@@ -71,7 +71,9 @@ class TourResource extends Resource
                     ->helperText('Seleccione múltiples imágenes a la vez')
                     ->columnSpanFull()
                     // Cargar las imágenes existentes cuando se edita un tour
-                    ->getUploadedFileUrlUsing(fn (string $file): string => Storage::disk('public')->url($file))
+                    ->getUploadedFileUrlsUsing(fn (array $files): array => collect($files)
+                        ->map(fn (string $file): string => Storage::disk('public')->url($file))
+                        ->toArray())
                     ->getUploadStateUsing(function ($record) {
                         if (!$record) return [];
                         return $record->images->pluck('path')->toArray();
