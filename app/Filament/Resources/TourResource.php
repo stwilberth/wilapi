@@ -21,6 +21,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ToggleColumn;
 use Filament\Tables\Filters\SelectFilter;
 use App\Filament\Traits\HasCompanyField;
+use Illuminate\Support\Facades\Storage;
 
 class TourResource extends Resource
 {
@@ -69,6 +70,12 @@ class TourResource extends Resource
                     ->directory(fn (Forms\Get $get) => 'tours/' . $get('company_id') . '/additional')
                     ->helperText('Seleccione múltiples imágenes a la vez')
                     ->columnSpanFull()
+                    // Cargar las imágenes existentes cuando se edita un tour
+                    ->getUploadedFileUrlUsing(fn (string $file): string => Storage::disk('public')->url($file))
+                    ->getUploadStateUsing(function ($record) {
+                        if (!$record) return [];
+                        return $record->images->pluck('path')->toArray();
+                    })
                     ->saveRelationshipsUsing(function ($component, $record, array $state) {
                         // Primero eliminamos las imágenes existentes que no están en el nuevo estado
                         $existingImages = $record->images->pluck('path')->toArray();
