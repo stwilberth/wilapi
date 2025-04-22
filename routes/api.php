@@ -9,6 +9,7 @@ use App\Http\Controllers\RoomController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AccommodationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,3 +54,7 @@ Route::get('/categories/{slug}', [CategoryController::class, 'show']);
 // Brands
 Route::get('/brands', [BrandController::class, 'index']);
 Route::get('/brands/{slug}', [BrandController::class, 'show']);
+
+// Accommodations
+Route::get('/accommodations-company/{id}', [AccommodationController::class, 'filterByCompany']);
+Route::get('/accommodations/{company_id}/{slug}', [AccommodationController::class, 'show']);
