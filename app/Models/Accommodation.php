@@ -22,6 +22,17 @@ class Accommodation extends Model
         'company_id',
         'cover_image',
     ];
+    
+    protected static function boot()
+    {
+        parent::boot();
+        
+        static::creating(function ($accommodation) {
+            if (!$accommodation->company_id && auth()->check()) {
+                $accommodation->company_id = auth()->user()->company_id;
+            }
+        });
+    }
 
     public function company()
     {

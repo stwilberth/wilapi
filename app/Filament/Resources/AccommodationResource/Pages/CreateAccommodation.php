@@ -15,6 +15,11 @@ class CreateAccommodation extends CreateRecord
     {
         $data['slug'] = Str::slug($data['name']);
         
+        // Asegurar que company_id esté establecido para usuarios no administradores
+        if (!isset($data['company_id']) && auth()->check()) {
+            $data['company_id'] = auth()->user()->company_id;
+        }
+        
         return $data;
     }
 

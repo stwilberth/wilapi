@@ -62,7 +62,7 @@ class AccommodationResource extends Resource
                 TextInput::make('phone')->nullable(),
                 TextInput::make('email')->email()->nullable(),
                 TextInput::make('website')->url()->nullable(),
-                ...static::getCompanyField(),
+                ...static::getCompanyField(), // Asegura que company_id sea requerido
                 FileUpload::make('cover_image')
                     ->label('Cover Image')
                     ->image()
