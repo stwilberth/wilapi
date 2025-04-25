@@ -25,6 +25,21 @@ class LocationResource extends Resource
     {
         return $form
             ->schema([
+                // Campo oculto para manejar la relación jerárquica correctamente
+                TextInput::make('country_id')
+                    ->hidden()
+                    ->dehydrated(false)
+                    ->afterStateHydrated(function (Set $set, Get $get, $record) {
+                        if ($record && $record->type === 'place' && $record->parent && $record->parent->parent) {
+                            $set('country_id', $record->parent->parent_id);
+                        } elseif ($record && $record->type === 'place' && $record->parent) {
+                            // Buscar el país (parent del parent)
+                            $province = Location::find($record->parent_id);
+                            if ($province && $province->parent_id) {
+                                $set('country_id', $province->parent_id);
+                            }
+                        }
+                    }),
                 TextInput::make('name')
                     ->required()
                     ->maxLength(255)
@@ -63,9 +78,9 @@ class LocationResource extends Resource
                 Select::make('province_id')
                     ->label('Provincia')
                     ->options(function (Get $get) {
-                        if ($get('type') === 'place' && $get('parent_id')) {
+                        if ($get('type') === 'place' && $get('country_id')) {
                             return Location::where('type', 'province')
-                                ->where('parent_id', $get('parent_id'))
+                                ->where('parent_id', $get('country_id'))
                                 ->pluck('name', 'id');
                         }
                         return [];
@@ -74,8 +89,13 @@ class LocationResource extends Resource
                     ->searchable()
                     ->preload()
                     ->live()
-                    ->afterStateUpdated(fn (Set $set, $state) => $set('parent_id', $state)),
-                Select::make('parent_id')
+                    ->afterStateUpdated(function (Set $set, $state) {
+                        // Solo actualizar parent_id sin afectar country_id
+                        if ($state) {
+                            $set('parent_id', $state);
+                        }
+                    }),
+                Select::make('country_id')
                     ->label('País (para lugares)')
                     ->options(function () {
                         return Location::where('type', 'country')->pluck('name', 'id');
@@ -84,7 +104,11 @@ class LocationResource extends Resource
                     ->searchable()
                     ->preload()
                     ->live()
-                    ->afterStateUpdated(fn (Set $set) => $set('province_id', null)),
+                    ->afterStateUpdated(function (Set $set, $state) {
+                        // Limpiar provincia al cambiar país
+                        $set('province_id', null);
+                        // No modificar parent_id aquí para evitar sobrescribir con el ID del país
+                    }),
             ]);
     }
 
