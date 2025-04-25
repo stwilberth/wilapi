@@ -21,6 +21,7 @@ class Location extends Model
         'country',
         'province',
         'parent_id',
+        'type',
     ];
     
     /**

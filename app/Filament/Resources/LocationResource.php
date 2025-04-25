@@ -5,8 +5,10 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\LocationResource\Pages;
 use App\Models\Location;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Get;
+use Filament\Forms\Set;
+use Illuminate\Support\Str;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -23,16 +25,66 @@ class LocationResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('name')->required()->maxLength(255),
-                TextInput::make('slug')->required()->unique(Location::class, 'slug')->maxLength(255),
-                Textarea::make('description')->nullable(),
-                TextInput::make('country')->nullable(),
-                TextInput::make('province')->nullable(),
+                TextInput::make('name')
+                    ->required()
+                    ->maxLength(255)
+                    ->live(onBlur: true)
+                    ->afterStateUpdated(function (Get $get, Set $set, ?string $state) {
+                        if (!$get('slug') || $get('slug') === '') {
+                            $set('slug', Str::slug($state));
+                        }
+                    }),
+                TextInput::make('slug')
+                    ->required()
+                    ->unique(Location::class, 'slug', ignoreRecord: true)
+                    ->maxLength(255),
+                Select::make('type')
+                    ->label('Tipo de ubicación')
+                    ->options([
+                        'country' => 'País',
+                        'province' => 'Provincia',
+                        'place' => 'Lugar',
+                    ])
+                    ->required()
+                    ->live()
+                    ->afterStateUpdated(fn (Set $set) => $set('parent_id', null)),
                 Select::make('parent_id')
-                    ->label('Ubicación padre')
-                    ->relationship('parent', 'name')
-                    ->nullable()
-                    ->searchable(),
+                    ->label('País')
+                    ->options(function (Get $get) {
+                        if ($get('type') === 'province') {
+                            return Location::where('type', 'country')->pluck('name', 'id');
+                        }
+                        return [];
+                    })
+                    ->visible(fn (Get $get): bool => $get('type') === 'province')
+                    ->searchable()
+                    ->preload()
+                    ->live(),
+                Select::make('province_id')
+                    ->label('Provincia')
+                    ->options(function (Get $get) {
+                        if ($get('type') === 'place' && $get('parent_id')) {
+                            return Location::where('type', 'province')
+                                ->where('parent_id', $get('parent_id'))
+                                ->pluck('name', 'id');
+                        }
+                        return [];
+                    })
+                    ->visible(fn (Get $get): bool => $get('type') === 'place')
+                    ->searchable()
+                    ->preload()
+                    ->live()
+                    ->afterStateUpdated(fn (Set $set, $state) => $set('parent_id', $state)),
+                Select::make('parent_id')
+                    ->label('País (para lugares)')
+                    ->options(function () {
+                        return Location::where('type', 'country')->pluck('name', 'id');
+                    })
+                    ->visible(fn (Get $get): bool => $get('type') === 'place')
+                    ->searchable()
+                    ->preload()
+                    ->live()
+                    ->afterStateUpdated(fn (Set $set) => $set('province_id', null)),
             ]);
     }
 
@@ -43,10 +95,17 @@ class LocationResource extends Resource
                 TextColumn::make('id')->sortable(),
                 TextColumn::make('name'),
                 TextColumn::make('slug'),
-                TextColumn::make('description'),
-                TextColumn::make('country'),
-                TextColumn::make('province'),
-                TextColumn::make('parent.name')->label('Ubicación padre'),
+                TextColumn::make('type')
+                    ->label('Tipo')
+                    ->formatStateUsing(fn (string $state): string => match ($state) {
+                        'country' => 'País',
+                        'province' => 'Provincia',
+                        'place' => 'Lugar',
+                        default => $state,
+                    }),
+                TextColumn::make('parent.name')
+                    ->label('Ubicación padre')
+                    ->placeholder('N/A'),
                 TextColumn::make('created_at')->dateTime(),
                 TextColumn::make('updated_at')->dateTime(),
             ])

@@ -21,14 +21,14 @@ class LocationSeeder extends Seeder
         
         // Array of countries (Central America + USA)
         $countries = [
-            ['id' => 1, 'name' => 'Costa Rica', 'slug' => 'costa-rica', 'country' => 'Costa Rica'],
-            ['id' => 2, 'name' => 'Panamá', 'slug' => 'panama', 'country' => 'Panamá'],
-            ['id' => 3, 'name' => 'Nicaragua', 'slug' => 'nicaragua', 'country' => 'Nicaragua'],
-            ['id' => 4, 'name' => 'Honduras', 'slug' => 'honduras', 'country' => 'Honduras'],
-            ['id' => 5, 'name' => 'El Salvador', 'slug' => 'el-salvador', 'country' => 'El Salvador'],
-            ['id' => 6, 'name' => 'Guatemala', 'slug' => 'guatemala', 'country' => 'Guatemala'],
-            ['id' => 7, 'name' => 'Belice', 'slug' => 'belice', 'country' => 'Belice'],
-            ['id' => 8, 'name' => 'Estados Unidos', 'slug' => 'estados-unidos', 'country' => 'Estados Unidos'],
+            ['id' => 1, 'name' => 'Costa Rica', 'slug' => 'costa-rica', 'country' => 'Costa Rica', 'type' => 'country'],
+            ['id' => 2, 'name' => 'Panamá', 'slug' => 'panama', 'country' => 'Panamá', 'type' => 'country'],
+            ['id' => 3, 'name' => 'Nicaragua', 'slug' => 'nicaragua', 'country' => 'Nicaragua', 'type' => 'country'],
+            ['id' => 4, 'name' => 'Honduras', 'slug' => 'honduras', 'country' => 'Honduras', 'type' => 'country'],
+            ['id' => 5, 'name' => 'El Salvador', 'slug' => 'el-salvador', 'country' => 'El Salvador', 'type' => 'country'],
+            ['id' => 6, 'name' => 'Guatemala', 'slug' => 'guatemala', 'country' => 'Guatemala', 'type' => 'country'],
+            ['id' => 7, 'name' => 'Belice', 'slug' => 'belice', 'country' => 'Belice', 'type' => 'country'],
+            ['id' => 8, 'name' => 'Estados Unidos', 'slug' => 'estados-unidos', 'country' => 'Estados Unidos', 'type' => 'country'],
         ];
         
         // Insert countries
@@ -39,13 +39,13 @@ class LocationSeeder extends Seeder
         // Array of provinces by country
         $provinces = [
             // Costa Rica provinces
-            ['name' => 'San José', 'slug' => 'san-jose', 'country' => 'Costa Rica', 'province' => 'San José', 'parent_id' => 1],
-            ['name' => 'Alajuela', 'slug' => 'alajuela', 'country' => 'Costa Rica', 'province' => 'Alajuela', 'parent_id' => 1],
-            ['name' => 'Cartago', 'slug' => 'cartago', 'country' => 'Costa Rica', 'province' => 'Cartago', 'parent_id' => 1],
-            ['name' => 'Heredia', 'slug' => 'heredia', 'country' => 'Costa Rica', 'province' => 'Heredia', 'parent_id' => 1],
-            ['name' => 'Guanacaste', 'slug' => 'guanacaste', 'country' => 'Costa Rica', 'province' => 'Guanacaste', 'parent_id' => 1],
-            ['name' => 'Puntarenas', 'slug' => 'puntarenas', 'country' => 'Costa Rica', 'province' => 'Puntarenas', 'parent_id' => 1],
-            ['name' => 'Limón', 'slug' => 'limon', 'country' => 'Costa Rica', 'province' => 'Limón', 'parent_id' => 1],
+            ['name' => 'San José', 'slug' => 'san-jose', 'country' => 'Costa Rica', 'province' => 'San José', 'parent_id' => 1, 'type' => 'province'],
+            ['name' => 'Alajuela', 'slug' => 'alajuela', 'country' => 'Costa Rica', 'province' => 'Alajuela', 'parent_id' => 1, 'type' => 'province'],
+            ['name' => 'Cartago', 'slug' => 'cartago', 'country' => 'Costa Rica', 'province' => 'Cartago', 'parent_id' => 1, 'type' => 'province'],
+            ['name' => 'Heredia', 'slug' => 'heredia', 'country' => 'Costa Rica', 'province' => 'Heredia', 'parent_id' => 1, 'type' => 'province'],
+            ['name' => 'Guanacaste', 'slug' => 'guanacaste', 'country' => 'Costa Rica', 'province' => 'Guanacaste', 'parent_id' => 1, 'type' => 'province'],
+            ['name' => 'Puntarenas', 'slug' => 'puntarenas', 'country' => 'Costa Rica', 'province' => 'Puntarenas', 'parent_id' => 1, 'type' => 'province'],
+            ['name' => 'Limón', 'slug' => 'limon', 'country' => 'Costa Rica', 'province' => 'Limón', 'parent_id' => 1, 'type' => 'province'],
             
             // Panamá provinces
             ['name' => 'Bocas del Toro', 'slug' => 'bocas-del-toro', 'country' => 'Panamá', 'province' => 'Bocas del Toro', 'parent_id' => 2],
@@ -98,10 +98,10 @@ class LocationSeeder extends Seeder
         // Array of tourist locations
         $touristLocations = [
             // Costa Rica tourist locations
-            ['name' => 'Volcán Arenal', 'slug' => 'volcan-arenal', 'description' => 'Uno de los volcanes más activos de Costa Rica', 'country' => 'Costa Rica', 'province' => 'Alajuela', 'parent_id' => 10],
-            ['name' => 'Manuel Antonio', 'slug' => 'manuel-antonio', 'description' => 'Parque nacional con hermosas playas', 'country' => 'Costa Rica', 'province' => 'Puntarenas', 'parent_id' => 14],
-            ['name' => 'Monteverde', 'slug' => 'monteverde', 'description' => 'Bosque nuboso con gran biodiversidad', 'country' => 'Costa Rica', 'province' => 'Puntarenas', 'parent_id' => 14],
-            ['name' => 'Tamarindo', 'slug' => 'tamarindo', 'description' => 'Popular destino de playa y surf', 'country' => 'Costa Rica', 'province' => 'Guanacaste', 'parent_id' => 13],
+            ['name' => 'Volcán Arenal', 'slug' => 'volcan-arenal', 'description' => 'Uno de los volcanes más activos de Costa Rica', 'country' => 'Costa Rica', 'province' => 'Alajuela', 'parent_id' => 10, 'type' => 'place'],
+            ['name' => 'Manuel Antonio', 'slug' => 'manuel-antonio', 'description' => 'Parque nacional con hermosas playas', 'country' => 'Costa Rica', 'province' => 'Puntarenas', 'parent_id' => 14, 'type' => 'place'],
+            ['name' => 'Monteverde', 'slug' => 'monteverde', 'description' => 'Bosque nuboso con gran biodiversidad', 'country' => 'Costa Rica', 'province' => 'Puntarenas', 'parent_id' => 14, 'type' => 'place'],
+            ['name' => 'Tamarindo', 'slug' => 'tamarindo', 'description' => 'Popular destino de playa y surf', 'country' => 'Costa Rica', 'province' => 'Guanacaste', 'parent_id' => 13, 'type' => 'place'],
             
             // Panamá tourist locations
             ['name' => 'Casco Viejo', 'slug' => 'casco-viejo', 'description' => 'Centro histórico de la Ciudad de Panamá', 'country' => 'Panamá', 'province' => 'Panamá', 'parent_id' => 24],
@@ -143,12 +143,12 @@ class LocationSeeder extends Seeder
         
         // Preserve existing locations if needed
         $existingLocations = [
-            ['id' => 100, 'name' => 'Corcovado', 'slug' => 'corcovado', 'description' => 'Parque Nacional en Costa Rica', 'country' => 'Costa Rica', 'province' => 'Puntarenas', 'parent_id' => 14],
-            ['id' => 101, 'name' => 'Puerto Jiménez', 'slug' => 'puerto-jimenez', 'description' => 'Pueblo en la Península de Osa', 'country' => 'Costa Rica', 'province' => 'Puntarenas', 'parent_id' => 14],
-            ['id' => 102, 'name' => 'Drake', 'slug' => 'drake', 'description' => 'Bahía Drake en la Península de Osa', 'country' => 'Costa Rica', 'province' => 'Puntarenas', 'parent_id' => 14],
-            ['id' => 103, 'name' => 'Rio Tigre', 'slug' => 'rio-tigre', 'description' => 'Río en la Península de Osa', 'country' => 'Costa Rica', 'province' => 'Puntarenas', 'parent_id' => 14],
-            ['id' => 104, 'name' => 'Isla Tortuga', 'slug' => 'isla-tortuga', 'description' => 'Isla en el Golfo de Nicoya', 'country' => 'Costa Rica', 'province' => 'Puntarenas', 'parent_id' => 14],
-            ['id' => 105, 'name' => 'Fortuna', 'slug' => 'fortuna', 'description' => 'Fortuna de San Carlos', 'country' => 'Costa Rica', 'province' => 'Alajuela', 'parent_id' => 10],
+            ['id' => 100, 'name' => 'Corcovado', 'slug' => 'corcovado', 'description' => 'Parque Nacional en Costa Rica', 'country' => 'Costa Rica', 'province' => 'Puntarenas', 'parent_id' => 14, 'type' => 'place'],
+            ['id' => 101, 'name' => 'Puerto Jiménez', 'slug' => 'puerto-jimenez', 'description' => 'Pueblo en la Península de Osa', 'country' => 'Costa Rica', 'province' => 'Puntarenas', 'parent_id' => 14, 'type' => 'place'],
+            ['id' => 102, 'name' => 'Drake', 'slug' => 'drake', 'description' => 'Bahía Drake en la Península de Osa', 'country' => 'Costa Rica', 'province' => 'Puntarenas', 'parent_id' => 14, 'type' => 'place'],
+            ['id' => 103, 'name' => 'Rio Tigre', 'slug' => 'rio-tigre', 'description' => 'Río en la Península de Osa', 'country' => 'Costa Rica', 'province' => 'Puntarenas', 'parent_id' => 14, 'type' => 'place'],
+            ['id' => 104, 'name' => 'Isla Tortuga', 'slug' => 'isla-tortuga', 'description' => 'Isla en el Golfo de Nicoya', 'country' => 'Costa Rica', 'province' => 'Puntarenas', 'parent_id' => 14, 'type' => 'place'],
+            ['id' => 105, 'name' => 'Fortuna', 'slug' => 'fortuna', 'description' => 'Fortuna de San Carlos', 'country' => 'Costa Rica', 'province' => 'Alajuela', 'parent_id' => 10, 'type' => 'place'],
         ];
         
         // Insert or update existing locations
