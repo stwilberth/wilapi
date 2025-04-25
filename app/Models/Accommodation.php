@@ -20,8 +20,14 @@ class Accommodation extends Model
         'website',
         'status', //Select::make('status')->options(['draft' => 'Draft','published' => 'Published','archived' => 'Archived'])->default('draft'),
         'company_id',
+        'location_id',
         'cover_image',
     ];
+    
+    public function location()
+    {
+        return $this->belongsTo(Location::class);
+    }
     
     protected static function boot()
     {

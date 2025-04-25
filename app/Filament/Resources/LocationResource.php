@@ -6,6 +6,7 @@ use App\Filament\Resources\LocationResource\Pages;
 use App\Models\Location;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\Select;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -25,6 +26,13 @@ class LocationResource extends Resource
                 TextInput::make('name')->required()->maxLength(255),
                 TextInput::make('slug')->required()->unique(Location::class, 'slug')->maxLength(255),
                 Textarea::make('description')->nullable(),
+                TextInput::make('country')->nullable(),
+                TextInput::make('province')->nullable(),
+                Select::make('parent_id')
+                    ->label('Ubicación padre')
+                    ->relationship('parent', 'name')
+                    ->nullable()
+                    ->searchable(),
             ]);
     }
 
@@ -36,6 +44,9 @@ class LocationResource extends Resource
                 TextColumn::make('name'),
                 TextColumn::make('slug'),
                 TextColumn::make('description'),
+                TextColumn::make('country'),
+                TextColumn::make('province'),
+                TextColumn::make('parent.name')->label('Ubicación padre'),
                 TextColumn::make('created_at')->dateTime(),
                 TextColumn::make('updated_at')->dateTime(),
             ])

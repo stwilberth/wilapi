@@ -18,5 +18,24 @@ class Location extends Model
         'name',
         'slug',
         'description',
+        'country',
+        'province',
+        'parent_id',
     ];
+    
+    /**
+     * Get the parent location
+     */
+    public function parent()
+    {
+        return $this->belongsTo(Location::class, 'parent_id');
+    }
+    
+    /**
+     * Get the child locations
+     */
+    public function children()
+    {
+        return $this->hasMany(Location::class, 'parent_id');
+    }
 }

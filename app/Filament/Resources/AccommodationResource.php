@@ -39,11 +39,27 @@ class AccommodationResource extends Resource
                 Select::make('type')
                     ->options([
                         'hotel' => 'Hotel',
-                        'hostel' => 'Hostel',
-                        'apartment' => 'Apartment',
-                        'cabin' => 'Cabin',
+                        'hostel' => 'Hostal',
+                        'motel' => 'Motel',
+                        'apartment' => 'Apartamento',
+                        'cabin' => 'Cabaña',
+                        'villa' => 'Villa',
+                        'cottage' => 'Casa de Campo',
+                        'condo' => 'Condominio',
                         'resort' => 'Resort',
-                        'other' => 'Other'
+                        'glamping' => 'Glamping',
+                        'camping' => 'Camping',
+                        'lodge' => 'Lodge',
+                        'bed_breakfast' => 'Bed & Breakfast',
+                        'guest_house' => 'Casa de Huéspedes',
+                        'boutique_hotel' => 'Hotel Boutique',
+                        'vacation_home' => 'Casa Vacacional',
+                        'eco_lodge' => 'Eco Lodge',
+                        'mountain_refuge' => 'Refugio de Montaña',
+                        'beach_house' => 'Casa de Playa',
+                        'pension' => 'Pensión',
+                        'all_inclusive' => 'Resort Todo Incluido',
+                        'other' => 'Otro'
                     ])
                     ->required(),
                 Select::make('status')
@@ -63,6 +79,12 @@ class AccommodationResource extends Resource
                 TextInput::make('email')->email()->nullable(),
                 TextInput::make('website')->url()->nullable(),
                 ...static::getCompanyField(), // Asegura que company_id sea requerido
+                Select::make('location_id')
+                    ->relationship('location', 'name')
+                    ->searchable()
+                    ->preload()
+                    ->label('Ubicación')
+                    ->nullable(),
                 FileUpload::make('cover_image')
                     ->label('Cover Image')
                     ->image()
@@ -102,6 +124,7 @@ class AccommodationResource extends Resource
                         'archived' => 'danger',
                     }),
                 TextColumn::make('company.name')->label('Company'),
+                TextColumn::make('location.name')->label('Ubicación'),
             ])
             ->filters([
                 // Solo mostrar el filtro de compañía para usuarios administradores
@@ -120,7 +143,12 @@ class AccommodationResource extends Resource
                         'cabin' => 'Cabin',
                         'resort' => 'Resort',
                         'other' => 'Other'
-                    ])
+                    ]),
+                SelectFilter::make('location_id')
+                    ->relationship('location', 'name')
+                    ->label('Ubicación')
+                    ->searchable()
+                    ->preload()
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
