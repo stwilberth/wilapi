@@ -16,11 +16,4 @@ class EditCountry extends EditRecord
             Actions\DeleteAction::make(),
         ];
     }
-    
-    protected function mutateFormDataBeforeSave(array $data): array
-    {
-        $data['type'] = 'country';
-        
-        return $data;
-    }
 }

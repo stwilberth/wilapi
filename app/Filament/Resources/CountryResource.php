@@ -3,57 +3,36 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\CountryResource\Pages;
-use App\Models\Location;
-use Filament\Forms\Components\TextInput;
+use App\Models\Country; // Asegúrate que usa el modelo correcto
+use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Tables\Table;
 use Filament\Tables;
-use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Table;
 use Illuminate\Support\Str;
 use Filament\Forms\Set;
 use Filament\Forms\Get;
 
 class CountryResource extends Resource
 {
-    protected static ?string $model = Location::class;
+    protected static ?string $model = Country::class; // Modelo correcto
 
     protected static ?string $navigationIcon = 'heroicon-o-globe-alt';
-    
-    protected static ?string $navigationLabel = 'Países';
-    
-    protected static ?string $modelLabel = 'País';
-    
-    protected static ?string $pluralModelLabel = 'Países';
-    
-    protected static ?int $navigationSort = 1;
-
-    public static function getEloquentQuery(): \Illuminate\Database\Eloquent\Builder
-    {
-        return parent::getEloquentQuery()->where('type', 'country');
-    }
+    protected static ?string $navigationGroup = 'Locations'; // Agrupar en el menú
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                TextInput::make('name')
-                    ->label('Nombre')
+                Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255)
                     ->live(onBlur: true)
-                    ->afterStateUpdated(function (Get $get, Set $set, ?string $state) {
-                        if (!$get('slug') || $get('slug') === '') {
-                            $set('slug', Str::slug($state));
-                        }
-                    }),
-                TextInput::make('slug')
+                    ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state))),
+                Forms\Components\TextInput::make('slug')
                     ->required()
-                    ->unique(Location::class, 'slug', ignoreRecord: true)
+                    ->unique(Country::class, 'slug', ignoreRecord: true) // Validar unicidad en la tabla correcta
                     ->maxLength(255),
-                TextInput::make('type')
-                    ->default('country')
-                    ->hidden(),
             ]);
     }
 
@@ -61,21 +40,18 @@ class CountryResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('id')->sortable(),
-                TextColumn::make('name')
-                    ->label('Nombre')
-                    ->searchable(),
-                TextColumn::make('slug'),
-                TextColumn::make('created_at')
-                    ->label('Fecha de creación')
-                    ->dateTime()
-                    ->sortable(),
+                Tables\Columns\TextColumn::make('id')->sortable(),
+                Tables\Columns\TextColumn::make('name')->searchable()->sortable(),
+                Tables\Columns\TextColumn::make('slug'),
+                Tables\Columns\TextColumn::make('created_at')->dateTime()->sortable()->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('updated_at')->dateTime()->sortable()->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(), // Añadir acción de borrar si es necesario
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -87,7 +63,7 @@ class CountryResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            // Puedes definir relaciones aquí si es necesario, por ejemplo, para ver provincias
         ];
     }
 

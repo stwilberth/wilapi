@@ -9,11 +9,4 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateCountry extends CreateRecord
 {
     protected static string $resource = CountryResource::class;
-    
-    protected function mutateFormDataBeforeCreate(array $data): array
-    {
-        $data['type'] = 'country';
-        
-        return $data;
-    }
 }

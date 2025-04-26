@@ -12,14 +12,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        // Elimina o comenta la llamada al LocationSeeder antiguo
+        // $this->call(LocationSeeder::class);
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-        
+        // Llama a los nuevos seeders en orden
         $this->call([
-            LocationSeeder::class,
+            CountrySeeder::class,
+            ProvinceSeeder::class,
+            PlaceSeeder::class,
+            // Llama a otros seeders que necesites aquí
+            // UserSeeder::class,
+            // CategorySeeder::class,
+            // ...
         ]);
+    }
 }

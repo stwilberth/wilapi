@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\CountryResource\Pages;
+namespace App\Filament\Resources\PlaceResource\Pages;
 
-use App\Filament\Resources\CountryResource;
+use App\Filament\Resources\PlaceResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 
-class ListCountries extends ListRecords
+class ListPlaces extends ListRecords
 {
-    protected static string $resource = CountryResource::class;
+    protected static string $resource = PlaceResource::class;
 
     protected function getHeaderActions(): array
     {
