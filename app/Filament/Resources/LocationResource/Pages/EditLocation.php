@@ -20,6 +20,21 @@ class EditLocation extends EditRecord
             $data['parent_id'] = $data['country_id'];
         }
         
+        // Guardar los IDs de país y provincia en los campos correspondientes
+        if (isset($data['country_id'])) {
+            $country = \App\Models\Location::find($data['country_id']);
+            if ($country) {
+                $data['country'] = $country->name;
+            }
+        }
+        
+        if (isset($data['province_id'])) {
+            $province = \App\Models\Location::find($data['province_id']);
+            if ($province) {
+                $data['province'] = $province->name;
+            }
+        }
+        
         return $data;
     }
 
