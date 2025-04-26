@@ -78,12 +78,7 @@ class AccommodationResource extends Resource
                 TextInput::make('email')->email()->nullable(),
                 TextInput::make('website')->url()->nullable(),
                 ...static::getCompanyField(), // Asegura que company_id sea requerido
-                SelectFilter::make('place_id')
-                    ->relationship('place', 'name')
-                    ->searchable()
-                    ->preload()
-                    ->label('Lugar')
-                    ->nullable(),
+                Select::make('place_id')->relationship('place', 'name')->label('Place')->nullable(),
                 FileUpload::make('cover_image')
                     ->label('Cover Image')
                     ->image()
