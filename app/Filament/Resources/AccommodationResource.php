@@ -18,9 +18,8 @@ use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use App\Filament\Traits\HasCompanyField;
-use Illuminate\Support\Facades\Storage;
 use Filament\Forms\Components\Repeater;
-use Intervention\Image\Facades\Image;
+
 
 class AccommodationResource extends Resource
 {
@@ -68,7 +67,7 @@ class AccommodationResource extends Resource
                         'published' => 'Published',
                         'archived' => 'Archived'
                     ])
-                    ->default('draft'),
+                    ->default('published'),
                 TinyEditor::make('description')
                     ->profile('default')
                     ->direction('ltr')
@@ -79,7 +78,7 @@ class AccommodationResource extends Resource
                 TextInput::make('email')->email()->nullable(),
                 TextInput::make('website')->url()->nullable(),
                 ...static::getCompanyField(), // Asegura que company_id sea requerido
-                Select::make('place_id')
+                SelectFilter::make('place_id')
                     ->relationship('place', 'name')
                     ->searchable()
                     ->preload()
@@ -138,17 +137,28 @@ class AccommodationResource extends Resource
                 SelectFilter::make('type')
                     ->options([
                         'hotel' => 'Hotel',
-                        'hostel' => 'Hostel',
-                        'apartment' => 'Apartment',
-                        'cabin' => 'Cabin',
+                        'hostel' => 'Hostal',
+                        'motel' => 'Motel',
+                        'apartment' => 'Apartamento',
+                        'cabin' => 'Cabaña',
+                        'villa' => 'Villa',
+                        'cottage' => 'Casa de Campo',
+                        'condo' => 'Condominio',
                         'resort' => 'Resort',
-                        'other' => 'Other'
-                    ]),
-                SelectFilter::make('location_id')
-                    ->relationship('location', 'name')
-                    ->label('Ubicación')
-                    ->searchable()
-                    ->preload()
+                        'glamping' => 'Glamping',
+                        'camping' => 'Camping',
+                        'lodge' => 'Lodge',
+                        'bed_breakfast' => 'Bed & Breakfast',
+                        'guest_house' => 'Casa de Huéspedes',
+                        'boutique_hotel' => 'Hotel Boutique',
+                        'vacation_home' => 'Casa Vacacional',
+                        'eco_lodge' => 'Eco Lodge',
+                        'mountain_refuge' => 'Refugio de Montaña',
+                        'beach_house' => 'Casa de Playa',
+                        'pension' => 'Pensión',
+                        'all_inclusive' => 'Resort Todo Incluido',
+                        'other' => 'Otro'
+                    ])
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

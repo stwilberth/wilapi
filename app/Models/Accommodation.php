@@ -29,7 +29,6 @@ class Accommodation extends Model
         return $this->belongsTo(Place::class);
     }
     
-    // Eliminar el método location()
     protected static function boot()
     {
         parent::boot();
