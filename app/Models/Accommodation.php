@@ -24,7 +24,7 @@ class Accommodation extends Model
         'cover_image',
     ];
     
-    public function place()
+    public function place(): BelongsTo
     {
         return $this->belongsTo(Place::class);
     }
