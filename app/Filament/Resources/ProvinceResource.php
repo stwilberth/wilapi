@@ -2,36 +2,36 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\LocationResource\Pages;
+use App\Filament\Resources\ProvinceResource\Pages;
 use App\Models\Location;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Get;
-use Filament\Forms\Set;
-use Illuminate\Support\Str;
-use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables\Table;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
+use Illuminate\Support\Str;
+use Filament\Forms\Set;
+use Filament\Forms\Get;
 
-class LocationResource extends Resource
+class ProvinceResource extends Resource
 {
     protected static ?string $model = Location::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-map-pin';
+    protected static ?string $navigationIcon = 'heroicon-o-map';
     
-    protected static ?string $navigationLabel = 'Lugares';
+    protected static ?string $navigationLabel = 'Provincias';
     
-    protected static ?string $modelLabel = 'Lugar';
+    protected static ?string $modelLabel = 'Provincia';
     
-    protected static ?string $pluralModelLabel = 'Lugares';
+    protected static ?string $pluralModelLabel = 'Provincias';
     
-    protected static ?int $navigationSort = 3;
-    
+    protected static ?int $navigationSort = 2;
+
     public static function getEloquentQuery(): \Illuminate\Database\Eloquent\Builder
     {
-        return parent::getEloquentQuery()->where('type', 'place');
+        return parent::getEloquentQuery()->where('type', 'province');
     }
 
     public static function form(Form $form): Form
@@ -52,38 +52,14 @@ class LocationResource extends Resource
                     ->required()
                     ->unique(Location::class, 'slug', ignoreRecord: true)
                     ->maxLength(255),
-                Select::make('country_id')
+                Select::make('parent_id')
                     ->label('País')
                     ->options(Location::where('type', 'country')->pluck('name', 'id'))
                     ->required()
                     ->searchable()
-                    ->preload()
-                    ->live()
-                    ->afterStateUpdated(function (Set $set, $state) {
-                        // Limpiar provincia al cambiar país
-                        $set('province_id', null);
-                    }),
-                Select::make('province_id')
-                    ->label('Provincia')
-                    ->options(function (Get $get) {
-                        if ($get('country_id')) {
-                            return Location::where('type', 'province')
-                                ->where('parent_id', $get('country_id'))
-                                ->pluck('name', 'id');
-                        }
-                        return [];
-                    })
-                    ->searchable()
-                    ->preload()
-                    ->live()
-                    ->afterStateUpdated(function (Set $set, $state) {
-                        // Actualizar parent_id con la provincia seleccionada
-                        if ($state) {
-                            $set('parent_id', $state);
-                        }
-                    }),
+                    ->preload(),
                 TextInput::make('type')
-                    ->default('place')
+                    ->default('province')
                     ->hidden(),
             ]);
     }
@@ -96,13 +72,10 @@ class LocationResource extends Resource
                 TextColumn::make('name')
                     ->label('Nombre')
                     ->searchable(),
-                TextColumn::make('slug'),
                 TextColumn::make('parent.name')
-                    ->label('Provincia')
-                    ->placeholder('N/A'),
-                TextColumn::make('parent.parent.name')
                     ->label('País')
-                    ->placeholder('N/A'),
+                    ->searchable(),
+                TextColumn::make('slug'),
                 TextColumn::make('created_at')
                     ->label('Fecha de creación')
                     ->dateTime()
@@ -131,9 +104,9 @@ class LocationResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListLocations::route('/'),
-            'create' => Pages\CreateLocation::route('/create'),
-            'edit' => Pages\EditLocation::route('/{record}/edit'),
+            'index' => Pages\ListProvinces::route('/'),
+            'create' => Pages\CreateProvince::route('/create'),
+            'edit' => Pages\EditProvince::route('/{record}/edit'),
         ];
     }
 }

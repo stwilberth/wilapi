@@ -12,9 +12,12 @@ class CreateLocation extends CreateRecord
     
     protected function mutateFormDataBeforeCreate(array $data): array
     {
-        // Eliminar el campo country_id que no existe en el modelo
-        if (isset($data['country_id'])) {
-            unset($data['country_id']);
+        // Asegurar que el tipo sea 'place'
+        $data['type'] = 'place';
+        
+        // Si no hay provincia seleccionada, usar el país como parent_id
+        if (empty($data['province_id']) && isset($data['country_id'])) {
+            $data['parent_id'] = $data['country_id'];
         }
         
         return $data;
