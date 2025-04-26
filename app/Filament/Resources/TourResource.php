@@ -51,7 +51,7 @@ class TourResource extends Resource
                 Textarea::make('itinerary')->nullable(),
                 Textarea::make('before_booking')->nullable(),
                 ...static::getCompanyField(),
-                Select::make('location_id')->relationship('location', 'name'),
+                Select::make('place_id')->relationship('place', 'name')->label('Place')->nullable(),
                 FileUpload::make('cover_image')
                     ->label('Cover Image')
                     ->image()

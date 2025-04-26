@@ -18,17 +18,18 @@ class Accommodation extends Model
         'phone',
         'email',
         'website',
-        'status', //Select::make('status')->options(['draft' => 'Draft','published' => 'Published','archived' => 'Archived'])->default('draft'),
+        'status',
         'company_id',
-        'location_id',
+        'place_id', // Cambiado de location_id a place_id
         'cover_image',
     ];
     
-    public function location()
+    public function place()
     {
-        return $this->belongsTo(Location::class);
+        return $this->belongsTo(Place::class);
     }
     
+    // Eliminar el método location()
     protected static function boot()
     {
         parent::boot();

@@ -17,7 +17,7 @@ class Tour extends Model
 
     protected $fillable = [
         'company_id',
-        'location_id',
+        'place_id',
         'user_id',
         'name',
         'status',
@@ -92,9 +92,9 @@ class Tour extends Model
         return $this->belongsTo(Company::class);
     }
 
-    public function location(): BelongsTo
+    public function place(): BelongsTo
     {
-        return $this->belongsTo(Location::class);
+        return $this->belongsTo(Place::class);
     }
 
     public function user(): BelongsTo
