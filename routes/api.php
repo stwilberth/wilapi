@@ -57,4 +57,5 @@ Route::get('/brands/{slug}', [BrandController::class, 'show']);
 
 // Accommodations
 Route::get('/accommodations-company/{id}', [AccommodationController::class, 'filterByCompany']);
+Route::get('/accommodations-place/{id}', [AccommodationController::class, 'filterByPlace']);
 Route::get('/accommodations/{company_id}/{slug}', [AccommodationController::class, 'show']);
