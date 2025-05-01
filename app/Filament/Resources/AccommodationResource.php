@@ -102,6 +102,7 @@ class AccommodationResource extends Resource
                     ->columnSpanFull(),
                 
                 Repeater::make('youtube_links')
+                    ->relationship('youtubeLinks') // Add this line to specify the relationship
                     ->label('Videos de YouTube')
                     ->schema([
                         TextInput::make('url')
