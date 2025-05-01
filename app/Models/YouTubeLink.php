@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class YouTubeLink extends Model
 {
+    protected $table = 'youtube_links';
+
     protected $fillable = ['url', 'title'];
 
     public function youtubable(): MorphTo
