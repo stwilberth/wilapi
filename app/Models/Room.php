@@ -9,6 +9,10 @@ use Illuminate\Support\Str;
 
 class Room extends Model
 {
+    public function youtubeLinks()
+    {
+        return $this->morphMany(YouTubeLink::class, 'youtubable');
+    }
     use HasCompanyScope;
 
     protected $fillable = [

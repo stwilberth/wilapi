@@ -87,6 +87,21 @@ class RoomResource extends Resource
                         }),
                     TextInput::make('name')->required(),
                 ])->collapsible()->defaultItems(0)->columnSpanFull(),
+                
+                Repeater::make('youtube_links')
+                    ->label('Videos de YouTube')
+                    ->schema([
+                        TextInput::make('url')
+                            ->label('URL de YouTube')
+                            ->required()
+                            ->url(),
+                        TextInput::make('title')
+                            ->label('Título del video')
+                            ->required(),
+                    ])
+                    ->collapsible()
+                    ->defaultItems(0)
+                    ->columnSpanFull()
             ]);
     }
 

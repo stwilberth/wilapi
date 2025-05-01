@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Accommodation extends Model
 {
+    public function youtubeLinks()
+    {
+        return $this->morphMany(YouTubeLink::class, 'youtubable');
+    }
     use HasFactory;
 
     protected $fillable = [

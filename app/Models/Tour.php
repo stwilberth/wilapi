@@ -13,6 +13,10 @@ use App\Traits\HasCompanyScope;
 
 class Tour extends Model
 {
+    public function youtubeLinks()
+    {
+        return $this->morphMany(YouTubeLink::class, 'youtubable');
+    }
     use HasFactory, HasCompanyScope;
 
     protected $fillable = [
