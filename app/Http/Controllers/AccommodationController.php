@@ -10,7 +10,7 @@ class AccommodationController extends Controller
 {
     public function show($companyId, $slug)
     {
-        $accommodation = Accommodation::with(['images', 'place.province.country'])
+        $accommodation = Accommodation::with(['images', 'place.province.country', 'youtubeLinks'])
             ->where('company_id', $companyId)
             ->where('slug', $slug)
             ->firstOrFail();
@@ -20,7 +20,7 @@ class AccommodationController extends Controller
 
     public function filterByCompany($companyId)
     {
-        $accommodations = Accommodation::with(['images', 'place.province.country'])
+        $accommodations = Accommodation::with(['images', 'place.province.country', 'youtubeLinks'])
             ->where('company_id', $companyId)
             ->get();
         return response()->json($accommodations);
@@ -28,7 +28,7 @@ class AccommodationController extends Controller
 
     public function filterByPlace($placeId)
     {
-        $accommodations = Accommodation::with(['images', 'place.province.country'])
+        $accommodations = Accommodation::with(['images', 'place.province.country', 'youtubeLinks'])
             ->where('place_id', $placeId)
             ->get();
         return response()->json($accommodations);

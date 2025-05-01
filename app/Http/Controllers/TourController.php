@@ -11,14 +11,14 @@ class TourController extends Controller
 
     public function show($companyId, $slug)
     {
-        $tour = Tour::with('images')->where('company_id', $companyId)->where('slug', $slug)->firstOrFail();
+        $tour = Tour::with(['images', 'youtubeLinks'])->where('company_id', $companyId)->where('slug', $slug)->firstOrFail();
         return response()->json($tour);
     }
 
     //tour filter by company
     public function filterByCompany($companyId)
     {
-        $tours = Tour::where('company_id', $companyId)->get();
+        $tours = Tour::with(['images', 'youtubeLinks'])->where('company_id', $companyId)->get();
         return response()->json($tours);
     }
 }
