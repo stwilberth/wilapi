@@ -18,7 +18,10 @@ class TourController extends Controller
     //tour filter by company
     public function filterByCompany($companyId)
     {
-        $tours = Tour::with(['images', 'youtubeLinks'])->where('company_id', $companyId)->get();
+        $tours = Tour::with(['images', 'youtubeLinks'])
+            ->where('company_id', $companyId)
+            ->where('status', 'published')
+            ->get();
         return response()->json($tours);
     }
 }
