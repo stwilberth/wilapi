@@ -81,8 +81,8 @@ class ProductResource extends Resource
                         })
                 ])->columnSpanFull(),
                 TinyEditor::make('description')
-                    ->fileAttachmentsDisk('public')
-                    ->fileAttachmentsVisibility('public')
+                    ->fileAttachmentsDisk('r2')
+                    ->fileAttachmentsVisibility('r2')
                     ->fileAttachmentsDirectory('products')
                     ->profile('default')
                     ->direction('auto')
@@ -98,7 +98,7 @@ class ProductResource extends Resource
                     ->imageEditor()
                     ->imageEditorMode(1)
                     ->directory(fn (Forms\Get $get) => 'products/' . $get('company_id'))
-                    ->disk('public')
+                    ->disk('r2')
                     ->columnSpanFull(),
                 Repeater::make('images')
                     ->label('Additional Images')
@@ -106,7 +106,7 @@ class ProductResource extends Resource
                     ->schema([
                         FileUpload::make('path')
                             ->image()
-                            ->disk('public')
+                            ->disk('r2')
                             ->directory(fn (Forms\Get $get) => 'products/' . $get('company_id') . '/additional'),
                         TextInput::make('name')->required(),
                     ])
