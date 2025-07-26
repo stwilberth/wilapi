@@ -4,13 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\TourDate;
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 
 class TourDateController extends Controller
 {
-    public function index(Request $request)
+    /**
+     * Get all tour dates with optional filtering
+     *
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function index(Request $request): JsonResponse
     {
         $query = TourDate::with('tour', 'company');
-
+        
         if ($request->has('company_id')) {
             $query->where('company_id', $request->company_id);
         }
@@ -20,6 +27,36 @@ class TourDateController extends Controller
         }
 
         $tourDates = $query->get();
+
+        return response()->json($tourDates);
+    }
+
+    /**
+     * Get tour dates by company ID
+     *
+     * @param int $companyId
+     * @return JsonResponse
+     */
+    public function getByCompany(int $companyId): JsonResponse
+    {
+        $tourDates = TourDate::with('tour', 'company')
+            ->where('company_id', $companyId)
+            ->get();
+
+        return response()->json($tourDates);
+    }
+
+    /**
+     * Get tour dates by tour ID
+     *
+     * @param int $tourId
+     * @return JsonResponse
+     */
+    public function getByTour(int $tourId): JsonResponse
+    {
+        $tourDates = TourDate::with('tour', 'company')
+            ->where('tour_id', $tourId)
+            ->get();
 
         return response()->json($tourDates);
     }
