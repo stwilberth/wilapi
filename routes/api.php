@@ -10,6 +10,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AccommodationController;
+use App\Http\Controllers\Api\TourDateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,3 +60,11 @@ Route::get('/brands/{slug}', [BrandController::class, 'show']);
 Route::get('/accommodations-company/{id}', [AccommodationController::class, 'filterByCompany']);
 Route::get('/accommodations-place/{id}', [AccommodationController::class, 'filterByPlace']);
 Route::get('/accommodations/{company_id}/{slug}', [AccommodationController::class, 'show']);
+
+// Tour Dates
+Route::get('/tour-dates', [TourDateController::class, 'index']);
+
+// Restaurants
+Route::get('/restaurants-company/{id}', [App\Http\Controllers\Api\RestaurantController::class, 'filterByCompany']);
+Route::get('/restaurants-place/{id}', [App\Http\Controllers\Api\RestaurantController::class, 'filterByPlace']);
+Route::get('/restaurants/{company_id}/{slug}', [App\Http\Controllers\Api\RestaurantController::class, 'show']);

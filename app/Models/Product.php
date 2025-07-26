@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 use App\Traits\HasCompanyScope;
 
 class Product extends Model
@@ -23,18 +24,26 @@ class Product extends Model
         parent::boot();
 
         static::creating(function ($product) {
-            $baseSlug = Str::slug($product->name);
-            $slug = $baseSlug;
-            $counter = 1;
-
-            // Check if slug exists for the same company
-            while (static::where('company_id', $product->company_id)
-                ->where('slug', $slug)
-                ->exists()) {
-                $slug = $baseSlug . '-' . $counter++;
+            // Asignar user_id del usuario autenticado
+            if (!$product->isDirty('user_id') && Auth::check()) {
+                $product->user_id = Auth::id();
             }
 
-            $product->slug = $slug;
+            // Generar slug a partir del nombre si no está definido
+            if (!$product->isDirty('slug') && $product->name) {
+                $baseSlug = Str::slug($product->name);
+                $slug = $baseSlug;
+                $counter = 1;
+
+                // Verificar unicidad del slug para la misma compañía
+                while (static::where('company_id', $product->company_id)
+                    ->where('slug', $slug)
+                    ->exists()) {
+                    $slug = $baseSlug . '-' . $counter++;
+                }
+
+                $product->slug = $slug;
+            }
         });
 
         static::updating(function ($product) {

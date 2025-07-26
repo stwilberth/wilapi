@@ -34,6 +34,13 @@ class ProductResource extends Resource
         return $form
             ->schema([
                 TextInput::make('name')->required()->maxLength(255),
+                TextInput::make('price')
+                    ->required()
+                    ->numeric()
+                    ->prefix('₡')
+                    ->minValue(0)
+                    ->step(1)
+                    ->maxValue(9999999),
                 Actions::make([
                     Action::make('generarDescripcion')
                         ->label('Generar Descripción con IA')
@@ -98,7 +105,7 @@ class ProductResource extends Resource
                     ->imageEditor()
                     ->imageEditorMode(1)
                     ->directory(fn (Forms\Get $get) => 'products/' . $get('company_id'))
-                    ->disk('r2')
+                    ->disk('public')
                     ->columnSpanFull(),
                 Repeater::make('images')
                     ->label('Additional Images')
@@ -106,7 +113,7 @@ class ProductResource extends Resource
                     ->schema([
                         FileUpload::make('path')
                             ->image()
-                            ->disk('r2')
+                            ->disk('public')
                             ->directory(fn (Forms\Get $get) => 'products/' . $get('company_id') . '/additional'),
                         TextInput::make('name')->required(),
                     ])
@@ -125,7 +132,7 @@ class ProductResource extends Resource
                 TextColumn::make('brand.name')
                     ->sortable(),
                 TextColumn::make('price')
-                    ->money('USD')
+                    ->money('CRC')
                     ->sortable(),
                 IconColumn::make('status')
                     ->icon(fn (string $state): string => match ($state) {
