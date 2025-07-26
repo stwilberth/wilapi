@@ -16,7 +16,7 @@ class TourDateController extends Controller
      */
     public function index(Request $request): JsonResponse
     {
-        $query = TourDate::with('tour', 'company');
+        $query = TourDate::where('status', 'available');
         
         if ($request->has('company_id')) {
             $query->where('company_id', $request->company_id);
@@ -39,8 +39,8 @@ class TourDateController extends Controller
      */
     public function getByCompany(int $companyId): JsonResponse
     {
-        $tourDates = TourDate::with('tour', 'company')
-            ->where('company_id', $companyId)
+        $tourDates = TourDate::where('company_id', $companyId)
+            ->where('status', 'available')
             ->get();
 
         return response()->json($tourDates);
@@ -54,8 +54,8 @@ class TourDateController extends Controller
      */
     public function getByTour(int $tourId): JsonResponse
     {
-        $tourDates = TourDate::with('tour', 'company')
-            ->where('tour_id', $tourId)
+        $tourDates = TourDate::where('tour_id', $tourId)
+            ->where('status', 'available')
             ->get();
 
         return response()->json($tourDates);
