@@ -11,6 +11,7 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AccommodationController;
 use App\Http\Controllers\Api\TourDateController;
+use App\Http\Controllers\Api\RestaurantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,6 +66,6 @@ Route::get('/accommodations/{company_id}/{slug}', [AccommodationController::clas
 Route::get('/tour-dates', [TourDateController::class, 'index']);
 
 // Restaurants
-Route::get('/restaurants-company/{id}', [App\Http\Controllers\Api\RestaurantController::class, 'filterByCompany']);
-Route::get('/restaurants-place/{id}', [App\Http\Controllers\Api\RestaurantController::class, 'filterByPlace']);
-Route::get('/restaurants/{company_id}/{slug}', [App\Http\Controllers\Api\RestaurantController::class, 'show']);
+Route::get('/restaurants-company/{id}', [RestaurantController::class, 'filterByCompany']);
+Route::get('/restaurants-place/{id}', [RestaurantController::class, 'filterByPlace']);
+Route::get('/restaurants/{company_id}/{slug}', [RestaurantController::class, 'show']);
