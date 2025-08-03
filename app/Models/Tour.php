@@ -35,6 +35,7 @@ class Tour extends Model
         'things_to_bring',
         'itinerary',
         'before_booking',
+        'has_daily_departures',
         'cover_image',
     ];
 

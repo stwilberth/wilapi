@@ -14,6 +14,7 @@ use AmidEsfahani\FilamentTinyEditor\TinyEditor;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Toggle;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
@@ -73,6 +74,11 @@ class TourResource extends Resource
                     ->collapsible()
                     ->defaultItems(0)
                     ->columnSpanFull(),
+                
+                Toggle::make('has_daily_departures')
+                    ->label('¿Este tour tiene salidas todos los días del año?')
+                    ->helperText('Si está activado, se mostrará un mensaje indicando que hay salidas diarias en lugar de las fechas específicas')
+                    ->default(false),
                 
                 Repeater::make('youtube_links')
                     ->relationship('youtubeLinks') // Add this line to specify the relationship
