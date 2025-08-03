@@ -28,6 +28,8 @@ class Tour extends Model
         'slug',
         'duration',
         'price',
+        'price_national',
+        'price_foreign',
         'description',
         'short_description',
         'overview',

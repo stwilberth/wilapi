@@ -40,6 +40,16 @@ class TourResource extends Resource
                 Select::make('status')->options(['draft' => 'Draft','published' => 'Published','archived' => 'Archived'])->default('draft'),
                 TextInput::make('duration')->nullable(),
                 TextInput::make('price')->nullable(),
+                TextInput::make('price_national')
+                    ->label('Precio Nacional')
+                    ->numeric()
+                    ->prefix('₡')
+                    ->nullable(),
+                TextInput::make('price_foreign')
+                    ->label('Precio Extranjeros')
+                    ->numeric()
+                    ->prefix('₡')
+                    ->nullable(),
                 Toggle::make('has_daily_departures')
                     ->label('¿Este tour tiene salidas todos los días del año?')
                     ->helperText('Si está activado, se mostrará un mensaje indicando que hay salidas diarias en lugar de las fechas específicas')
@@ -113,6 +123,12 @@ class TourResource extends Resource
                         'archived' => 'danger',
                     }),
                 TextColumn::make('price'),
+                TextColumn::make('price_national')
+                    ->label('Precio Nacional')
+                    ->money('CRC'),
+                TextColumn::make('price_foreign')
+                    ->label('Precio Extranjeros')
+                    ->money('CRC'),
                 TextColumn::make('company.name')->label('Company'),
                 TextColumn::make('user.name')->label('User'),
             ])
