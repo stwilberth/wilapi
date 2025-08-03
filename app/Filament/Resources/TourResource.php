@@ -40,6 +40,10 @@ class TourResource extends Resource
                 Select::make('status')->options(['draft' => 'Draft','published' => 'Published','archived' => 'Archived'])->default('draft'),
                 TextInput::make('duration')->nullable(),
                 TextInput::make('price')->nullable(),
+                Toggle::make('has_daily_departures')
+                    ->label('¿Este tour tiene salidas todos los días del año?')
+                    ->helperText('Si está activado, se mostrará un mensaje indicando que hay salidas diarias en lugar de las fechas específicas')
+                    ->default(false),
                 TinyEditor::make('description')
                     ->profile('default')
                     ->direction('ltr')
@@ -75,10 +79,7 @@ class TourResource extends Resource
                     ->defaultItems(0)
                     ->columnSpanFull(),
                 
-                Toggle::make('has_daily_departures')
-                    ->label('¿Este tour tiene salidas todos los días del año?')
-                    ->helperText('Si está activado, se mostrará un mensaje indicando que hay salidas diarias en lugar de las fechas específicas')
-                    ->default(false),
+
                 
                 Repeater::make('youtube_links')
                     ->relationship('youtubeLinks') // Add this line to specify the relationship
