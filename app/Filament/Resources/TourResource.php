@@ -126,13 +126,15 @@ class TourResource extends Resource
                         'draft' => 'warning',
                         'archived' => 'danger',
                     }),
-                TextColumn::make('price'),
+                TextColumn::make('price')
+                    ->label('Precio')
+                    ->money('USD'),
                 TextColumn::make('price_national')
                     ->label('Precio Nacional')
-                    ->money('CRC'),
+                    ->money('USD'),
                 TextColumn::make('price_foreign')
                     ->label('Precio Extranjeros')
-                    ->money('CRC'),
+                    ->money('USD'),
                 TextColumn::make('company.name')->label('Company'),
                 TextColumn::make('user.name')->label('User'),
             ])
