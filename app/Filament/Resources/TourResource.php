@@ -39,16 +39,20 @@ class TourResource extends Resource
                 TextInput::make('name')->required(),
                 Select::make('status')->options(['draft' => 'Draft','published' => 'Published','archived' => 'Archived'])->default('draft'),
                 TextInput::make('duration')->nullable(),
-                TextInput::make('price')->nullable(),
+                TextInput::make('price')
+                    ->label('Precio')
+                    ->numeric()
+                    ->prefix('$')
+                    ->nullable(),
                 TextInput::make('price_national')
                     ->label('Precio Nacional')
                     ->numeric()
-                    ->prefix('₡')
+                    ->prefix('$')
                     ->nullable(),
                 TextInput::make('price_foreign')
                     ->label('Precio Extranjeros')
                     ->numeric()
-                    ->prefix('₡')
+                    ->prefix('$')
                     ->nullable(),
                 Toggle::make('has_daily_departures')
                     ->label('¿Este tour tiene salidas todos los días del año?')
