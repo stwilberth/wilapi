@@ -66,7 +66,7 @@ class TourResource extends Resource
                 Textarea::make('short_description')->nullable(),
                 Textarea::make('overview')->nullable(),
                 Select::make('difficulty')->options(['easy' => 'Easy','medium' => 'Medium','hard' => 'Hard',])->nullable(),
-                Textarea::make('things_to_bring')->nullable(),
+                Textarea::make('things_to_bring')->nullable()->columnSpan('full'),
                 Textarea::make('itinerary')->nullable(),
                 Textarea::make('before_booking')->nullable(),
                 ...static::getCompanyField(),
