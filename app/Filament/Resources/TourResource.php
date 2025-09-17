@@ -63,16 +63,16 @@ class TourResource extends Resource
                     ->direction('ltr')
                     ->columnSpan('full')
                     ->required(),
-                Textarea::make('short_description')->nullable(),
-                Textarea::make('overview')->nullable(),
+                Textarea::make('short_description')->label('Descripción corta')->nullable(),
+                Textarea::make('overview')->label('Descripción general')->nullable(),
                 Select::make('difficulty')->options(['easy' => 'Easy','medium' => 'Medium','hard' => 'Hard',])->nullable(),
-                Textarea::make('things_to_bring')->nullable()->columnSpan('full'),
-                Textarea::make('itinerary')->nullable(),
-                Textarea::make('before_booking')->nullable(),
+                Textarea::make('things_to_bring')->label('Cosas para traer')->nullable()->columnSpan('full'),
+                Textarea::make('itinerary')->label('Itinerario')->nullable()->columnSpan('full'),
+                Textarea::make('before_booking')->label('Antes de reservar')->nullable()->columnSpan('full'),
                 ...static::getCompanyField(),
                 Select::make('place_id')->relationship('place', 'name')->label('Place')->nullable(),
                 FileUpload::make('cover_image')
-                    ->label('Cover Image')
+                    ->label('Imagen principal')
                     ->image()
                     ->imageEditor()
                     ->imageEditorMode(1)
@@ -80,7 +80,7 @@ class TourResource extends Resource
                     ->directory(fn (Forms\Get $get) => 'tours/' . $get('company_id') . '/cover')
                     ->columnSpanFull(),
                     Repeater::make('images')
-                    ->label('Additional Images')
+                    ->label('Imagenes adicionales')
                     ->relationship()
                     ->schema([
                         FileUpload::make('path')
@@ -96,7 +96,7 @@ class TourResource extends Resource
 
                 
                 Repeater::make('youtube_links')
-                    ->relationship('youtubeLinks') // Add this line to specify the relationship
+                    ->relationship('youtubeLinks')
                     ->label('Videos de YouTube')
                     ->schema([
                         TextInput::make('url')
@@ -117,33 +117,30 @@ class TourResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('cover_image')->disk('public')->rounded(),
-                TextColumn::make('name'),
-                TextColumn::make('status')
+                ImageColumn::make('cover_image')->label('Imagen principal')->disk('public')->rounded(),
+                TextColumn::make('name')->label('Nombre'),
+                TextColumn::make('status')->label('Estado')
                     ->badge()
                     ->color(fn (string $state): string => match ($state) {
                         'published' => 'success',
                         'draft' => 'warning',
                         'archived' => 'danger',
                     }),
-                TextColumn::make('price')
-                    ->label('Precio')
+                TextColumn::make('price')->label('Precio')
                     ->money('USD'),
-                TextColumn::make('price_national')
-                    ->label('Precio Nacional')
+                TextColumn::make('price_national')->label('Precio Nacional')
                     ->money('USD'),
-                TextColumn::make('price_foreign')
-                    ->label('Precio Extranjeros')
+                TextColumn::make('price_foreign')->label('Precio Extranjero')
                     ->money('USD'),
-                TextColumn::make('company.name')->label('Company'),
-                TextColumn::make('user.name')->label('User'),
+                TextColumn::make('company.name')->label('Compañía'),
+                TextColumn::make('user.name')->label('Usuario'),
             ])
             ->filters([
                 // Solo mostrar el filtro de compañía para usuarios administradores
                 ...auth()->user()->is_admin ? [
                     SelectFilter::make('company_id')
                         ->relationship('company', 'name')
-                        ->label('Company')
+                        ->label('Compañía')
                         ->searchable()
                         ->preload()
                 ] : []
