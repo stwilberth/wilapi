@@ -66,7 +66,7 @@ class TourResource extends Resource
                 Textarea::make('short_description')->label('Descripción corta')->nullable(),
                 Textarea::make('overview')->label('Descripción general')->nullable(),
                 Select::make('difficulty')->options(['easy' => 'Easy','medium' => 'Medium','hard' => 'Hard',])->nullable(),
-                Textarea::make('things_to_bring')->label('Cosas para traer')->nullable()->columnSpan('full'),
+                TinyEditor::make('things_to_bring')->label('Cosas para traer')->nullable()->columnSpan('full'),
                 Textarea::make('itinerary')->label('Itinerario')->nullable()->columnSpan('full'),
                 Textarea::make('before_booking')->label('Antes de reservar')->nullable()->columnSpan('full'),
                 ...static::getCompanyField(),
