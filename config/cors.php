@@ -25,7 +25,7 @@ return [
         'https://osanaturetours.com',
         'https://ecoexpeditionscr.com',
         'https://rioverdeecolodge.com',
-        'https://leivatours.travel',
+        'https://leivatours.com',
         // Capacitor schemes
         'capacitor://localhost',
         'http://localhost',
