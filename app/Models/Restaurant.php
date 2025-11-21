@@ -98,6 +98,22 @@ class Restaurant extends Model
     }
 
     /**
+     * Get the images for the restaurant.
+     */
+    public function images()
+    {
+        return $this->hasMany(RestaurantImage::class)->orderBy('sort_order');
+    }
+
+    /**
+     * Get the featured images for the restaurant.
+     */
+    public function featuredImages()
+    {
+        return $this->hasMany(RestaurantImage::class)->where('is_featured', true)->orderBy('sort_order');
+    }
+
+    /**
      * Scope a query to only include restaurants with a specific cuisine type.
      */
     public function scopeWithCuisine($query, $cuisineType)

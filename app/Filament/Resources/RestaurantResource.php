@@ -77,6 +77,38 @@ class RestaurantResource extends Resource
                     ->maxSize(2048)
                     ->columnSpanFull(),
                     
+                Forms\Components\Repeater::make('images')
+                    ->label('Galería de imágenes')
+                    ->relationship('images')
+                    ->schema([
+                        FileUpload::make('image_path')
+                            ->label('Imagen')
+                            ->image()
+                            ->directory('restaurants/gallery')
+                            ->imageEditor()
+                            ->imageEditorAspectRatios([
+                                '16:9',
+                                '4:3',
+                                '1:1',
+                            ])
+                            ->maxSize(2048)
+                            ->required(),
+                            
+                        TextInput::make('alt_text')
+                            ->label('Texto alternativo')
+                            ->maxLength(255)
+                            ->placeholder('Descripción de la imagen'),
+                            
+                        Forms\Components\Toggle::make('is_featured')
+                            ->label('¿Imagen destacada?')
+                            ->default(false),
+                    ])
+                    ->defaultItems(0)
+                    ->minItems(0)
+                    ->maxItems(5)
+                    ->columnSpanFull()
+                    ->collapsible(),
+                    
                 Forms\Components\Toggle::make('is_active')
                     ->label('¿Activo?')
                     ->default(true),

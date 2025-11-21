@@ -17,7 +17,7 @@ class RestaurantController extends Controller
     public function filterByCompany($companyId)
     {
         try {
-            $restaurants = Restaurant::with(['place', 'place.province'])
+            $restaurants = Restaurant::with(['place', 'place.province', 'images'])
                 ->whereHas('company', function($query) use ($companyId) {
                     $query->where('id', $companyId);
                 })
@@ -49,7 +49,7 @@ class RestaurantController extends Controller
     public function filterByPlace($placeId)
     {
         try {
-            $restaurants = Restaurant::with(['place', 'place.province'])
+            $restaurants = Restaurant::with(['place', 'place.province', 'images'])
                 ->where('place_id', $placeId)
                 ->active()
                 ->get()
@@ -80,7 +80,7 @@ class RestaurantController extends Controller
     public function show($companyId, $slug)
     {
         try {
-            $restaurant = Restaurant::with(['place', 'place.province'])
+            $restaurant = Restaurant::with(['place', 'place.province', 'images'])
                 ->whereHas('company', function($query) use ($companyId) {
                     $query->where('id', $companyId);
                 })
@@ -133,6 +133,24 @@ class RestaurantController extends Controller
 
         if ($detailed) {
             $data['description'] = $restaurant->description;
+        }
+
+        // Add images to the response
+        if ($restaurant->images) {
+            $data['images'] = $restaurant->images->map(function($image) {
+                return [
+                    'id' => $image->id,
+                    'restaurant_id' => $image->restaurant_id,
+                    'image_path' => $image->image_path,
+                    'alt_text' => $image->alt_text,
+                    'sort_order' => $image->sort_order,
+                    'is_featured' => $image->is_featured,
+                    'image_url' => $image->image_url,
+                    'url' => $image->image_url,
+                    'created_at' => $image->created_at,
+                    'updated_at' => $image->updated_at,
+                ];
+            });
         }
 
         return $data;
