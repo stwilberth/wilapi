@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RestaurantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,10 @@ Route::get('/services', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
+
+// Restaurants web routes
+Route::get('/restaurantes', [RestaurantController::class, 'webIndex'])->name('restaurants.index');
+Route::get('/restaurantes/{slug}', [RestaurantController::class, 'webShow'])->name('restaurants.show');
 
 //routs for the admin panel clear cache
 Route::middleware(['auth'])->group(function () {

@@ -9,6 +9,34 @@ use Illuminate\Support\Facades\Log;
 class RestaurantController extends Controller
 {
     /**
+     * Get all active restaurants
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function index()
+    {
+        try {
+            $restaurants = Restaurant::with(['place', 'place.province', 'images'])
+                ->active()
+                ->get()
+                ->map(function($restaurant) {
+                    return $this->formatRestaurantResponse($restaurant);
+                });
+
+            return response()->json([
+                'success' => true,
+                'data' => $restaurants
+            ]);
+        } catch (\Exception $e) {
+            Log::error('Error fetching restaurants: ' . $e->getMessage());
+            return response()->json([
+                'success' => false,
+                'message' => 'Error al obtener los restaurantes'
+            ], 500);
+        }
+    }
+
+    /**
      * Get restaurants by company ID
      *
      * @param int $companyId
@@ -99,6 +127,36 @@ class RestaurantController extends Controller
                 'message' => 'Restaurante no encontrado'
             ], 404);
         }
+    }
+
+    /**
+     * Display all active restaurants (web view)
+     *
+     * @return \Illuminate\View\View
+     */
+    public function webIndex()
+    {
+        $restaurants = Restaurant::with(['place', 'place.province', 'images'])
+            ->active()
+            ->get();
+
+        return view('restaurants.index', compact('restaurants'));
+    }
+
+    /**
+     * Display restaurant by slug (web view)
+     *
+     * @param string $slug
+     * @return \Illuminate\View\View
+     */
+    public function webShow($slug)
+    {
+        $restaurant = Restaurant::with(['place', 'place.province', 'images'])
+            ->where('slug', $slug)
+            ->active()
+            ->firstOrFail();
+
+        return view('restaurants.show', compact('restaurant'));
     }
 
     /**

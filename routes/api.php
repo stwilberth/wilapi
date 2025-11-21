@@ -62,12 +62,13 @@ Route::get('/accommodations-company/{id}', [AccommodationController::class, 'fil
 Route::get('/accommodations-place/{id}', [AccommodationController::class, 'filterByPlace']);
 Route::get('/accommodations/{company_id}/{slug}', [AccommodationController::class, 'show']);
 
-// Tour Dates 
+// Tour Dates
 Route::get('/tour-dates', [TourDateController::class, 'index']);
 Route::get('/tour-dates/company/{company_id}', [TourDateController::class, 'getByCompany']);
 Route::get('/tour-dates/tour/{tour_id}', [TourDateController::class, 'getByTour']);
 
 // Restaurants
+Route::get('/restaurants', [RestaurantController::class, 'index']);
 Route::get('/restaurants-company/{id}', [RestaurantController::class, 'filterByCompany']);
 Route::get('/restaurants-place/{id}', [RestaurantController::class, 'filterByPlace']);
 Route::get('/restaurants/{company_id}/{slug}', [RestaurantController::class, 'show']);
