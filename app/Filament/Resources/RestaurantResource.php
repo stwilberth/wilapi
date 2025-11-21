@@ -74,7 +74,7 @@ class RestaurantResource extends Resource
                         '4:3',
                         '1:1',
                     ])
-                    ->maxSize(2048)
+                    ->maxSize(10240)
                     ->columnSpanFull(),
                     
                 Forms\Components\Repeater::make('images')
@@ -91,7 +91,7 @@ class RestaurantResource extends Resource
                                 '4:3',
                                 '1:1',
                             ])
-                            ->maxSize(2048)
+                            ->maxSize(10240)
                             ->required(),
                             
                         TextInput::make('alt_text')
