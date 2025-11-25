@@ -40,19 +40,34 @@ class TourResource extends Resource
                 Select::make('status')->options(['draft' => 'Draft','published' => 'Published','archived' => 'Archived'])->default('draft'),
                 TextInput::make('duration')->nullable(),
                 TextInput::make('price')
-                    ->label('Precio')
+                    ->label('Precio (USD)')
                     ->numeric()
                     ->prefix('$')
+                    ->nullable(),
+                TextInput::make('price_colones')
+                    ->label('Precio (Colones)')
+                    ->numeric()
+                    ->prefix('₡')
                     ->nullable(),
                 TextInput::make('price_national')
-                    ->label('Precio Nacional')
+                    ->label('Precio Nacional (USD)')
                     ->numeric()
                     ->prefix('$')
                     ->nullable(),
+                TextInput::make('price_national_colones')
+                    ->label('Precio Nacional (Colones)')
+                    ->numeric()
+                    ->prefix('₡')
+                    ->nullable(),
                 TextInput::make('price_foreign')
-                    ->label('Precio Extranjeros')
+                    ->label('Precio Extranjeros (USD)')
                     ->numeric()
                     ->prefix('$')
+                    ->nullable(),
+                TextInput::make('price_foreign_colones')
+                    ->label('Precio Extranjeros (Colones)')
+                    ->numeric()
+                    ->prefix('₡')
                     ->nullable(),
                 Toggle::make('has_daily_departures')
                     ->label('¿Este tour tiene salidas todos los días del año?')
@@ -126,12 +141,18 @@ class TourResource extends Resource
                         'draft' => 'warning',
                         'archived' => 'danger',
                     }),
-                TextColumn::make('price')->label('Precio')
+                TextColumn::make('price')->label('Precio (USD)')
                     ->money('USD'),
-                TextColumn::make('price_national')->label('Precio Nacional')
+                TextColumn::make('price_colones')->label('Precio (₡)')
+                    ->money('CRC'),
+                TextColumn::make('price_national')->label('Precio Nacional (USD)')
                     ->money('USD'),
-                TextColumn::make('price_foreign')->label('Precio Extranjero')
+                TextColumn::make('price_national_colones')->label('Precio Nacional (₡)')
+                    ->money('CRC'),
+                TextColumn::make('price_foreign')->label('Precio Extranjero (USD)')
                     ->money('USD'),
+                TextColumn::make('price_foreign_colones')->label('Precio Extranjero (₡)')
+                    ->money('CRC'),
                 TextColumn::make('company.name')->label('Compañía'),
                 TextColumn::make('user.name')->label('Usuario'),
             ])
