@@ -41,6 +41,7 @@ class Tour extends Model
         'itinerary',
         'before_booking',
         'has_daily_departures',
+        'only_book_by_schedules',
         'cover_image',
     ];
 
@@ -120,5 +121,112 @@ class Tour extends Model
     public function tourDates(): HasMany
     {
         return $this->hasMany(TourDate::class);
+    }
+
+    /**
+     * Check if the tour can be booked.
+     * If only_book_by_schedules is true, tour can only be booked on specific dates
+     * If has_daily_departures is true, tour can be booked any day
+     * Otherwise, check if there are available tour dates
+     */
+    public function canBook(): bool
+    {
+        // If the tour only allows booking by schedules, check if there are tour dates available
+        if ($this->only_book_by_schedules) {
+            return $this->tourDates()
+                ->where('status', 'active')
+                ->where('date', '>=', now())
+                ->where('available_slots', '>', 0)
+                ->exists();
+        }
+        
+        // If tour has daily departures, it can always be booked
+        if ($this->has_daily_departures) {
+            return true;
+        }
+        
+        // If neither condition is set, check if there are available tour dates
+        return $this->tourDates()
+            ->where('status', 'active')
+            ->where('date', '>=', now())
+            ->where('available_slots', '>', 0)
+            ->exists();
+    }
+
+    /**
+     * Get available booking dates for the tour
+     * If only_book_by_schedules is true, return only specific dates
+     * If has_daily_departures is true, return a message about daily availability
+     * Otherwise, return available tour dates
+     */
+    public function getAvailableBookingDates(): array
+    {
+        if ($this->has_daily_departures) {
+            return [
+                'type' => 'daily',
+                'message' => 'Este tour tiene salidas todos los días del año'
+            ];
+        }
+        
+        if ($this->only_book_by_schedules) {
+            $availableDates = $this->tourDates()
+                ->where('status', 'active')
+                ->where('date', '>=', now())
+                ->where('available_slots', '>', 0)
+                ->orderBy('date')
+                ->get();
+                
+            return [
+                'type' => 'scheduled',
+                'dates' => $availableDates->map(function ($date) {
+                    return [
+                        'id' => $date->id,
+                        'date' => $date->date->format('Y-m-d'),
+                        'formatted_date' => $date->date->format('d/m/Y'),
+                        'available_slots' => $date->available_slots,
+                        'price' => $date->formatted_price,
+                        'foreigner_price' => $date->formatted_foreigner_price
+                    ];
+                })->toArray()
+            ];
+        }
+        
+        // Default behavior - return available tour dates
+        $availableDates = $this->tourDates()
+            ->where('status', 'active')
+            ->where('date', '>=', now())
+            ->where('available_slots', '>', 0)
+            ->orderBy('date')
+            ->get();
+            
+        return [
+            'type' => 'scheduled',
+            'dates' => $availableDates->map(function ($date) {
+                return [
+                    'id' => $date->id,
+                    'date' => $date->date->format('Y-m-d'),
+                    'formatted_date' => $date->date->format('d/m/Y'),
+                    'available_slots' => $date->available_slots,
+                    'price' => $date->formatted_price,
+                    'foreigner_price' => $date->formatted_foreigner_price
+                ];
+            })->toArray()
+        ];
+    }
+
+    /**
+     * Scope to get tours that can be booked
+     */
+    public function scopeBookable($query)
+    {
+        return $query->where(function ($query) {
+            $query->where('has_daily_departures', true)
+                ->orWhere('only_book_by_schedules', true)
+                ->orWhereHas('tourDates', function ($subQuery) {
+                    $subQuery->where('status', 'active')
+                        ->where('date', '>=', now())
+                        ->where('available_slots', '>', 0);
+                });
+        });
     }
 }

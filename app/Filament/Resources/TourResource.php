@@ -73,6 +73,10 @@ class TourResource extends Resource
                     ->label('¿Este tour tiene salidas todos los días del año?')
                     ->helperText('Si está activado, se mostrará un mensaje indicando que hay salidas diarias en lugar de las fechas específicas')
                     ->default(false),
+                Toggle::make('only_book_by_schedules')
+                    ->label('Solo se puede reservar según las salidas programadas')
+                    ->helperText('Si está activado, el tour solo se puede reservar en las fechas específicas programadas')
+                    ->default(false),
                 TinyEditor::make('description')
                     ->profile('default')
                     ->direction('ltr')
@@ -140,6 +144,23 @@ class TourResource extends Resource
                         'published' => 'success',
                         'draft' => 'warning',
                         'archived' => 'danger',
+                    }),
+                TextColumn::make('booking_type')
+                    ->label('Tipo de Reserva')
+                    ->badge()
+                    ->formatStateUsing(function ($record) {
+                        if ($record->has_daily_departures) {
+                            return 'Salidas Diarias';
+                        }
+                        if ($record->only_book_by_schedules) {
+                            return 'Solo por Fechas';
+                        }
+                        return 'Flexible';
+                    })
+                    ->color(fn ($record) => match (true) {
+                        $record->has_daily_departures => 'success',
+                        $record->only_book_by_schedules => 'warning',
+                        default => 'info',
                     }),
                 TextColumn::make('price')->label('Precio (USD)')
                     ->money('USD'),
