@@ -29,7 +29,6 @@ class TourController extends Controller
         $tours = Tour::with(['images', 'youtubeLinks', 'tourDates'])
             ->where('company_id', $companyId)
             ->where('status', 'published')
-            ->bookable()
             ->get();
             
         // Add booking information to each tour
