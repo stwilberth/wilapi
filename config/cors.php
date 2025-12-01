@@ -15,8 +15,8 @@ return [
     |
     */
     
-    // Solo rutas API y Sanctum (eliminar '/' y 'storage/*' por seguridad)
-    'paths' => ['api/*', 'sanctum/csrf-cookie'],
+    // Rutas API, Sanctum y Storage (necesario para servir imágenes a frontends externos)
+    'paths' => ['api/*', 'sanctum/csrf-cookie', 'storage/*'],
 
     // Solo los métodos HTTP que realmente necesitas
     'allowed_methods' => ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
