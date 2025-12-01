@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Póngase en contacto con WilAPI para obtener más información sobre nuestros servicios de gestión para empresas turísticas y hoteleras en Costa Rica">
+        <meta name="description" content="Póngase en contacto con anuncielo.com para obtener más información sobre nuestros servicios de gestión para empresas turísticas y hoteleras en Costa Rica">
 
-        <title>WilAPI - Contacto</title>
+        <title>anuncielo.com - Contacto</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -22,7 +22,7 @@
                     <div class="flex justify-between h-16">
                         <div class="flex">
                             <div class="flex-shrink-0 flex items-center">
-                                <a href="/" class="text-2xl font-bold text-blue-600 dark:text-blue-400">WilAPI</a>
+                                <a href="/" class="text-2xl font-bold text-blue-600 dark:text-blue-400">anuncielo.com</a>
                             </div>
                             <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
                                 <a href="/" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-700 transition duration-150 ease-in-out">
@@ -94,7 +94,7 @@
                                         <div>
                                             <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-1">Email</h3>
                                             <p class="text-gray-700 dark:text-gray-300">
-                                                info@wilapi.com
+                                                info@anuncielo.com
                                             </p>
                                         </div>
                                     </div>
@@ -206,9 +206,9 @@
                                 </div>
                                 
                                 <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-6">
-                                    <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-2">¿Puedo migrar mis datos existentes a la plataforma WilAPI?</h3>
+                                    <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-2">¿Puedo migrar mis datos existentes a la plataforma anuncielo.com?</h3>
                                     <p class="text-gray-700 dark:text-gray-300">
-                                        Absolutamente. Ofrecemos servicios de migración de datos para facilitar la transición desde su sistema actual a WilAPI. Nuestro equipo técnico trabajará con usted para asegurar que todos sus datos importantes se transfieran correctamente.
+                                        Absolutamente. Ofrecemos servicios de migración de datos para facilitar la transición desde su sistema actual a anuncielo.com. Nuestro equipo técnico trabajará con usted para asegurar que todos sus datos importantes se transfieran correctamente.
                                     </p>
                                 </div>
                                 
@@ -229,7 +229,7 @@
                 <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
                     <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                         <div class="col-span-1 md:col-span-2">
-                            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">WilAPI</h3>
+                            <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">anuncielo.com</h3>
                             <p class="text-gray-600 dark:text-gray-400 mb-4">Sistema de gestión integral para empresas turísticas y hoteleras en Costa Rica.</p>
                             <div class="flex space-x-4">
                                 <a href="#" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300">
@@ -276,14 +276,14 @@
                                 </li>
                                 <li class="flex items-start">
                                     <i class="fas fa-envelope text-gray-500 dark:text-gray-400 mt-1 mr-2"></i>
-                                    <span class="text-gray-600 dark:text-gray-400">info@wilapi.com</span>
+                                    <span class="text-gray-600 dark:text-gray-400">info@anuncielo.com</span>
                                 </li>
                             </ul>
                         </div>
                     </div>
                     <div class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
                         <p class="text-gray-500 dark:text-gray-400 text-sm text-center">
-                            &copy; {{ date('Y') }} WilAPI. Todos los derechos reservados.
+                            &copy; {{ date('Y') }} anuncielo.com. Todos los derechos reservados.
                         </p>
                     </div>
                 </div>

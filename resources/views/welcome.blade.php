@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="WilAPI - Sistema de gestión integral para empresas turísticas y hoteleras en Costa Rica. Optimice sus operaciones, mejore la experiencia de sus clientes y aumente su visibilidad en línea.">
+        <meta name="description" content="anuncielo.com - Sistema de gestión integral para empresas turísticas y hoteleras en Costa Rica. Optimice sus operaciones, mejore la experiencia de sus clientes y aumente su visibilidad en línea.">
 
-        <title>WilAPI - Sistema de Gestión para Empresas Turísticas</title>
+        <title>anuncielo.com - Sistema de Gestión para Empresas Turísticas</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -22,7 +22,7 @@
                     <div class="flex justify-between h-16">
                         <div class="flex">
                             <div class="flex-shrink-0 flex items-center">
-                                <a href="/" class="text-2xl font-bold text-blue-600 dark:text-blue-400">WilAPI</a>
+                                <a href="/" class="text-2xl font-bold text-blue-600 dark:text-blue-400">anuncielo.com</a>
                             </div>
                             <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
                                 <a href="/" class="inline-flex items-center px-1 pt-1 border-b-2 border-blue-500 text-sm font-medium leading-5 text-gray-900 dark:text-white transition duration-150 ease-in-out">
@@ -146,7 +146,7 @@
             <div class="py-16 bg-gray-50 dark:bg-gray-800">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center mb-16">
-                        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">¿Por qué elegir WilAPI?</h2>
+                        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">¿Por qué elegir anuncielo.com?</h2>
                         <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
                             Nuestra plataforma está diseñada específicamente para las necesidades del sector turístico costarricense.
                         </p>
@@ -194,7 +194,7 @@
                     <div class="text-center mb-16">
                         <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Lo que dicen nuestros clientes</h2>
                         <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-                            Empresas turísticas de todo Costa Rica confían en WilAPI para optimizar sus operaciones.
+                            Empresas turísticas de todo Costa Rica confían en anuncielo.com para optimizar sus operaciones.
                         </p>
                     </div>
                     
@@ -210,7 +210,7 @@
                                 </div>
                             </div>
                             <p class="text-gray-700 dark:text-gray-300 mb-6 italic">
-                                "Desde que implementamos WilAPI, hemos aumentado nuestras reservas en un 35%. La plataforma nos permite mostrar información detallada de nuestros tours, lo que ha mejorado significativamente la conversión de visitantes a clientes."
+                                "Desde que implementamos anuncielo.com, hemos aumentado nuestras reservas en un 35%. La plataforma nos permite mostrar información detallada de nuestros tours, lo que ha mejorado significativamente la conversión de visitantes a clientes."
                             </p>
                             <div class="flex items-center">
                                 <div class="h-12 w-12 bg-blue-200 dark:bg-blue-800 rounded-full flex items-center justify-center mr-4">
@@ -234,7 +234,7 @@
                                 </div>
                             </div>
                             <p class="text-gray-700 dark:text-gray-300 mb-6 italic">
-                                "La implementación del sistema de gestión de alojamientos de WilAPI ha revolucionado nuestra operación diaria. Hemos reducido los errores de reserva en un 90% y aumentado nuestra tasa de ocupación en un 25%."
+                                "La implementación del sistema de gestión de alojamientos de anuncielo.com ha revolucionado nuestra operación diaria. Hemos reducido los errores de reserva en un 90% y aumentado nuestra tasa de ocupación en un 25%."
                             </p>
                             <div class="flex items-center">
                                 <div class="h-12 w-12 bg-blue-200 dark:bg-blue-800 rounded-full flex items-center justify-center mr-4">
@@ -258,7 +258,7 @@
                                 </div>
                             </div>
                             <p class="text-gray-700 dark:text-gray-300 mb-6 italic">
-                                "Los reportes y análisis de WilAPI nos han permitido identificar oportunidades de negocio que antes pasábamos por alto. Hemos optimizado nuestras tarifas según la demanda estacional, aumentando nuestros ingresos en un 30%."
+                                "Los reportes y análisis de anuncielo.com nos han permitido identificar oportunidades de negocio que antes pasábamos por alto. Hemos optimizado nuestras tarifas según la demanda estacional, aumentando nuestros ingresos en un 30%."
                             </p>
                             <div class="flex items-center">
                                 <div class="h-12 w-12 bg-blue-200 dark:bg-blue-800 rounded-full flex items-center justify-center mr-4">
@@ -279,7 +279,7 @@
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <h2 class="text-3xl font-bold text-white mb-6">¿Listo para transformar su negocio turístico?</h2>
                     <p class="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
-                        Únase a las empresas turísticas que ya están optimizando sus operaciones con WilAPI.
+                        Únase a las empresas turísticas que ya están optimizando sus operaciones con anuncielo.com.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
                         <a href="/contact" class="px-8 py-4 bg-white text-blue-700 font-semibold rounded-lg shadow-md hover:bg-blue-50 transition duration-300 ease-in-out inline-flex items-center justify-center">

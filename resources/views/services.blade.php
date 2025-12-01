@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Descubra los servicios y soluciones que WilAPI ofrece para empresas turísticas y hoteleras en Costa Rica">
+        <meta name="description" content="Descubra los servicios y soluciones que anuncielo.com ofrece para empresas turísticas y hoteleras en Costa Rica">
 
-        <title>WilAPI - Nuestros Servicios</title>
+        <title>anuncielo.com - Nuestros Servicios</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -22,7 +22,7 @@
                     <div class="flex justify-between h-16">
                         <div class="flex">
                             <div class="flex-shrink-0 flex items-center">
-                                <a href="/" class="text-2xl font-bold text-blue-600 dark:text-blue-400">WilAPI</a>
+                                <a href="/" class="text-2xl font-bold text-blue-600 dark:text-blue-400">anuncielo.com</a>
                             </div>
                             <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
                                 <a href="/" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-700 transition duration-150 ease-in-out">
@@ -55,7 +55,7 @@
                         <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Nuestros Servicios</h1>
                         
                         <p class="text-lg text-gray-700 dark:text-gray-300 mb-10">
-                            En WilAPI ofrecemos soluciones tecnológicas integrales diseñadas específicamente para empresas del sector turístico y hotelero en Costa Rica. Nuestros servicios están orientados a optimizar sus operaciones, mejorar la experiencia de sus clientes y aumentar su visibilidad en línea.
+                            En anuncielo.com ofrecemos soluciones tecnológicas integrales diseñadas específicamente para empresas del sector turístico y hotelero en Costa Rica. Nuestros servicios están orientados a optimizar sus operaciones, mejorar la experiencia de sus clientes y aumentar su visibilidad en línea.
                         </p>
                         
                         <!-- Gestión de Tours -->
@@ -84,7 +84,7 @@
                                 <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-6 mb-6">
                                     <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-3">Caso de éxito:</h4>
                                     <p class="text-gray-700 dark:text-gray-300 italic">
-                                        "Gracias al sistema de gestión de tours de WilAPI, hemos aumentado nuestras reservas en un 35% en los últimos seis meses. La plataforma nos permite mostrar información detallada y atractiva de nuestras excursiones, lo que ha mejorado significativamente la conversión de visitantes a clientes." - Aventuras Tropicales, Guanacaste
+                                        "Gracias al sistema de gestión de tours de anuncielo.com, hemos aumentado nuestras reservas en un 35% en los últimos seis meses. La plataforma nos permite mostrar información detallada y atractiva de nuestras excursiones, lo que ha mejorado significativamente la conversión de visitantes a clientes." - Aventuras Tropicales, Guanacaste
                                     </p>
                                 </div>
                             </div>
@@ -117,7 +117,7 @@
                                 <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-6 mb-6">
                                     <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-3">Caso de éxito:</h4>
                                     <p class="text-gray-700 dark:text-gray-300 italic">
-                                        "La implementación del sistema de gestión de alojamientos de WilAPI ha revolucionado nuestra operación diaria. Hemos reducido los errores de reserva en un 90% y aumentado nuestra tasa de ocupación en un 25%. La integración con plataformas como Booking y Airbnb nos ha permitido centralizar todas nuestras reservas en un solo sistema." - Hotel Vista Paraíso, Manuel Antonio
+                                        "La implementación del sistema de gestión de alojamientos de anuncielo.com ha revolucionado nuestra operación diaria. Hemos reducido los errores de reserva en un 90% y aumentado nuestra tasa de ocupación en un 25%. La integración con plataformas como Booking y Airbnb nos ha permitido centralizar todas nuestras reservas en un solo sistema." - Hotel Vista Paraíso, Manuel Antonio
                                     </p>
                                 </div>
                             </div>
@@ -150,7 +150,7 @@
                                 <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-6 mb-6">
                                     <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-3">Caso de éxito:</h4>
                                     <p class="text-gray-700 dark:text-gray-300 italic">
-                                        "Desde que implementamos el catálogo digital de WilAPI, nuestras ventas en línea han aumentado un 40%. La presentación profesional de nuestros productos artesanales ha mejorado significativamente la percepción de nuestra marca y ha atraído a clientes de todo el mundo." - Artesanías Costarricenses, San José
+                                        "Desde que implementamos el catálogo digital de anuncielo.com, nuestras ventas en línea han aumentado un 40%. La presentación profesional de nuestros productos artesanales ha mejorado significativamente la percepción de nuestra marca y ha atraído a clientes de todo el mundo." - Artesanías Costarricenses, San José
                                     </p>
                                 </div>
                             </div>
@@ -183,7 +183,7 @@
                                 <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-6 mb-6">
                                     <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-3">Caso de éxito:</h4>
                                     <p class="text-gray-700 dark:text-gray-300 italic">
-                                        "La solución de presencia digital de WilAPI ha transformado nuestra estrategia de marketing. Hemos aumentado nuestro tráfico orgánico en un 60% y mejorado nuestra puntuación en TripAdvisor gracias a la gestión eficiente de reseñas. La coherencia en todos nuestros canales digitales ha fortalecido nuestra marca y aumentado la confianza de nuestros clientes." - Ecoaventuras, Monteverde
+                                        "La solución de presencia digital de anuncielo.com ha transformado nuestra estrategia de marketing. Hemos aumentado nuestro tráfico orgánico en un 60% y mejorado nuestra puntuación en TripAdvisor gracias a la gestión eficiente de reseñas. La coherencia en todos nuestros canales digitales ha fortalecido nuestra marca y aumentado la confianza de nuestros clientes." - Ecoaventuras, Monteverde
                                     </p>
                                 </div>
                             </div>
@@ -216,7 +216,7 @@
                                 <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-6 mb-6">
                                     <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-3">Caso de éxito:</h4>
                                     <p class="text-gray-700 dark:text-gray-300 italic">
-                                        "Los reportes y análisis de WilAPI nos han permitido identificar oportunidades de negocio que antes pasábamos por alto. Hemos optimizado nuestras tarifas según la demanda estacional, lo que ha aumentado nuestros ingresos en un 30%. La capacidad de tomar decisiones basadas en datos ha transformado completamente nuestra estrategia de negocio." - Cabinas El Mirador, Puerto Viejo
+                                        "Los reportes y análisis de anuncielo.com nos han permitido identificar oportunidades de negocio que antes pasábamos por alto. Hemos optimizado nuestras tarifas según la demanda estacional, lo que ha aumentado nuestros ingresos en un 30%. La capacidad de tomar decisiones basadas en datos ha transformado completamente nuestra estrategia de negocio." - Cabinas El Mirador, Puerto Viejo
                                     </p>
                                 </div>
                             </div>

@@ -14,37 +14,55 @@ return [
     | To learn more: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
     |
     */
-    'paths' => ['api/*', '/', 'storage/*', 'sanctum/csrf-cookie'], // Incluye tours-company
+    
+    // Solo rutas API y Sanctum (eliminar '/' y 'storage/*' por seguridad)
+    'paths' => ['api/*', 'sanctum/csrf-cookie'],
 
-    'allowed_methods' => ['*'],
+    // Solo los métodos HTTP que realmente necesitas
+    'allowed_methods' => ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
 
     'allowed_origins' => [
-        'http://localhost:3001',
+        // DESARROLLO - Solo localhost (HTTP permitido solo en desarrollo)
         'http://localhost:3000',
-        'http://wilapi.test',
+        'http://localhost:3001',
+        'http://localhost:8000',
+        
+        // PRODUCCIÓN - Solo HTTPS (seguridad)
+        'https://osatoursandtravel.com',
+        'https://anuncielo.com',
         'https://osanaturetours.com',
         'https://ecoexpeditionscr.com',
         'https://rioverdeecolodge.com',
         'https://leivatours.com',
-        // Capacitor schemes
+        
+        // CAPACITOR - Apps móviles
         'capacitor://localhost',
-        'http://localhost',
         'ionic://localhost',
-        'com.rioverdeecolodge.app',
-        // Add these additional schemes for better compatibility
-        'file://',
+        'capacitor://com.rioverdeecolodge.app',
+        
+        // HTTPS localhost para desarrollo con SSL
         'https://localhost',
-        'capacitor://com.rioverdeecolodge.app'
     ],
 
     'allowed_origins_patterns' => [],
 
-    'allowed_headers' => ['*'],
+    // Headers específicos necesarios (más seguro que '*')
+    'allowed_headers' => [
+        'Content-Type',
+        'X-Requested-With',
+        'Authorization',
+        'Accept',
+        'Origin',
+        'X-CSRF-TOKEN',
+        'X-Socket-Id', // Para Laravel Echo/Broadcasting si lo usas
+    ],
 
     'exposed_headers' => [],
 
-    'max_age' => 0,
+    // Cachea las respuestas preflight por 1 hora (mejora rendimiento)
+    'max_age' => 3600,
 
-    'supports_credentials' => false,
+    // TRUE para permitir cookies/credenciales (necesario para Sanctum)
+    'supports_credentials' => true,
 
 ];
