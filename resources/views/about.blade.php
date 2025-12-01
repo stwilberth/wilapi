@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Conozca más sobre anuncielo.com, el sistema de gestión integral para empresas turísticas y hoteleras en Costa Rica">
+        <meta name="description" content="Conozca más sobre anuncielo.com, su aliado en servicios informáticos y publicidad para empresas de todos los sectores en Costa Rica">
 
         <title>anuncielo.com - Sobre Nosotros</title>
 
@@ -49,57 +49,13 @@
             </nav>
 
             <!-- Contenido principal -->
-            <main class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-                <div class="bg-white dark:bg-gray-800 shadow-xl rounded-lg overflow-hidden">
-                    <div class="p-8">
-                        <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Sobre anuncielo.com</h1>
-                        
-                        <div class="prose prose-blue max-w-none dark:prose-invert">
-                            <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">
-                                anuncielo.com es una plataforma integral de gestión diseñada específicamente para empresas del sector turístico y hotelero en Costa Rica. Nuestra misión es proporcionar herramientas tecnológicas avanzadas que permitan a nuestros clientes optimizar sus operaciones, mejorar la experiencia de sus huéspedes y aumentar su visibilidad en línea.
-                            </p>
-                            
-                            <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">Nuestra Historia</h2>
-                            <p class="text-gray-700 dark:text-gray-300 mb-6">
-                                Fundada en 2020 por un equipo de expertos en tecnología y turismo, anuncielo.com nació de la necesidad de digitalizar y modernizar la gestión de empresas turísticas en Costa Rica. Identificamos que muchas empresas locales carecían de herramientas tecnológicas adaptadas a sus necesidades específicas, lo que limitaba su capacidad para competir en un mercado cada vez más digital.
-                            </p>
-                            <p class="text-gray-700 dark:text-gray-300 mb-6">
-                                Desde entonces, hemos trabajado incansablemente para desarrollar una plataforma que no solo resuelva los desafíos operativos diarios de nuestros clientes, sino que también les ayude a destacar en un mercado competitivo, ofreciendo experiencias excepcionales a sus clientes.
-                            </p>
-                            
-                            <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">Nuestra Visión</h2>
-                            <p class="text-gray-700 dark:text-gray-300 mb-6">
-                                En anuncielo.com, aspiramos a ser el aliado tecnológico preferido por las empresas turísticas y hoteleras en Costa Rica y Centroamérica. Nuestra visión es crear un ecosistema digital donde la tecnología potencie la autenticidad y calidad de las experiencias turísticas costarricenses, permitiendo a las empresas locales competir globalmente sin perder su esencia.
-                            </p>
-                            
-                            <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">Nuestros Valores</h2>
-                            <ul class="list-disc pl-6 text-gray-700 dark:text-gray-300 mb-6 space-y-2">
-                                <li><strong>Innovación:</strong> Buscamos constantemente nuevas formas de mejorar nuestra plataforma y ofrecer soluciones creativas a los desafíos de nuestros clientes.</li>
-                                <li><strong>Excelencia:</strong> Nos comprometemos a ofrecer productos y servicios de la más alta calidad, superando las expectativas de nuestros clientes.</li>
-                                <li><strong>Sostenibilidad:</strong> Promovemos prácticas empresariales sostenibles y apoyamos el turismo responsable en Costa Rica.</li>
-                                <li><strong>Colaboración:</strong> Trabajamos estrechamente con nuestros clientes, entendiendo sus necesidades y adaptando nuestras soluciones a sus requerimientos específicos.</li>
-                                <li><strong>Integridad:</strong> Actuamos con honestidad y transparencia en todas nuestras operaciones y relaciones comerciales.</li>
-                            </ul>
-                            
-                            <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">Nuestro Equipo</h2>
-                            <p class="text-gray-700 dark:text-gray-300 mb-6">
-                                Detrás de anuncielo.com hay un equipo diverso y apasionado de profesionales en tecnología, diseño, marketing y atención al cliente. Todos compartimos el compromiso de ayudar a las empresas turísticas costarricenses a prosperar en la era digital.
-                            </p>
-                            <p class="text-gray-700 dark:text-gray-300 mb-6">
-                                Nuestro equipo combina experiencia técnica con un profundo conocimiento del sector turístico local, lo que nos permite desarrollar soluciones que realmente responden a las necesidades específicas de nuestros clientes.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </main>
-
             <!-- Footer -->
             <footer class="bg-white dark:bg-gray-900 mt-12">
                 <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
                     <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                         <div class="col-span-1 md:col-span-2">
                             <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">anuncielo.com</h3>
-                            <p class="text-gray-600 dark:text-gray-400 mb-4">Sistema de gestión integral para empresas turísticas y hoteleras en Costa Rica.</p>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">Servicios informáticos y de publicidad para empresas de todos los sectores.</p>
                             <div class="flex space-x-4">
                                 <a href="#" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300">
                                     <i class="fab fa-facebook-f"></i>

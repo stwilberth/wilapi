@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="anuncielo.com - Sistema de gestión integral para empresas turísticas y hoteleras en Costa Rica. Optimice sus operaciones, mejore la experiencia de sus clientes y aumente su visibilidad en línea.">
+        <meta name="description" content="anuncielo.com - Servicios informáticos y de publicidad para empresas de todos los sectores: desarrollo web, hospedaje, correo corporativo, diseño gráfico y soluciones digitales personalizadas.">
 
-        <title>anuncielo.com - Sistema de Gestión para Empresas Turísticas</title>
+        <title>anuncielo.com - Servicios Informáticos y Publicidad</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -54,10 +54,10 @@
                     <div class="md:flex md:items-center md:justify-between">
                         <div class="md:w-1/2 mb-12 md:mb-0">
                             <h1 class="text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
-                                Soluciones digitales para empresas turísticas en Costa Rica
+                                Soluciones digitales para empresas de todos los sectores
                             </h1>
                             <p class="text-xl text-blue-100 max-w-2xl mb-8">
-                                Optimice sus operaciones, mejore la experiencia de sus clientes y aumente su visibilidad en línea con nuestra plataforma integral de gestión.
+                                Desde desarrollo web hasta diseño gráfico, ofrecemos servicios informáticos y de publicidad para impulsar su negocio en el mundo digital.
                             </p>
                             <div class="flex flex-col sm:flex-row gap-4">
                                 <a href="/services" class="px-8 py-4 bg-white text-blue-700 font-semibold rounded-lg shadow-md hover:bg-blue-50 transition duration-300 ease-in-out flex items-center justify-center">
@@ -93,20 +93,20 @@
             <div class="py-16 bg-white dark:bg-gray-900">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="text-center mb-16">
-                        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Soluciones diseñadas para el sector turístico</h2>
+                        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Servicios para empresas de todos los sectores</h2>
                         <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-                            Nuestra plataforma ofrece herramientas especializadas para hoteles, operadores de tours y empresas de servicios turísticos en Costa Rica.
+                            Ofrecemos soluciones informáticas y de publicidad completas para negocios de cualquier industria que busquen destacar en el mundo digital.
                         </p>
                     </div>
                     
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div class="bg-blue-50 dark:bg-gray-800 rounded-lg shadow-lg p-8 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105">
                             <div class="h-20 w-20 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mb-6">
-                                <i class="fas fa-hotel text-3xl text-blue-600 dark:text-blue-400"></i>
+                                <i class="fas fa-laptop-code text-3xl text-blue-600 dark:text-blue-400"></i>
                             </div>
-                            <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Gestión de Alojamientos</h3>
+                            <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Desarrollo Web</h3>
                             <p class="text-gray-600 dark:text-gray-300 mb-6">
-                                Administre eficientemente sus habitaciones, cabañas o apartamentos. Optimice la ocupación, gestione tarifas y mejore la experiencia de sus huéspedes.
+                                Creamos páginas web profesionales y atractivas para su negocio. Diseños modernos, responsivos y optimizados para conversión.
                             </p>
                             <a href="/services" class="text-blue-600 dark:text-blue-400 font-medium hover:text-blue-800 dark:hover:text-blue-300 inline-flex items-center">
                                 Conocer más <i class="fas fa-arrow-right ml-2"></i>
@@ -115,11 +115,11 @@
                         
                         <div class="bg-blue-50 dark:bg-gray-800 rounded-lg shadow-lg p-8 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105">
                             <div class="h-20 w-20 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mb-6">
-                                <i class="fas fa-route text-3xl text-blue-600 dark:text-blue-400"></i>
+                                <i class="fas fa-server text-3xl text-blue-600 dark:text-blue-400"></i>
                             </div>
-                            <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Gestión de Tours</h3>
+                            <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Hospedaje y Correo Corporativo</h3>
                             <p class="text-gray-600 dark:text-gray-300 mb-6">
-                                Gestione sus tours y excursiones con información detallada, imágenes atractivas, itinerarios y precios. Facilite la reserva y aumente sus ventas.
+                                Servicios de hosting confiables y cuentas de correo profesionales con su propio dominio para proyectar una imagen empresarial sólida.
                             </p>
                             <a href="/services" class="text-blue-600 dark:text-blue-400 font-medium hover:text-blue-800 dark:hover:text-blue-300 inline-flex items-center">
                                 Conocer más <i class="fas fa-arrow-right ml-2"></i>
@@ -128,11 +128,11 @@
                         
                         <div class="bg-blue-50 dark:bg-gray-800 rounded-lg shadow-lg p-8 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105">
                             <div class="h-20 w-20 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mb-6">
-                                <i class="fas fa-shopping-cart text-3xl text-blue-600 dark:text-blue-400"></i>
+                                <i class="fas fa-palette text-3xl text-blue-600 dark:text-blue-400"></i>
                             </div>
-                            <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Catálogo de Productos</h3>
+                            <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Diseño Gráfico</h3>
                             <p class="text-gray-600 dark:text-gray-300 mb-6">
-                                Presente sus productos y servicios de manera atractiva y organizada. Ideal para tiendas de souvenirs, equipamiento para actividades y más.
+                                Logos, tarjetas de presentación, material publicitario y branding completo. Diseños profesionales que comunican su mensaje de marca.
                             </p>
                             <a href="/services" class="text-blue-600 dark:text-blue-400 font-medium hover:text-blue-800 dark:hover:text-blue-300 inline-flex items-center">
                                 Conocer más <i class="fas fa-arrow-right ml-2"></i>
@@ -148,7 +148,7 @@
                     <div class="text-center mb-16">
                         <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">¿Por qué elegir anuncielo.com?</h2>
                         <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-                            Nuestra plataforma está diseñada específicamente para las necesidades del sector turístico costarricense.
+                            Ofrecemos soluciones digitales completas con tecnología moderna y soporte personalizado.
                         </p>
                     </div>
                     
@@ -157,16 +157,16 @@
                             <div class="h-12 w-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mb-4">
                                 <i class="fas fa-chart-line text-xl text-blue-600 dark:text-blue-400"></i>
                             </div>
-                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Análisis Avanzado</h3>
-                            <p class="text-gray-600 dark:text-gray-300">Obtenga información valiosa con nuestras herramientas de análisis de datos para tomar mejores decisiones de negocio.</p>
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Soluciones Personalizadas</h3>
+                            <p class="text-gray-600 dark:text-gray-300">Cada proyecto es único. Adaptamos nuestros servicios a las necesidades específicas de su negocio.</p>
                         </div>
                         
                         <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md p-6">
                             <div class="h-12 w-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mb-4">
                                 <i class="fas fa-mobile-alt text-xl text-blue-600 dark:text-blue-400"></i>
                             </div>
-                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Acceso Móvil</h3>
-                            <p class="text-gray-600 dark:text-gray-300">Gestione su negocio desde cualquier lugar con nuestra aplicación móvil optimizada para smartphones y tablets.</p>
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Tecnología Moderna</h3>
+                            <p class="text-gray-600 dark:text-gray-300">Utilizamos las últimas tecnologías en desarrollo web y diseño para crear soluciones robustas y escalables.</p>
                         </div>
                         
                         <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md p-6">
@@ -181,8 +181,8 @@
                             <div class="h-12 w-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mb-4">
                                 <i class="fas fa-headset text-xl text-blue-600 dark:text-blue-400"></i>
                             </div>
-                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Soporte Local</h3>
-                            <p class="text-gray-600 dark:text-gray-300">Contamos con un equipo de soporte local que entiende las necesidades específicas del mercado costarricense.</p>
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Soporte Dedicado</h3>
+                            <p class="text-gray-600 dark:text-gray-300">Equipo de soporte local en español disponible para ayudarle cuando lo necesite.</p>
                         </div>
                     </div>
                 </div>
@@ -194,7 +194,7 @@
                     <div class="text-center mb-16">
                         <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Lo que dicen nuestros clientes</h2>
                         <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-                            Empresas turísticas de todo Costa Rica confían en anuncielo.com para optimizar sus operaciones.
+                            Empresas de diversos sectores confían en anuncielo.com para su presencia digital.
                         </p>
                     </div>
                     
@@ -210,15 +210,15 @@
                                 </div>
                             </div>
                             <p class="text-gray-700 dark:text-gray-300 mb-6 italic">
-                                "Desde que implementamos anuncielo.com, hemos aumentado nuestras reservas en un 35%. La plataforma nos permite mostrar información detallada de nuestros tours, lo que ha mejorado significativamente la conversión de visitantes a clientes."
+                                "La nueva página web que nos desarrolló anuncielo.com ha superado nuestras expectativas. El diseño es moderno y profesional, y hemos visto un aumento del 45% en consultas. El equipo siempre estuvo disponible para nuestras dudas."
                             </p>
                             <div class="flex items-center">
                                 <div class="h-12 w-12 bg-blue-200 dark:bg-blue-800 rounded-full flex items-center justify-center mr-4">
                                     <i class="fas fa-user text-blue-600 dark:text-blue-400"></i>
                                 </div>
                                 <div>
-                                    <h4 class="text-lg font-semibold text-gray-900 dark:text-white">Carlos Rodríguez</h4>
-                                    <p class="text-gray-600 dark:text-gray-400">Aventuras Tropicales, Guanacaste</p>
+                                    <h4 class="text-lg font-semibold text-gray-900 dark:text-white">Ana María Gómez</h4>
+                                    <p class="text-gray-600 dark:text-gray-400">Clínica Dental Sonrisas</p>
                                 </div>
                             </div>
                         </div>
@@ -234,15 +234,15 @@
                                 </div>
                             </div>
                             <p class="text-gray-700 dark:text-gray-300 mb-6 italic">
-                                "La implementación del sistema de gestión de alojamientos de anuncielo.com ha revolucionado nuestra operación diaria. Hemos reducido los errores de reserva en un 90% y aumentado nuestra tasa de ocupación en un 25%."
+                                "El servicio de hospedaje web es excelente. Llevamos 2 años sin ningún problema y la velocidad de nuestro sitio mejoró notablemente. El correo corporativo funciona perfecto y da una imagen muy profesional a nuestra empresa."
                             </p>
                             <div class="flex items-center">
                                 <div class="h-12 w-12 bg-blue-200 dark:bg-blue-800 rounded-full flex items-center justify-center mr-4">
                                     <i class="fas fa-user text-blue-600 dark:text-blue-400"></i>
                                 </div>
                                 <div>
-                                    <h4 class="text-lg font-semibold text-gray-900 dark:text-white">María Fernández</h4>
-                                    <p class="text-gray-600 dark:text-gray-400">Hotel Vista Paraíso, Manuel Antonio</p>
+                                    <h4 class="text-lg font-semibold text-gray-900 dark:text-white">Luis Hernández</h4>
+                                    <p class="text-gray-600 dark:text-gray-400">Bufete Jurídico Asociados</p>
                                 </div>
                             </div>
                         </div>
@@ -258,15 +258,15 @@
                                 </div>
                             </div>
                             <p class="text-gray-700 dark:text-gray-300 mb-6 italic">
-                                "Los reportes y análisis de anuncielo.com nos han permitido identificar oportunidades de negocio que antes pasábamos por alto. Hemos optimizado nuestras tarifas según la demanda estacional, aumentando nuestros ingresos en un 30%."
+                                "El diseño de nuestro logo y material gráfico ha transformado la imagen de nuestro negocio. Las tarjetas de presentación son elegantes y recibimos muchos cumplidos. Definitivamente mejoró nuestra percepción de marca."
                             </p>
                             <div class="flex items-center">
                                 <div class="h-12 w-12 bg-blue-200 dark:bg-blue-800 rounded-full flex items-center justify-center mr-4">
                                     <i class="fas fa-user text-blue-600 dark:text-blue-400"></i>
                                 </div>
                                 <div>
-                                    <h4 class="text-lg font-semibold text-gray-900 dark:text-white">Roberto Jiménez</h4>
-                                    <p class="text-gray-600 dark:text-gray-400">Cabinas El Mirador, Puerto Viejo</p>
+                                    <h4 class="text-lg font-semibold text-gray-900 dark:text-white">Patricia Morales</h4>
+                                    <p class="text-gray-600 dark:text-gray-400">Restaurante Sabor Tico</p>
                                 </div>
                             </div>
                         </div>
@@ -277,9 +277,9 @@
             <!-- CTA -->
             <div class="py-16 bg-blue-600 dark:bg-blue-800">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h2 class="text-3xl font-bold text-white mb-6">¿Listo para transformar su negocio turístico?</h2>
+                    <h2 class="text-3xl font-bold text-white mb-6">¿Listo para llevar su negocio al siguiente nivel?</h2>
                     <p class="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
-                        Únase a las empresas turísticas que ya están optimizando sus operaciones con anuncielo.com.
+                        Únase a las empresas que ya están mejorando su presencia digital con anuncielo.com.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
                         <a href="/contact" class="px-8 py-4 bg-white text-blue-700 font-semibold rounded-lg shadow-md hover:bg-blue-50 transition duration-300 ease-in-out inline-flex items-center justify-center">

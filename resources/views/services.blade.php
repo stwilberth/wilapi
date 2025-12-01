@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Descubra los servicios y soluciones que anuncielo.com ofrece para empresas turísticas y hoteleras en Costa Rica">
+        <meta name="description" content="Servicios informáticos y de publicidad para empresas de todos los sectores: desarrollo web, hosting, correo corporativo, diseño gráfico y soluciones digitales">
 
         <title>anuncielo.com - Nuestros Servicios</title>
 
@@ -55,168 +55,173 @@
                         <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Nuestros Servicios</h1>
                         
                         <p class="text-lg text-gray-700 dark:text-gray-300 mb-10">
-                            En anuncielo.com ofrecemos soluciones tecnológicas integrales diseñadas específicamente para empresas del sector turístico y hotelero en Costa Rica. Nuestros servicios están orientados a optimizar sus operaciones, mejorar la experiencia de sus clientes y aumentar su visibilidad en línea.
+                            En anuncielo.com ofrecemos servicios informáticos y de publicidad para empresas de todos los sectores. Desde desarrollo web hasta diseño gráfico, pasando por hospedaje, correo corporativo y soluciones digitales personalizadas, tenemos todo lo que su negocio necesita para tener presencia digital profesional.
                         </p>
                         
-                        <!-- Gestión de Tours -->
+                        <!-- Desarrollo Web y Diseño -->
                         <div class="mb-16">
                             <div class="flex items-center mb-4">
                                 <div class="h-12 w-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mr-4">
-                                    <i class="fas fa-route text-xl text-blue-600 dark:text-blue-400"></i>
+                                    <i class="fas fa-laptop-code text-xl text-blue-600 dark:text-blue-400"></i>
                                 </div>
-                                <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">Gestión de Tours</h2>
+                                <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">Desarrollo Web y Diseño</h2>
                             </div>
                             
                             <div class="ml-16">
                                 <p class="text-gray-700 dark:text-gray-300 mb-4">
-                                    Nuestra plataforma le permite gestionar de manera eficiente todos los aspectos relacionados con sus tours y excursiones. Desde la creación y actualización de información detallada hasta la gestión de reservas y disponibilidad.
+                                    Creamos páginas web profesionales y atractivas que representan perfectamente su negocio. Desde sitios corporativos hasta landing pages y portafolios, desarrollamos soluciones web modernas, responsivas y optimizadas para conversión.
                                 </p>
                                 
                                 <h3 class="text-xl font-medium text-gray-900 dark:text-white mt-6 mb-3">Características principales:</h3>
                                 <ul class="list-disc pl-6 text-gray-700 dark:text-gray-300 space-y-2 mb-6">
-                                    <li>Creación de fichas detalladas para cada tour con información completa: descripción, duración, precio, nivel de dificultad, itinerario, etc.</li>
-                                    <li>Gestión de imágenes de alta calidad para mostrar la experiencia de sus tours.</li>
-                                    <li>Categorización por ubicación y tipo de actividad para facilitar la búsqueda.</li>
-                                    <li>Integración con sistemas de reservas online.</li>
-                                    <li>Análisis de rendimiento y popularidad de cada tour.</li>
+                                    <li>Diseño web personalizado y responsive, adaptado a todos los dispositivos.</li>
+                                    <li>Desarrollo con tecnologías modernas (HTML5, CSS3, JavaScript, PHP, Laravel).</li>
+                                    <li>Optimización SEO para mejorar su posicionamiento en buscadores.</li>
+                                    <li>Integración con redes sociales y herramientas de marketing.</li>
+                                    <li>Panel de administración fácil de usar para gestionar contenido.</li>
+                                    <li>Certificados SSL para seguridad y confianza.</li>
                                 </ul>
                                 
                                 <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-6 mb-6">
                                     <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-3">Caso de éxito:</h4>
                                     <p class="text-gray-700 dark:text-gray-300 italic">
-                                        "Gracias al sistema de gestión de tours de anuncielo.com, hemos aumentado nuestras reservas en un 35% en los últimos seis meses. La plataforma nos permite mostrar información detallada y atractiva de nuestras excursiones, lo que ha mejorado significativamente la conversión de visitantes a clientes." - Aventuras Tropicales, Guanacaste
+                                        "Nuestra nueva página web desarrollada por anuncielo.com ha transformado completamente nuestra presencia digital. El diseño profesional y la facilidad de navegación han aumentado las consultas de clientes en un 60%. Además, el panel de administración nos permite actualizar contenido sin necesidad de conocimientos técnicos." - Constructora Soluciones CR
                                     </p>
                                 </div>
                             </div>
                         </div>
                         
-                        <!-- Gestión de Alojamientos -->
+                        <!-- Hospedaje Web y Correo Corporativo -->
                         <div class="mb-16">
                             <div class="flex items-center mb-4">
                                 <div class="h-12 w-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mr-4">
-                                    <i class="fas fa-hotel text-xl text-blue-600 dark:text-blue-400"></i>
+                                    <i class="fas fa-server text-xl text-blue-600 dark:text-blue-400"></i>
                                 </div>
-                                <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">Gestión de Alojamientos</h2>
+                                <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">Hospedaje Web y Correo Corporativo</h2>
                             </div>
                             
                             <div class="ml-16">
                                 <p class="text-gray-700 dark:text-gray-300 mb-4">
-                                    Administre eficientemente sus habitaciones, cabañas o apartamentos con nuestro sistema integral de gestión de alojamientos. Optimice la ocupación, gestione tarifas y mejore la experiencia de sus huéspedes.
+                                    Ofrecemos servicios de hospedaje web confiables y seguros, con servidores de alta disponibilidad. Además, proporcionamos cuentas de correo corporativo profesionales con su propio dominio para proyectar una imagen empresarial sólida.
                                 </p>
                                 
                                 <h3 class="text-xl font-medium text-gray-900 dark:text-white mt-6 mb-3">Características principales:</h3>
                                 <ul class="list-disc pl-6 text-gray-700 dark:text-gray-300 space-y-2 mb-6">
-                                    <li>Creación de fichas detalladas para cada tipo de habitación con información completa: capacidad, comodidades, tarifas, etc.</li>
-                                    <li>Gestión de imágenes de alta calidad para mostrar sus instalaciones.</li>
-                                    <li>Sistema de calendario de disponibilidad y reservas.</li>
-                                    <li>Gestión de tarifas dinámicas según temporada y ocupación.</li>
-                                    <li>Integración con plataformas como Booking, Airbnb y Expedia.</li>
-                                    <li>Generación de reportes de ocupación y rendimiento.</li>
+                                    <li>Hosting web con alta disponibilidad (99.9% uptime garantizado).</li>
+                                    <li>Servidores rápidos con tecnología SSD para mejor rendimiento.</li>
+                                    <li>Copias de seguridad automáticas diarias.</li>
+                                    <li>Certificados SSL incluidos para seguridad.</li>
+                                    <li>Cuentas de correo corporativo ilimitadas con su dominio (@suempresa.com).</li>
+                                    <li>Panel de control cPanel/DirectAdmin para gestión fácil.</li>
+                                    <li>Soporte técnico 24/7 en español.</li>
                                 </ul>
                                 
                                 <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-6 mb-6">
                                     <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-3">Caso de éxito:</h4>
                                     <p class="text-gray-700 dark:text-gray-300 italic">
-                                        "La implementación del sistema de gestión de alojamientos de anuncielo.com ha revolucionado nuestra operación diaria. Hemos reducido los errores de reserva en un 90% y aumentado nuestra tasa de ocupación en un 25%. La integración con plataformas como Booking y Airbnb nos ha permitido centralizar todas nuestras reservas en un solo sistema." - Hotel Vista Paraíso, Manuel Antonio
+                                        "Desde que migramos nuestro sitio web al hospedaje de anuncielo.com, no hemos tenido ni un solo problema. La velocidad de carga mejoró notablemente y el correo corporativo funciona perfecto. El soporte técnico siempre responde rápido cuando lo necesitamos." - Bufete Jurídico Asociados
                                     </p>
                                 </div>
                             </div>
                         </div>
                         
-                        <!-- Catálogo de Productos -->
+                        <!-- Aplicaciones Web Personalizadas -->
                         <div class="mb-16">
                             <div class="flex items-center mb-4">
                                 <div class="h-12 w-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mr-4">
-                                    <i class="fas fa-shopping-cart text-xl text-blue-600 dark:text-blue-400"></i>
+                                    <i class="fas fa-cogs text-xl text-blue-600 dark:text-blue-400"></i>
                                 </div>
-                                <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">Catálogo de Productos</h2>
+                                <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">Aplicaciones Web Personalizadas</h2>
                             </div>
                             
                             <div class="ml-16">
                                 <p class="text-gray-700 dark:text-gray-300 mb-4">
-                                    Presente sus productos y servicios de manera atractiva y organizada con nuestro sistema de catálogo digital. Ideal para tiendas de souvenirs, equipamiento para actividades al aire libre, artesanías locales y más.
+                                    Desarrollamos soluciones web adaptadas a las necesidades específicas de su negocio. Sistemas de gestión, catálogos de productos, plataformas de reservas, CRMs personalizados y cualquier herramienta digital que su empresa necesite para optimizar procesos.
                                 </p>
                                 
                                 <h3 class="text-xl font-medium text-gray-900 dark:text-white mt-6 mb-3">Características principales:</h3>
                                 <ul class="list-disc pl-6 text-gray-700 dark:text-gray-300 space-y-2 mb-6">
-                                    <li>Creación de fichas detalladas para cada producto con información completa: descripción, precio, características, etc.</li>
-                                    <li>Organización por categorías y marcas para facilitar la navegación.</li>
-                                    <li>Gestión de imágenes de alta calidad para mostrar sus productos desde diferentes ángulos.</li>
-                                    <li>Sistema de búsqueda avanzada para que sus clientes encuentren rápidamente lo que buscan.</li>
-                                    <li>Integración con sistemas de inventario y punto de venta.</li>
-                                    <li>Análisis de productos más populares y tendencias de compra.</li>
+                                    <li>Desarrollo a medida según los requerimientos de su negocio.</li>
+                                    <li>Sistemas de gestión de inventarios, clientes, ventas y más.</li>
+                                    <li>Integración con sistemas existentes y APIs de terceros.</li>
+                                    <li>Bases de datos optimizadas y seguras.</li>
+                                    <li>Interfaz intuitiva y fácil de usar para sus empleados.</li>
+                                    <li>Reportes y dashboards personalizados con métricas relevantes.</li>
+                                    <li>Capacitación y soporte continuo.</li>
                                 </ul>
                                 
                                 <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-6 mb-6">
                                     <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-3">Caso de éxito:</h4>
                                     <p class="text-gray-700 dark:text-gray-300 italic">
-                                        "Desde que implementamos el catálogo digital de anuncielo.com, nuestras ventas en línea han aumentado un 40%. La presentación profesional de nuestros productos artesanales ha mejorado significativamente la percepción de nuestra marca y ha atraído a clientes de todo el mundo." - Artesanías Costarricenses, San José
+                                        "El sistema de gestión de inventarios desarrollado por anuncielo.com ha optimizado completamente nuestro control de stock. Ahora podemos rastrear productos en tiempo real, generar reportes automáticos y reducir pérdidas. La inversión se pagó sola en menos de 6 meses." - Ferretería El Martillo
                                     </p>
                                 </div>
                             </div>
                         </div>
                         
-                        <!-- Presencia Digital Integrada -->
+                        <!-- Diseño Gráfico y Branding -->
                         <div class="mb-16">
                             <div class="flex items-center mb-4">
                                 <div class="h-12 w-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mr-4">
-                                    <i class="fas fa-globe text-xl text-blue-600 dark:text-blue-400"></i>
+                                    <i class="fas fa-palette text-xl text-blue-600 dark:text-blue-400"></i>
                                 </div>
-                                <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">Presencia Digital Integrada</h2>
+                                <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">Diseño Gráfico y Branding</h2>
                             </div>
                             
                             <div class="ml-16">
                                 <p class="text-gray-700 dark:text-gray-300 mb-4">
-                                    Mejore su visibilidad en línea con nuestra solución de presencia digital integrada. Conecte todas sus plataformas y canales digitales para ofrecer una experiencia coherente a sus clientes y optimizar su estrategia de marketing.
+                                    Creamos diseños gráficos profesionales que comunican efectivamente su mensaje de marca. Desde logotipos y tarjetas de presentación hasta material publicitario y branding completo, desarrollamos identidades visuales memorables.
                                 </p>
                                 
                                 <h3 class="text-xl font-medium text-gray-900 dark:text-white mt-6 mb-3">Características principales:</h3>
                                 <ul class="list-disc pl-6 text-gray-700 dark:text-gray-300 space-y-2 mb-6">
-                                    <li>Gestión centralizada de información de contacto y perfiles en redes sociales.</li>
-                                    <li>Integración con plataformas de reseñas como TripAdvisor.</li>
-                                    <li>Herramientas de SEO para mejorar su posicionamiento en buscadores.</li>
-                                    <li>Sistema de gestión de contenidos para mantener su sitio web actualizado.</li>
-                                    <li>Análisis de tráfico y comportamiento de usuarios.</li>
-                                    <li>Estrategias de marketing digital adaptadas al sector turístico.</li>
+                                    <li>Diseño de logotipos e identidad corporativa completa.</li>
+                                    <li>Tarjetas de presentación profesionales con diseño moderno.</li>
+                                    <li>Material publicitario: flyers, brochures, banners digitales.</li>
+                                    <li>Imágenes para redes sociales optimizadas por plataforma.</li>
+                                    <li>Manual de marca con lineamientos de uso.</li>
+                                    <li>Diseño de packaging y etiquetas para productos.</li>
+                                    <li>Archivos en formatos profesionales (AI, PSD, PDF, PNG, JPG).</li>
                                 </ul>
                                 
                                 <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-6 mb-6">
                                     <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-3">Caso de éxito:</h4>
                                     <p class="text-gray-700 dark:text-gray-300 italic">
-                                        "La solución de presencia digital de anuncielo.com ha transformado nuestra estrategia de marketing. Hemos aumentado nuestro tráfico orgánico en un 60% y mejorado nuestra puntuación en TripAdvisor gracias a la gestión eficiente de reseñas. La coherencia en todos nuestros canales digitales ha fortalecido nuestra marca y aumentado la confianza de nuestros clientes." - Ecoaventuras, Monteverde
+                                        "El nuevo diseño de marca que nos creó anuncielo.com ha elevado completamente la percepción de nuestro negocio. Las tarjetas de presentación son elegantes y profesionales, y nuestro nuevo logo transmite exactamente lo que queríamos comunicar. Hemos notado un aumento en el reconocimiento de marca y confianza de clientes." - Clínica Dental Sonrisas
                                     </p>
                                 </div>
                             </div>
                         </div>
                         
-                        <!-- Análisis y Reportes -->
+                        <!-- Soluciones para Restaurantes -->
                         <div class="mb-16">
                             <div class="flex items-center mb-4">
                                 <div class="h-12 w-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mr-4">
-                                    <i class="fas fa-chart-bar text-xl text-blue-600 dark:text-blue-400"></i>
+                                    <i class="fas fa-utensils text-xl text-blue-600 dark:text-blue-400"></i>
                                 </div>
-                                <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">Análisis y Reportes</h2>
+                                <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">Soluciones para Restaurantes</h2>
                             </div>
                             
                             <div class="ml-16">
                                 <p class="text-gray-700 dark:text-gray-300 mb-4">
-                                    Tome decisiones basadas en datos con nuestro sistema avanzado de análisis y reportes. Obtenga información valiosa sobre el rendimiento de su negocio, tendencias de mercado y comportamiento de clientes.
+                                    Ofrecemos soluciones integrales para el sector gastronómico: desde menús digitales interactivos con códigos QR hasta menús físicos impresos profesionales y sistemas de toma de pedidos que agilizan la operación de su restaurante.
                                 </p>
                                 
                                 <h3 class="text-xl font-medium text-gray-900 dark:text-white mt-6 mb-3">Características principales:</h3>
                                 <ul class="list-disc pl-6 text-gray-700 dark:text-gray-300 space-y-2 mb-6">
-                                    <li>Dashboards personalizables con métricas clave de su negocio.</li>
-                                    <li>Reportes detallados de ventas, reservas y ocupación.</li>
-                                    <li>Análisis de tendencias estacionales y patrones de demanda.</li>
-                                    <li>Segmentación de clientes y análisis de comportamiento.</li>
-                                    <li>Comparativas de rendimiento con períodos anteriores.</li>
-                                    <li>Alertas y notificaciones para métricas importantes.</li>
+                                    <li>Menús digitales con códigos QR, sin contacto y fáciles de actualizar.</li>
+                                    <li>Diseño e impresión de menús físicos profesionales y atractivos.</li>
+                                    <li>Sistemas de toma de pedidos digitales para meseros.</li>
+                                    <li>Integración con cocina para envío de pedidos en tiempo real.</li>
+                                    <li>Catálogo de platos con imágenes, descripciones y precios.</li>
+                                    <li>Actualización rápida de disponibilidad de platillos.</li>
+                                    <li>Múltiples idiomas para clientes internacionales.</li>
                                 </ul>
                                 
                                 <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-6 mb-6">
                                     <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-3">Caso de éxito:</h4>
                                     <p class="text-gray-700 dark:text-gray-300 italic">
-                                        "Los reportes y análisis de anuncielo.com nos han permitido identificar oportunidades de negocio que antes pasábamos por alto. Hemos optimizado nuestras tarifas según la demanda estacional, lo que ha aumentado nuestros ingresos en un 30%. La capacidad de tomar decisiones basadas en datos ha transformado completamente nuestra estrategia de negocio." - Cabinas El Mirador, Puerto Viejo
+                                        "El sistema de menú digital con QR y toma de pedidos de anuncielo.com ha revolucionado nuestro servicio. Los meseros ahora toman pedidos más rápido, los errores han disminuido casi a cero y podemos actualizar precios y disponibilidad al instante. Nuestros clientes también aprecian la facilidad de ver el menú en sus teléfonos." - Restaurante Sabor Tico
                                     </p>
                                 </div>
                             </div>
@@ -242,25 +247,25 @@
                                                 <svg class="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                                 </svg>
-                                                <span class="text-gray-700 dark:text-gray-300">Gestión de 1 empresa</span>
+                                                <span class="text-gray-700 dark:text-gray-300">1 sitio web</span>
                                             </li>
                                             <li class="flex items-start">
                                                 <svg class="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                                 </svg>
-                                                <span class="text-gray-700 dark:text-gray-300">Hasta 10 tours o habitaciones</span>
+                                                <span class="text-gray-700 dark:text-gray-300">Hasta 5 páginas</span>
                                             </li>
                                             <li class="flex items-start">
                                                 <svg class="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                                 </svg>
-                                                <span class="text-gray-700 dark:text-gray-300">Hasta 50 productos</span>
+                                                <span class="text-gray-700 dark:text-gray-300">5 GB hospedaje web</span>
                                             </li>
                                             <li class="flex items-start">
                                                 <svg class="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                                 </svg>
-                                                <span class="text-gray-700 dark:text-gray-300">Reportes básicos</span>
+                                                <span class="text-gray-700 dark:text-gray-300">3 cuentas de correo</span>
                                             </li>
                                             <li class="flex items-start">
                                                 <svg class="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -295,31 +300,31 @@
                                                 <svg class="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                                 </svg>
-                                                <span class="text-gray-700 dark:text-gray-300">Gestión de 1 empresa</span>
+                                                <span class="text-gray-700 dark:text-gray-300">Hasta 3 sitios web</span>
                                             </li>
                                             <li class="flex items-start">
                                                 <svg class="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                                 </svg>
-                                                <span class="text-gray-700 dark:text-gray-300">Tours y habitaciones ilimitados</span>
+                                                <span class="text-gray-700 dark:text-gray-300">Páginas ilimitadas</span>
                                             </li>
                                             <li class="flex items-start">
                                                 <svg class="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                                 </svg>
-                                                <span class="text-gray-700 dark:text-gray-300">Productos ilimitados</span>
+                                                <span class="text-gray-700 dark:text-gray-300">50 GB hospedaje web</span>
                                             </li>
                                             <li class="flex items-start">
                                                 <svg class="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                                 </svg>
-                                                <span class="text-gray-700 dark:text-gray-300">Reportes avanzados</span>
+                                                <span class="text-gray-700 dark:text-gray-300">Correos ilimitados</span>
                                             </li>
                                             <li class="flex items-start">
                                                 <svg class="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                                 </svg>
-                                                <span class="text-gray-700 dark:text-gray-300">Integración con plataformas externas</span>
+                                                <span class="text-gray-700 dark:text-gray-300">Diseño gráfico incluido</span>
                                             </li>
                                             <li class="flex items-start">
                                                 <svg class="h-5 w-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
