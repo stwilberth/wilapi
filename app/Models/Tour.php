@@ -45,6 +45,12 @@ class Tour extends Model
         'cover_image',
     ];
 
+    protected $casts = [
+        'things_to_bring' => 'array',
+        'has_daily_departures' => 'boolean',
+        'only_book_by_schedules' => 'boolean',
+    ];
+
     public $incrementing = true;
 
     protected static function boot()

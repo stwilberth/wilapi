@@ -85,7 +85,36 @@ class TourResource extends Resource
                 Textarea::make('short_description')->label('Descripción corta')->nullable(),
                 Textarea::make('overview')->label('Descripción general')->nullable(),
                 Select::make('difficulty')->options(['easy' => 'Easy','medium' => 'Medium','hard' => 'Hard',])->nullable(),
-                Textarea::make('things_to_bring')->label('Cosas para traer')->nullable()->columnSpan('full'),
+                Repeater::make('things_to_bring')
+                    ->label('Cosas para traer (Categorizado)')
+                    ->schema([
+                        Select::make('category')
+                            ->label('Categoría')
+                            ->options([
+                                'Calzado' => 'Calzado',
+                                'Ropa' => 'Ropa',
+                                'Equipo' => 'Equipo',
+                                'Salud' => 'Salud e Higiene',
+                                'Documentos' => 'Documentos',
+                                'Alimentación' => 'Alimentación e Hidratación',
+                                'Protección' => 'Protección (Solar/Insectos)',
+                                'Otros' => 'Otros',
+                            ])
+                            ->required()
+                            ->searchable()
+                            ->preload(),
+                        TextInput::make('item')
+                            ->label('Recomendación')
+                            ->placeholder('Ej: Zapatos cómodos')
+                            ->required()
+                            ->columnSpan(2),
+                    ])
+                    ->columns(3)
+                    ->collapsible()
+                    ->itemLabel(fn (array $state): ?string => ($state['category'] ?? '') . ': ' . ($state['item'] ?? ''))
+                    ->defaultItems(0)
+                    ->reorderableWithButtons()
+                    ->columnSpanFull(),
                 Textarea::make('itinerary')->label('Itinerario')->nullable()->columnSpan('full'),
                 Textarea::make('before_booking')->label('Antes de reservar')->nullable()->columnSpan('full'),
                 ...static::getCompanyField(),
